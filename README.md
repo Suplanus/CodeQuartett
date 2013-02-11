@@ -9,7 +9,8 @@ Johann Weiher</em>
     <li>http://www.startnext.de/codequartett/</li>
     <li>http://github.com/Suplanus/CodeQuartett/</li>
 </ul>
-
+<br>
+<br>
 <p>
 <strong>Rules:</strong>
 <p>
