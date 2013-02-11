@@ -11,7 +11,8 @@ Johann Weiher</em>
 </ul>
 
 <p>
-Rules:
+<strong>Rules:</strong>
+<p>
 Each card in the pack shows a list of numerical data about the item.
 All the cards are dealt among the players.
 There must be at least two players, and at least one card for each player.
@@ -22,4 +23,4 @@ That player then looks at their new topmost card, and chooses the category for t
 In the event of a draw, the cards are placed in the center and a new category is chosen from the next card by the same person as in the previous round.
 The winner of that round obtains all of the cards in the center as well as the top card from each player.
 Players are eliminated when they lose their last card, and the winner is the player who obtains the whole pack.
-</p>
+</p></p>
