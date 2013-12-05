@@ -1,1 +1,1 @@
-io:format("~s~n", ["hello, world"])
+io:format("~s~n", ["hello world"])

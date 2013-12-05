@@ -1,4 +1,4 @@
 {$APPTYPE CONSOLE}
 begin
-  Writeln('Hello, world!');
+  Writeln('Hello world');
 end.
