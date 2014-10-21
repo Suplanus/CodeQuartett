@@ -6,7 +6,7 @@ Johann Weiher</em>
 <p>★★★★★★★★★★★★★★★★★★★★★★★★</p>
 <strong>Links:</strong>
 <ul>
-    <li>http://www.suplanus.de/codequartett-page/</li>
+    <li>http://codequartett.de/</li>
     <li>http://github.com/Suplanus/CodeQuartett/</li>
 </ul>
 <p>★★★★★★★★★★★★★★★★★★★★★★★★</p>
