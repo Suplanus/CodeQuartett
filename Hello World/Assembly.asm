@@ -11,7 +11,7 @@ main  proc
       retn
 
 
-hello_message db 'Hello world!$'
+hello_message db 'Hello world$'
  
 main  endp
 end   main
