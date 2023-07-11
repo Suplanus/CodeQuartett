@@ -28,8 +28,10 @@ Players are eliminated when they lose their last card, and the winner is the pla
 
 **2023-09-01**
 
-- New playing card design
-- Objective-C replaced with Swift
+- New design
+- Groups removed
+- Syntax highlighting
+- Language Objective-C replaced with Swift
 
 
 
