@@ -22,6 +22,45 @@ Players are eliminated when they lose their last card, and the winner is the pla
 
 
 
+## Properties
+
+| Name             | Appeared | Distribution | Dialects | Nerdfactor | HelloWorld.Length |
+| :--------------- | :------: | :----------: | :------: | :--------: | :---------------: |
+| Ada              |   1980   |      2       |   \>5    |  00010111  |        101        |
+| Assembly         |   1949   |      6       |   \>10   |  00101010  |        198        |
+| Basic            |   1964   |      1       |   \>10   |  00010111  |        19         |
+| Brainfuck        |   1993   |      1       |   \>10   |  00101010  |        218        |
+| C                |   1972   |      8       |   \>5    |  00000101  |        82         |
+| C#               |   2001   |      7       |   \>1    |  00000101  |        112        |
+| C++              |   1983   |      8       |   \>1    |  00000101  |        97         |
+| COBOL            |   1959   |      2       |   \>10   |  00000111  |        112        |
+| Cow              |   2003   |      1       |    0     |  00101010  |       1539        |
+| Delphi           |   1995   |      6       |   \>5    |  00000111  |        58         |
+| Erlang           |   1986   |      1       |    0     |  00010111  |        34         |
+| Fortran          |   1957   |      5       |   \>1    |  00000111  |        59         |
+| Go               |   2009   |      5       |    0     |  00101010  |        81         |
+| Groovy           |   2003   |      1       |    0     |  00101010  |        21         |
+| Haskell          |   1990   |      2       |   \>1    |  00101010  |        26         |
+| Java             |   1995   |      8       |   \>1    |  00000101  |        122        |
+| JavaScript       |   1995   |      7       |    0     |  00000101  |        30         |
+| Lisp             |   1958   |      2       |   \>10   |  00000111  |        21         |
+| Logo             |   1967   |      2       |   \>1    |  00010111  |        19         |
+| LOLCODE          |   2007   |      1       |    0     |  00101010  |        51         |
+| Lua              |   1993   |      2       |   \>1    |  00010111  |        20         |
+| MATLAB           |   1970   |      6       |    0     |  00010111  |        19         |
+| Pascal           |   1970   |      5       |   \>5    |  00000111  |        62         |
+| Perl             |   1987   |      2       |   \>1    |  00000111  |        20         |
+| PHP              |   1995   |      7       |    0     |  00000101  |        28         |
+| Prolog           |   1972   |      2       |   \>10   |  00000111  |        33         |
+| Python           |   1991   |      8       |   \>1    |  00000111  |        20         |
+| R                |   1993   |      4       |    0     |  00010111  |        18         |
+| Ruby             |   1995   |      4       |   \>1    |  00000111  |        18         |
+| Swift            |   2014   |      4       |    0     |  00000101  |        20         |
+| Visual Basic.NET |   2002   |      7       |    0     |  00000101  |        98         |
+| Whitespace       |   2002   |      1       |    0     |  00101010  |       1492        |
+
+
+
 ## Changelog
 
 ### 3.0
@@ -31,7 +70,8 @@ Players are eliminated when they lose their last card, and the winner is the pla
 - New design
 - Groups removed
 - Syntax highlighting ([Hacker Dark PRO Theme](https://github.com/armando10rafael10/theme-hacker-pro))
-- Language Objective-C replaced with Swift 
+- Language Objective-C replaced with Swift
+- Distribution changed (June 2023)
 
 
 
