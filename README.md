@@ -30,8 +30,8 @@ Players are eliminated when they lose their last card, and the winner is the pla
 
 - New design
 - Groups removed
-- Syntax highlighting
-- Language Objective-C replaced with Swift
+- Syntax highlighting ([Hacker Dark PRO Theme](https://github.com/armando10rafael10/theme-hacker-pro))
+- Language Objective-C replaced with Swift 
 
 
 
