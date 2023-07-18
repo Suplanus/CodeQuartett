@@ -68,10 +68,16 @@ Players are eliminated when they lose their last card, and the winner is the pla
 **2023-09-01**
 
 - New design
-- Groups removed
-- Syntax highlighting ([Hacker Dark PRO Theme](https://github.com/armando10rafael10/theme-hacker-pro))
-- Language Objective-C replaced with Swift
-- Distribution changed (June 2023)
+  - Groups removed
+  - Syntax highlighting ([Hacker Dark PRO Theme](https://github.com/armando10rafael10/theme-hacker-pro))
+
+- Content
+  - Language Objective-C replaced with Swift
+  - Distribution changed (June 2023)
+
+- Eco-friendly
+  - Production company
+  - Packaging in folding box
 
 
 
