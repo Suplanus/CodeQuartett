@@ -78,6 +78,7 @@ Players are eliminated when they lose their last card, and the winner is the pla
 - Eco-friendly
   - Production company
   - Packaging in folding box
+  - Plastic removed
 
 
 
