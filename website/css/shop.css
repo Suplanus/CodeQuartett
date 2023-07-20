@@ -1,0 +1,6301 @@
+/******************************************************************************/
+/******************************* Common classes *******************************/
+/******************************************************************************/
+
+/* Container for all Ecwid stuff */
+.ecwid {
+    margin: 0;
+    font: normal 14px tahoma, geneva, verdana, sans-serif;
+    color: #fff;
+}
+.dragdrop-movable-panel {
+	z-index: 1010;
+}
+/* clear styles */
+.ecwid div, .ecwid span, .ecwid pre, .ecwid a, .ecwid img, .ecwid form, .ecwid label,
+.ecwid table, .ecwid tbody, .ecwid tfoot, .ecwid thead, .ecwid tr, .ecwid th, .ecwid td {
+    position: static;
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+	z-index: auto;
+    background-color: transparent;
+    float: none;
+}
+.ecwid label {
+    display: inline;
+}
+.ecwid td {
+    vertical-align: middle;
+}
+.ecwid td[align="left"] {
+	text-align: left;
+}
+.ecwid td[align="center"] {
+	text-align: center;
+}
+.ecwid td[align="right"] {
+	text-align: right;
+}
+.ecwid table {
+    border-collapse: collapse;
+    width: auto;
+    table-layout: auto;
+}
+.ecwid input, .ecwid button, .ecwid textarea, .ecwid select {
+    width: auto \9; /*hack for ie6-9*/
+    height: auto \9; /*hack for ie6-9*/
+    margin: 0;
+    padding: 0;
+	outline: none;
+}
+.ecwid button::-moz-focus-inner {
+    border: none;
+}
+.ecwid ul {
+    list-style: disc;
+    list-style-position: outside;
+    list-style-image: none;
+}
+.ecwid input, .ecwid textarea {
+	border-radius: 0;
+}
+.ecwid button, .ecwid input {
+	text-transform: none;
+}
+.ecwid h1, .ecwid h2, .ecwid h3, .ecwid h4, .ecwid h5, .ecwid h6 {
+	clear: none;
+}
+body.ecwid-rich-mobile {
+	-webkit-text-size-adjust: 100%;
+
+	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+}
+body.ecwid-no-scroll {
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+body.ecwid-no-scroll-touch {
+	/* Tricky scroll disabling http://stackoverflow.com/a/8701977/2049860 on touch devices */
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	position: fixed;
+}
+body.ecwid-paypal-lightbox-checkout {
+	display: none;
+}
+* html body {
+	margin: 0; /* ie6 hack */
+    /* fixes floating minicart in ie6 */
+    background: url(blank.gif) fixed;
+}
+
+.ecwid-EcwidHintingLink {
+    color: #009dde;
+    font: normal 13px tahoma, geneva, verdana, sans-serif;
+    outline: none;
+    cursor: default;
+    text-decoration: none;
+}
+.ecwid-EcwidHintingLink-Popup {
+	font: normal 13px tahoma, geneva, verdana, sans-serif;
+	background-color: #ffffff;
+	border: 1px solid #cccccc;
+	padding: 10px;
+	color: #464646;
+	border-radius: 10px;
+}
+div.ecwid-EcwidHintingLink-shadow {
+    background-color: #ccc;
+    opacity: 0.10;
+    filter: alpha(opacity=10);
+}
+
+/* This style is used internally by Ecwid, please don't modify it */
+div.ecwid-Frontend-cssLoadObserver {
+    height: 1px;
+}
+
+/******************************************************************************/
+/************* Categories (horizontal and vertical) Widget classes ************/
+/******************************************************************************/
+
+div.ecwid-categories table {
+    border-collapse: separate;
+}
+
+/* First level category links */
+span.ecwid-categories-category {
+    font: normal 25px "trebuchet MS", helvetica, verdana, sans-serif;
+    color: #ccc;
+    white-space: nowrap;
+}
+
+/* Second level category links */
+div.ecwid-categoriesMenuBar span.ecwid-categories-category {
+    font-size: 21px;
+}
+
+/* 3rd, 4th, etc level category links */
+div.ecwid-categories-MenuBarPopup div.ecwid-categoriesMenuBar span.ecwid-categories-category {
+    font: normal 16px tahoma, geneva, verdana, sans-serif;
+}
+
+/* Current category links */
+div.ecwid-categoriesMenuBar td.gwt-MenuItem-selected span.ecwid-categories-category,
+div.ecwid-categoriesMenuBar td.gwt-MenuItem-current span.ecwid-categories-category,
+td.ecwid-categories-vertical-table-cell-selected span.ecwid-categories-category,
+table.ecwid-categoriesTabBar table.gwt-TabBarItem-selected span.ecwid-categories-category {
+    color: #009dde;
+}
+
+/* Popup container of the 3rd, 4th, etc level categories menus */
+div.ecwid-categories-MenuBarPopup {
+    background-color: #ffffff;
+    border: solid 1px #cbced1;
+    padding: 2px 12px 10px 7px;
+    z-index: 45;
+}
+
+/* 3rd, 4th, etc level category loading item */
+div.ecwid-categories-MenuBarPopup div.ecwid-categoriesMenuBar span.ecwid-categories-loading {
+	background: url(icons/ajax-loader.gif) no-repeat 0 5px;
+	padding-left: 30px;
+    font: normal 16px tahoma, geneva, verdana, sans-serif;
+}
+
+/* Bottom-bordered elements */
+table.ecwid-categoriesTabBar div.gwt-TabBarFirst,
+table.ecwid-categoriesTabBar div.gwt-TabBarRest,
+table.ecwid-categoriesTabBar table.gwt-TabBarItem,
+div.ecwid-categories-horizontal-menuBarContainer,
+td.ecwid-categories-vertical-table-cell,
+div.ecwid-categories-MenuBarPopup div.menuSeparatorInner
+{
+    border: none;
+    border-bottom: 1px solid #cbced1;
+}
+
+/* Categories submenu icon */
+div.ecwid-categoriesMenuBar-vertical td.subMenuIcon {
+    padding: 5px;
+    background: transparent url(icons/arrow-subcategories-menu.gif) no-repeat center center;
+}
+
+/* First level vertical categories */
+td.ecwid-categories-vertical-table-cell table.ecwid-categories-vertical-table-cell-categoryLink {
+    margin: 10px 20px;
+}
+td.ecwid-categories-vertical-table-lastVisibleCell {
+    border-bottom: none;
+}
+
+/* First level horizontal categories */
+div.ecwid-categories-horizontal {
+	margin-top: 4px;
+}
+
+/* Second level vertical categories */
+div.ecwid-categories-vertical div.ecwid-categoriesMenuBar {
+    margin: 2px 12px 4px 0;
+}
+div.ecwid-categories-vertical td.gwt-MenuItem {
+    padding: 0 40px 0 30px;
+    width: 100%;
+}
+
+/* First level horizontal categories */
+table.ecwid-categoriesTabPanel,
+table.ecwid-categoriesTabBar {
+    width: 100%;
+}
+table.ecwid-categoriesTabBar div.tabMiddleCenterInner {
+    padding: 0 6px 6px 6px;
+}
+table.ecwid-categoriesTabBar div.gwt-TabBarFirst {
+    width: 0;
+    height: 50px !important;
+}
+table.ecwid-categoriesTabBar div.gwt-TabBarRest {
+    height: 1px !important;
+}
+table.ecwid-categoriesTabBar table.gwt-TabBarItem-selected,
+table.ecwid-categoriesTabBar table.gwt-TabBarItem-selected:focus {
+    padding-bottom: 1px;
+    border-bottom: none;
+}
+table.ecwid-categoriesTabBar table.gwt-TabBarItem-selected td.tabTopLeft {
+    background: url(icons/tab.gif) no-repeat;
+    height: 11px;
+}
+table.ecwid-categoriesTabBar tr.tabTop,
+table.ecwid-categoriesTabBar td.tabTopCenter {
+    height: 11px;
+}
+table.ecwid-categoriesTabBar table.gwt-TabBarItem-selected td.tabTopCenter {
+    background: url(icons/tab.gif) repeat-x -11px 0;
+    height: 11px;
+}
+table.ecwid-categoriesTabBar table.gwt-TabBarItem-selected td.tabTopRight {
+    background: url(icons/tab.gif) no-repeat -589px 0;
+    height: 11px;
+}
+table.ecwid-categoriesTabBar table.gwt-TabBarItem-selected td.tabMiddleLeft {
+    background: url(icons/tab.gif) repeat-y 0 -11px;
+}
+table.ecwid-categoriesTabBar table.gwt-TabBarItem-selected td.tabMiddleRight {
+    background: url(icons/tab.gif) repeat-y -589px -11px;
+}
+table.ecwid-categoriesTabBar table.gwt-TabBarItem div.tabMiddleRightInner,
+table.ecwid-categoriesTabBar table.gwt-TabBarItem div.tabMiddleLeftInner {
+    width: 11px;
+}
+
+/* Second level horizontal categories */
+div.ecwid-categories-horizontal-menuBarContainer {
+    padding: 6px 15px;
+}
+div.ecwid-categories-horizontal td.gwt-MenuItem {
+    padding: 1px 5px;
+}
+div.ecwid-categories-horizontal td.gwt-MenuItemSeparator div.menuSeparatorInner {
+    width: 25px;
+}
+
+/* 3rd, 4th, etc level categories */
+div.ecwid-categories-MenuBarPopup td.gwt-MenuItem {
+    padding: 3px 40px 3px 10px;
+    width: auto;
+}
+
+div.ecwid-categories-minicart-attached {
+	margin-top: 10px;
+	padding-top: 12px;
+}
+
+
+/******************************************************************************/
+/***************************** Bag Widget classes *****************************/
+/******************************************************************************/
+
+/* Main container of the Bag widget */
+div.ecwid-minicart {
+    background: transparent url(icons/minicart.png) no-repeat;
+    filter: expression(fixPNG_crop(this));
+    background-position: top left;
+    width: 159px;
+    height: 156px;
+    text-align: center;
+    display: inline-block;
+    z-index: 50;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+	overflow: hidden;
+}
+
+/* Widget caption */
+div.ecwid-minicart-caption {
+    position: relative;
+    left: 0;
+    top: 84px;
+    width: 159px;
+    text-align: center;
+    font: normal 16px tahoma, geneva, verdana, sans-serif;
+    color: #4b5660;
+}
+
+/* Drag and drop tip label */
+div.ecwid-minicart-label {
+    position: relative;
+    left: 0;
+    top: 86px;
+    width: 159px;
+    text-align: center;
+    line-height: 10px;
+}
+span.ecwid-minicart-label-text {
+    font: 11px/13px helvetica, arial, verdana, sans-serif;
+    color: #b4b8bc;
+}
+
+/* A link to open bag */
+div.ecwid-minicart-link {
+    position: relative;
+    left: 0;
+    top: 82px;
+    width: 159px;
+    text-align: center;
+}
+div.ecwid-minicart-link * {
+    text-decoration: underline;
+    cursor: pointer;
+    font: 11px/20pt helvetica, arial, verdana, sans-serif;
+    color: #ccc;
+}
+
+/* Items counter */
+div.ecwid-minicart-counter {
+    position: absolute;
+    left: 61px;
+    top: 36px;
+    width: 28px;
+    font: normal 20px tahoma, geneva, verdana, sans-serif;
+    color: #ffffff;
+    text-align: center;
+    cursor: pointer;
+    zoom: 1;
+}
+
+/* Click area over the bag icon */
+div.ecwid-minicart-clickArea {
+    position: absolute;
+    left: 47px;
+    width: 65px;
+    top: 15px;
+    height: 70px;
+    cursor: pointer;
+    zoom: 1;
+}
+
+/* Styles indicating that a product is being moved over the widget */
+div.ecwid-minicart-dropTargetEngage {
+    background-position: bottom right;
+}
+div.ecwid-minicart-dropTargetEngage span.ecwid-minicart-label-text {
+    background-color: #f1ffa6;
+}
+
+/* Bag in a facebook app */
+div.ecwid-minicart-mini-rolloverContainer {
+    display: none;
+}
+div.ecwid-minicart-mini-rollover {
+	z-index: 20;
+	border: solid 1px #dae1e7;
+	border-radius: 4px;
+	white-space: nowrap;
+	padding: 4px 9px;
+	left: -10px;
+	top: -5px;
+	background: #ffffff;
+}
+
+div.ecwid-minicart-mini {
+    width: 220px;
+}
+.ecwid-minicart-mini-count {
+	color: #ccc;
+	font: 13px tahoma,geneva,verdana,sans-serif;
+} 
+.ecwid-minicart-mini-overlay-count, .ecwid-minicart-mini-items, div.ecwid-minicart-mini-total {
+	font: 11px tahoma,geneva,verdana,sans-serif;
+	color: #858585;
+}
+span.ecwid-minicart-mini-overlay-count {
+	margin-left: 7px;
+	margin-right: 7px;
+}
+span.ecwid-minicart-mini-total-label {
+	margin-right: 7px;
+}
+div.ecwid-minicart-mini-total {
+	text-align: right;
+	margin-top: 3px;
+}
+
+/******************************************************************************/
+/************************** Search Box Widget classes *************************/
+/******************************************************************************/
+
+/* Search box input field */
+input.ecwid-SearchPanel-field {
+    margin-right: 10px;
+}
+
+
+/******************************************************************************/
+/*********************** Product Browser Widget classes ***********************/
+/******************************************************************************/
+
+/*-------------------------------------*/
+/*---- Common or singular elements ----*/
+/*-------------------------------------*/
+
+/* The topmost container of the Product Browser widget */
+div.ecwid-productBrowser {
+	padding: 0 10px 20px;
+}
+
+.ecwid-productBrowser-innerTable {
+	width: 100%;
+}
+
+div.ecwid-BillMeLater {
+	padding: 19px 0 0 2px;
+}
+
+/* The topmost container of the Product Browser widget in Facebook */
+div.ecwid_facebook_app div.ecwid-productBrowser {
+    min-height: 600px;
+}
+
+div.ecwid-ProductBrowserPopup {
+	z-index: 900;
+}
+div.ecwid-ProductBrowserPopup-content {
+	width: 850px;
+	height: 550px;
+}
+
+/* Ecwid links */
+.ecwid a, .ecwid a:active, .ecwid a:visited {
+    font: normal 13px tahoma, geneva, verdana, sans-serif;
+    color: #ccc;
+    background-color: transparent;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Ecwid buttons */
+button.gwt-Button, #wrapper button.gwt-Button {
+    background: transparent url(icons/back_normal.gif) repeat-x;
+    border: solid 1px #d3d4d6;
+    outline: none;
+    vertical-align: baseline;
+    text-decoration: none;
+    cursor: pointer;
+    color: #000;
+    border-radius: 2px;
+    height: 24px;
+    font: normal 12px helvetica, arial, verdana, sans-serif;
+    white-space: nowrap;
+    padding: 0 5px;
+}
+button.gwt-Button[type] { /* for everything but ie */
+	min-width: 75px;
+	min-width: 0 \0/IE9;	/* ie9 */
+	padding: 0 15px \0/IE9; /* ie9 */
+}
+button.gwt-Button:active, #wrapper button.gwt-Button:active {
+    background: transparent url(icons/back_on.gif) repeat-x;
+    border: solid 1px #a0a4aa;
+    font: normal 12px helvetica, arial, verdana, sans-serif;
+    color: #ffffff;
+    outline: none;
+}
+button.gwt-Button[disabled], button.gwt-Button[disabled]:active,
+#wrapper button.gwt-Button[disabled], #wrapper button.gwt-Button[disabled]:active {
+    background: transparent url(icons/back_normal.gif) repeat-x;
+    border: solid 1px #d3d4d6;
+    outline: none;
+    color: #cccccc;
+}
+
+button.ecwid-AccentedButton, .ecwid-supports-touch button.ecwid-AccentedButton,
+.ecwid-supports-touch button.ecwid-AccentedButton:hover {
+
+	background-color: rgb(58, 135, 139);
+
+	background-image:
+		-moz-linear-gradient(left, rgba(59, 138, 139, 1) 0%, rgba(59, 138, 139, 1) 6%, rgba(59, 138, 139, 0) 13%),
+		-moz-linear-gradient(right, rgba(59, 138, 139, 1) 0%, rgba(59, 138, 139, 1) 6%, rgba(59, 138, 139, 0) 13%),
+		-moz-linear-gradient(bottom, rgba(39, 185, 187, 1) 0%,  rgba(58, 135, 139, 1) 17%,rgba(58, 135, 139,0) 18%, rgba(58, 135, 139,0) 73%, rgba(77, 152, 153, 1) 73%, rgba(63, 146, 146, 1) 100%);
+	background-image:
+		-webkit-linear-gradient(left, rgba(59, 138, 139, 1) 0%, rgba(59, 138, 139, 1) 6%, rgba(59, 138, 139, 0) 13%),
+		-webkit-linear-gradient(right, rgba(59, 138, 139, 1) 0%, rgba(59, 138, 139, 1) 6%, rgba(59, 138, 139, 0) 13%),
+		-webkit-linear-gradient(bottom, rgba(39, 185, 187, 1) 0%,  rgba(58, 135, 139, 1) 17%,rgba(58, 135, 139,0) 18%, rgba(58, 135, 139,0) 73%, rgba(77, 152, 153, 1) 73%, rgba(63, 146, 146, 1) 100%);
+	background-image:
+		-o-linear-gradient(left, rgba(59, 138, 139, 1) 0%, rgba(59, 138, 139, 1) 6%, rgba(59, 138, 139, 0) 13%),
+		-o-linear-gradient(right, rgba(59, 138, 139, 1) 0%, rgba(59, 138, 139, 1) 6%, rgba(59, 138, 139, 0) 13%),
+		-o-linear-gradient(bottom, rgba(39, 185, 187, 1) 0%,  rgba(58, 135, 139, 1) 17%,rgba(58, 135, 139,0) 18%, rgba(58, 135, 139,0) 73%, rgba(77, 152, 153, 1) 73%, rgba(63, 146, 146, 1) 100%);
+	background-image:
+		-ms-linear-gradient(left, rgba(59, 138, 139, 1) 0%, rgba(59, 138, 139, 1) 6%, rgba(59, 138, 139, 0) 13%),
+		-ms-linear-gradient(right, rgba(59, 138, 139, 1) 0%, rgba(59, 138, 139, 1) 6%, rgba(59, 138, 139, 0) 13%),
+		-ms-linear-gradient(bottom, rgba(39, 185, 187, 1) 0%,  rgba(58, 135, 139, 1) 17%,rgba(58, 135, 139,0) 18%, rgba(58, 135, 139,0) 73%, rgba(77, 152, 153, 1) 73%, rgba(63, 146, 146, 1) 100%) ;
+	background-image:
+		linear-gradient(left, rgba(59, 138, 139, 1) 0%, rgba(59, 138, 139, 1) 6%, rgba(59, 138, 139, 0) 13%),
+		linear-gradient(right, rgba(59, 138, 139, 1) 0%, rgba(59, 138, 139, 1) 6%, rgba(59, 138, 139, 0) 13%),
+		linear-gradient(bottom, rgba(39, 185, 187, 1) 0%,  rgba(58, 135, 139, 1) 17%,rgba(58, 135, 139,0) 18%, rgba(58, 135, 139,0) 73%, rgba(77, 152, 153, 1) 73%, rgba(63, 146, 146, 1) 100%) ;
+
+	-moz-box-shadow: 0px 0px 0px 1px rgba(32, 85, 96, .7), 0 1px 0 rgba(78, 179, 178, 1) inset;
+	-webkit-box-shadow: 0px 0px 0px 1px rgba(32, 85, 96, .7), 0 1px 0 rgba(78, 179, 178, 1) inset;
+	box-shadow: 0px 0px 0px 1px rgba(32, 85, 96, .7), 0 1px 0 rgba(78, 179, 178, 1) inset;
+
+
+	position: relative;
+	cursor: pointer;
+	margin:0;
+	overflow: visible;
+	white-space: nowrap;
+	text-decoration: none;
+
+	border-radius: 1em;
+	color: #ffffff;
+
+	font: normal 18px Helvetica, Arial, Verdana, sans-serif;
+	line-height: 1em;
+	height: 1.6em;
+	padding: .17em 1.2em .225em;
+	text-shadow: rgba(0, 0, 0, .3) 1px 1px 0;
+	border: 0 none;
+	vertical-align: middle;
+	-webkit-appearance: none;
+}
+
+button.ecwid-AccentedButton:visited,
+button.ecwid-AccentedButton:focus,
+button.ecwid-AccentedButton:active {
+	border: 0 none;
+	outline: none;
+}
+
+button.ecwid-AccentedButton:active {
+	top: 1px;
+}
+
+button.ecwid-AccentedButton span {
+	color: #ffffff;
+	padding: 0;
+	margin: 0;
+}
+
+button.ecwid-AccentedButton::-moz-focus-inner {
+	border: 1px dotted transparent;
+}
+
+button.ecwid-AccentedButton {
+	background-color: #3a878b;
+
+	background-image:
+		-moz-linear-gradient(left, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-moz-linear-gradient(right, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-moz-linear-gradient(bottom, rgb(39, 185, 187) 0%,  rgb(58, 135, 139) 17%,rgba(58, 135, 139,0) 18%, rgba(58, 135, 139,0) 73%, rgb(77, 152, 153) 73%, rgb(63, 146, 146) 100%);
+	background-image:
+		-webkit-linear-gradient(left, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-webkit-linear-gradient(right, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-webkit-linear-gradient(bottom, rgb(39, 185, 187) 0%,  rgb(58, 135, 139) 17%,rgba(58, 135, 139,0) 18%, rgba(58, 135, 139,0) 73%, rgb(77, 152, 153) 73%, rgb(63, 146, 146) 100%);
+	background-image:
+		-o-linear-gradient(left, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-o-linear-gradient(right, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-o-linear-gradient(bottom, rgb(39, 185, 187) 0%,  rgb(58, 135, 139) 17%,rgba(58, 135, 139,0) 18%, rgba(58, 135, 139,0) 73%, rgb(77, 152, 153) 73%, rgb(63, 146, 146) 100%);
+	background-image:
+		-ms-linear-gradient(left, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-ms-linear-gradient(right, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-ms-linear-gradient(bottom, rgb(39, 185, 187) 0%,  rgb(58, 135, 139) 17%,rgba(58, 135, 139,0) 18%, rgba(58, 135, 139,0) 73%, rgb(77, 152, 153) 73%, rgb(63, 146, 146) 100%) ;
+	background-image:
+		linear-gradient(left, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		linear-gradient(right, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		linear-gradient(bottom, rgb(39, 185, 187) 0%,  rgb(58, 135, 139) 17%,rgba(58, 135, 139,0) 18%, rgba(58, 135, 139,0) 73%, rgb(77, 152, 153) 73%, rgb(63, 146, 146) 100%) ;
+
+	box-shadow: 0 0 0 1px rgba(32, 85, 96, .7), 0 1px 0 rgb(78, 179, 178) inset;
+}
+
+button.ecwid-AccentedButton:hover {
+	background-image:
+		-moz-radial-gradient(50% 100%, circle, rgb(80,180,181), rgba(80,180,181,.4), rgba(80,180,181,0) ),
+		-moz-linear-gradient(left, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-moz-linear-gradient(right, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-moz-linear-gradient(bottom, rgb(39, 185, 187) 0%,  rgb(58, 135, 139) 17%,rgba(58, 135, 139,0) 18%, rgba(58, 135, 139,0) 73%, rgb(77, 152, 153) 73%, rgb(63, 146, 146) 100%)
+;
+	background-image:
+		-webkit-radial-gradient(50% 100%, circle, rgb(80,180,181), rgba(80,180,181,.4), rgba(80,180,181,0) ),
+		-webkit-linear-gradient(left, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-webkit-linear-gradient(right, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-webkit-linear-gradient(bottom, rgb(39, 185, 187) 0%,  rgb(58, 135, 139) 17%,rgba(58, 135, 139,0) 18%, rgba(58, 135, 139,0) 73%, rgb(77, 152, 153) 73%, rgb(63, 146, 146) 100%)
+;
+	background-image:
+		-o-radial-gradient(50% 100%, circle, rgb(80,180,181), rgba(80,180,181,.4), rgba(80,180,181,0) ),
+		-o-linear-gradient(left, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-o-linear-gradient(right, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-o-linear-gradient(bottom, rgb(39, 185, 187) 0%,  rgb(58, 135, 139) 17%,rgba(58, 135, 139,0) 18%, rgba(58, 135, 139,0) 73%, rgb(77, 152, 153) 73%, rgb(63, 146, 146) 100%)
+;
+	background-image:
+		-ms-radial-gradient(50% 100%, circle, rgb(80,180,181), rgba(80,180,181,.4), rgba(80,180,181,0) ),
+		-ms-linear-gradient(left, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-ms-linear-gradient(right, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-ms-linear-gradient(bottom, rgb(39, 185, 187) 0%,  rgb(58, 135, 139) 17%,rgba(58, 135, 139,0) 18%, rgba(58, 135, 139,0) 73%, rgb(77, 152, 153) 73%, rgb(63, 146, 146) 100%)
+;
+	background-image:
+		radial-gradient(50% 100%, circle, rgb(80,180,181), rgba(80,180,181,.4), rgba(80,180,181,0) ),
+		linear-gradient(left, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		linear-gradient(right, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		linear-gradient(bottom, rgb(39, 185, 187) 0%,  rgb(58, 135, 139) 17%,rgba(58, 135, 139,0) 18%, rgba(58, 135, 139,0) 73%, rgb(77, 152, 153) 73%, rgb(63, 146, 146) 100%)
+;
+
+	box-shadow: 0 0 0 1px rgba(32, 85, 96, .7), 0 1px 0 rgb(94, 194, 193) inset;
+}
+
+button.ecwid-AccentedButton-ie9minus {
+	zoom: 1;
+	height: 40px;
+	line-height: 1.3em;
+	padding: .17em 1.5em .23em;
+}
+
+button.ecwid-AccentedButton-ie9minus:active span {
+	position: relative;
+	top: -1px;
+	left: -1px;
+	zoom: 1;
+}
+
+button.ecwid-AccentedButton-ie9minus span {
+	zoom: 1;
+	display:inline-block;
+	vertical-align: top;
+}
+
+button.ecwid-AccentedButton-ie9minus {
+	background-color: #3a878b;
+	/* for IE 9 SVG as background image */
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc2MjIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMTAwJSIgeTE9IjEwMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgo8c3RvcCBzdG9wLWNvbG9yPSIjMjdCOUJCIiBvZmZzZXQ9IjAiLz48c3RvcCBzdG9wLWNvbG9yPSIjM0E4NzhCIiBvZmZzZXQ9IjAuMTciLz48c3RvcCBzdG9wLWNvbG9yPSIjM0E4NzhCIiBvZmZzZXQ9IjAuMTgiLz48c3RvcCBzdG9wLWNvbG9yPSIjM0E4NzhCIiBvZmZzZXQ9IjAuNzMiLz48c3RvcCBzdG9wLWNvbG9yPSIjNEQ5ODk5IiBvZmZzZXQ9IjAuNzMiLz48c3RvcCBzdG9wLWNvbG9yPSIjM0Y5MjkyIiBvZmZzZXQ9IjEiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnNjIyKSIgLz4KPC9zdmc+);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2cb3b7', endColorstr='#ff349da1',GradientType=0);
+}
+
+button.ecwid-AccentedButton-ie9minus:hover {
+	/* for IE 9  */ 
+	background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc3NDgiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMTAwJSIgeTE9IjEwMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgo8c3RvcCBzdG9wLWNvbG9yPSIjMjdCOUJCIiBvZmZzZXQ9IjAiLz48c3RvcCBzdG9wLWNvbG9yPSIjNDU5RkEyIiBvZmZzZXQ9IjAuMTciLz48c3RvcCBzdG9wLWNvbG9yPSIjNDU5RkEyIiBvZmZzZXQ9IjAuMTgiLz48c3RvcCBzdG9wLWNvbG9yPSIjM0Y5NDk2IiBvZmZzZXQ9IjAuNzMiLz48c3RvcCBzdG9wLWNvbG9yPSIjNjRCN0I3IiBvZmZzZXQ9IjAuNzMiLz48c3RvcCBzdG9wLWNvbG9yPSIjM0Y5MjkyIiBvZmZzZXQ9IjEiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnNzQ4KSIgLz4KPC9zdmc+);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2db5ba', endColorstr='#ff3cb8bd',GradientType=0);
+}
+
+button.ecwid-AccentedButton-ie9plus {
+	filter: none !important;
+	height: 1.6em;
+}
+
+button.ecwid-AccentedButton-ie9plus:active span {
+	top: 0;
+	left: 0;
+}
+
+button.ecwid-AccentedButton-disabled {
+	opacity: 0.45;
+	filter: Alpha(opacity=45);
+}
+
+button.ecwid-AccentedButton-disabled:active {
+	top: 0;
+}
+button.ecwid-AccentedButton-disabled:hover {
+	background-color: #3a878b;
+	
+	background-image:
+		-moz-linear-gradient(left, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-moz-linear-gradient(right, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-moz-linear-gradient(bottom, rgb(39, 185, 187) 0%,  rgb(58, 135, 139) 17%,rgba(58, 135, 139,0) 18%, rgba(58, 135, 139,0) 73%, rgb(77, 152, 153) 73%, rgb(63, 146, 146) 100%);
+	background-image:
+		-webkit-linear-gradient(left, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-webkit-linear-gradient(right, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-webkit-linear-gradient(bottom, rgb(39, 185, 187) 0%,  rgb(58, 135, 139) 17%,rgba(58, 135, 139,0) 18%, rgba(58, 135, 139,0) 73%, rgb(77, 152, 153) 73%, rgb(63, 146, 146) 100%);
+	background-image:
+		-o-linear-gradient(left, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-o-linear-gradient(right, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-o-linear-gradient(bottom, rgb(39, 185, 187) 0%,  rgb(58, 135, 139) 17%,rgba(58, 135, 139,0) 18%, rgba(58, 135, 139,0) 73%, rgb(77, 152, 153) 73%, rgb(63, 146, 146) 100%);
+	background-image:
+		-ms-linear-gradient(left, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-ms-linear-gradient(right, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		-ms-linear-gradient(bottom, rgb(39, 185, 187) 0%,  rgb(58, 135, 139) 17%,rgba(58, 135, 139,0) 18%, rgba(58, 135, 139,0) 73%, rgb(77, 152, 153) 73%, rgb(63, 146, 146) 100%) ;
+	background-image:
+		linear-gradient(left, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		linear-gradient(right, rgb(59, 138, 139) 0%, rgb(59, 138, 139) 6%, rgba(59, 138, 139, 0) 13%),
+		linear-gradient(bottom, rgb(39, 185, 187) 0%,  rgb(58, 135, 139) 17%,rgba(58, 135, 139,0) 18%, rgba(58, 135, 139,0) 73%, rgb(77, 152, 153) 73%, rgb(63, 146, 146) 100%) ;
+
+	box-shadow: 0 0 0 1px rgba(32, 85, 96, .7), 0 1px 0 rgb(78, 179, 178) inset;
+}
+
+/* Input elements */
+input.gwt-TextBox, input.gwt-PasswordTextBox, select.gwt-ListBox, textarea.gwt-TextArea, input.gwt-DateBox {
+    padding: 3px 5px;
+    font: normal 15px tahoma, geneva, verdana, sans-serif;
+    color: #000000;
+    outline: none;
+    -moz-user-select: text;
+}
+select.gwt-ListBox {
+	min-height: 23px;
+}
+input.gwt-TextBox, input.gwt-PasswordTextBox, textarea.gwt-TextArea, input.gwt-DateBox {
+	border-color: #ccc;
+	border-style: inset;
+	border-width: 1px;
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+select.gwt-ListBox {
+	border-color: #ddd;
+}
+input.gwt-TextBox[disabled], input.gwt-PasswordTextBox[disabled], select.gwt-ListBox[disabled], textarea.gwt-TextArea[disabled], input.gwt-DateBox[disabled] {
+    background-color: #fff; 
+}
+
+span.gwt-RadioButton input,
+span.ecwid-productBrowser-details-optionCheckbox input {
+    margin-right: 7px;
+}
+
+input.ecwid-DateBox-formatError {
+    border: solid 2px #b80000;
+}
+
+div.gwt-SuggestBoxPopup {
+    background-color: #ffffff;
+    color: #ccc;
+	border: 1px solid #898989;
+    z-index: 10000001;
+}
+div.gwt-SuggestBoxPopup .item {
+	cursor: default;
+}
+div.gwt-SuggestBoxPopup .item-selected {
+    color: #ffffff;
+    background-color: #3574de;
+}
+div.gwt-SuggestBoxPopup table {
+	width: 100%;
+	border-collapse: separate;
+}
+div.gwt-SuggestBoxPopup-ie6ie7 table {
+	width: auto;
+}
+
+div.ecwid-TermsPopup a {
+	font: 14px tahoma, verdana, geneva, sans-serif;
+}
+div.ecwid-TermsPopup div.ecwid-popup-headLabel {
+	font-size: 24px;
+	margin: 6px 0 18px -4px;
+}
+div.ecwid-TermsPopup div.ecwid-popup-content {
+	padding: 5px 42px 22px 33px;
+}
+div.ecwid-TermsPopup-terms {
+	border: solid 1px #999999;
+	overflow: auto;
+	padding: 8px;
+	max-width: 600px;
+	height: 275px;
+	text-align: left;
+}
+
+/* Head labels */
+div.ecwid-productBrowser-head {
+    font: normal 20px helvetica, arial, verdana, sans-serif;
+    color: #fff;
+	word-wrap: break-word;
+}
+div.ecwid-productBrowser-head-panel div.ecwid-productBrowser-head {
+	margin-right: 10px;
+	float: left;
+}
+
+.mgwt-Carousel-Holder {
+	-webkit-backface-visibility: hidden;
+}
+.mgwt-Carousel-Holder div.ecwid-productBrowser-head  {
+	margin-left: 3px;
+	-webkit-backface-visibility: hidden;
+}
+
+/* Share purchase label */
+div.ecwid-productBrowser-head-share-purchase {
+    font: normal 20px helvetica, arial, verdana, sans-serif;
+    color: #0094d4;
+    text-align: left;
+    word-wrap: break-word;
+	float: left;
+}
+
+/* Ecwid forms */
+div.ecwid-clear {
+	clear: left;
+	display: block;
+	font-size: 1px;
+	height: 1px;
+}
+div.ecwid-note {
+	font: normal 11px tahoma, geneva, verdana, sans-serif;
+    color: #fff;
+    display: block;
+	text-align: right;
+	margin: 0 2px 3px 0;
+}
+div.ecwid-form {
+    background-color: #444;
+    padding: 20px;
+}
+label.ecwid-fieldLabel {
+    font: normal 14px tahoma, geneva, verdana, sans-serif;
+    color: #fff;
+    display: block;
+}
+div.ecwid-fieldWrapper label.ecwid-fieldLabel {
+    margin-top: 7px;
+    float: left;
+    white-space: nowrap;
+}
+div.ecwid-fieldWrapper table.ecwid-fieldEnvelope {
+	float: left;
+}
+.ecwid-fieldWrapper-clear {
+    clear: left;
+    display: block;
+}
+
+table.ecwid-productBrowser-auth-mini {
+	width: 100%;	
+}
+/* 'Sign In' or 'Hello, <name> Sign Out' labels at the top of the product browser */
+div.ecwid-productBrowser-auth {
+	position: relative;
+	text-align: right;
+	margin: 7px;
+}
+div.ecwid-ProductBrowser-auth-anonim, div.ecwid-ProductBrowser-auth-logged {	
+	top: 2px;
+	margin-right: 190px;
+}
+div.ecwid-ProductBrowser-auth-anonim-mini, div.ecwid-ProductBrowser-auth-logged-mini {
+	margin-right: 0;
+}
+span.ecwid-ProductBrowser-auth-space {
+    padding: 0 7px;
+}
+
+/* The backgrounded panel on the right of some pages */
+/* (product details or the shopping bag pages for example) */
+div.ecwid-productBrowser-backgroundedPanel {
+    background-color: #222;
+}
+
+div.ecwid-productBrowser-backgroundedPanel .ecwid-BillMeLater {
+	display: table;
+	margin: 9px auto -8px;
+}
+
+/* Bbreadcrumbs in catalog */
+div.ecwid-productBrowser-categoryPath {
+    font: 13px helvetica, arial, verdana, sans-serif;
+    color: #ccc;
+    padding-top: 5px;
+    text-align: left;
+}
+.mgwt-Carousel-Holder div.ecwid-productBrowser-categoryPath {
+	margin-left: 3px;
+	-webkit-backface-visibility: hidden;
+}
+div.ecwid-productBrowser-categoryPath a,
+div.ecwid-productBrowser-categoryPath a:active,
+div.ecwid-productBrowser-categoryPath a:visited {
+    color: #ccc;
+}
+
+/* Product name links */
+div.ecwid-productBrowser-productNameLink a,
+div.ecwid-productBrowser-productNameLink a:active,
+div.ecwid-productBrowser-productNameLink a:visited {
+    font: normal 18px helvetica, arial, verdana, sans-serif;
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Product sku */
+div.ecwid-productBrowser-sku {
+    font: normal 13px tahoma, geneva, verdana, sans-serif;
+    color: #fff;
+	word-wrap: break-word;
+}
+
+span.ecwid-productBrowser-sku-value {
+	display:inline-block;
+}
+
+/* Product price */
+div.ecwid-productBrowser-price {
+    font: normal 24px tahoma, geneva, verdana, sans-serif;
+    color: #66B22D;
+    white-space: nowrap;
+}
+
+div.ecwid-productBrowser-price-panel {
+	display: inline-block;
+}
+
+div.ecwid-productBrowser-price-grid div.ecwid-productBrowser-price-compareTo-container {
+	margin-top: -5px;
+}
+
+div.ecwid-productBrowser-price-grid div.ecwid-productBrowser-price-save-container {
+	margin-top: -2px;
+}
+
+div.ecwid-productBrowser-price-grid div.ecwid-productBrowser-price-compareTo-container,
+div.ecwid-productBrowser-price-grid div.ecwid-productBrowser-price-save-container {
+	white-space: normal;
+	word-wrap: break-word;
+}
+
+div.ecwid-productBrowser-price-grid .gwt-HTML {
+	margin-top: -2px;
+}
+
+div.ecwid-productBrowser-price-grid div.ecwid-productBrowser-price-compareTo,
+div.ecwid-productBrowser-price-grid div.ecwid-productBrowser-price-save,
+div.ecwid-productBrowser-price-list div.ecwid-productBrowser-price-compareTo,
+div.ecwid-productBrowser-price-list div.ecwid-productBrowser-price-save
+{
+	color: #c2c2c2;
+}
+
+div.ecwid-productBrowser-price-grid div.ecwid-productBrowser-price-compareTo-hover,
+div.ecwid-productBrowser-price-grid div.ecwid-productBrowser-price-save-hover,
+div.ecwid-productBrowser-price-list div.ecwid-productBrowser-price-compareTo-hover,
+div.ecwid-productBrowser-price-list div.ecwid-productBrowser-price-save-hover
+{
+	color: #848484;
+}
+
+div.ecwid-productBrowser-price-list div.ecwid-productBrowser-price-compareTo-container,
+div.ecwid-productBrowser-price-list div.ecwid-productBrowser-price-savePanel,
+div.ecwid-productBrowser-price-list div.ecwid-productBrowser-price-value {
+	display: inline-block;
+    padding-right: 14px;
+	*zoom: 1;
+	*display: inline;
+}
+
+div.ecwid-productBrowser-price-table div.ecwid-productBrowser-price-compareTo-title,
+div.ecwid-productBrowser-price-table div.ecwid-productBrowser-price-save-title
+{
+	display: none;
+}
+
+div.ecwid-productBrowser-price-table div.ecwid-productBrowser-price-compareTo
+{
+	color: #9e9e9e;
+	padding: 0;
+}
+
+div.ecwid-productBrowser-price-table div.ecwid-productBrowser-price-details-container
+{
+	font-size: 0;
+}
+
+div.ecwid-productBrowser-price-table div.ecwid-productBrowser-price-save
+{
+	color: #67717c;
+	padding: 0 0 0 5px;
+}
+
+div.ecwid-productBrowser-price-table div.ecwid-productBrowser-price-compareTo-container,
+div.ecwid-productBrowser-price-table div.ecwid-productBrowser-price-savePanel
+{
+	display: inline-block;
+	font-weight: bold;
+	*zoom: 1;
+	*display: inline;
+}
+
+div.ecwid-productBrowser-price-table div.ecwid-productBrowser-price-compareTo,
+div.ecwid-productBrowser-price-table div.ecwid-productBrowser-price-save
+{
+	font: normal 11px tahoma, geneva, verdana, sans-serif;
+}
+
+div.ecwid-productBrowser-price-compareTo-container,
+div.ecwid-productBrowser-price-save-container {
+	font-size: 0;
+	word-break: break-all;
+}
+
+div.ecwid-productBrowser-price-compareTo {
+    font: bold 13px helvetica, arial, verdana, sans-serif;
+    color: #a7a7a7;
+    white-space: nowrap;
+	display: inline;
+	text-decoration: line-through;
+	padding-top: 2px;
+}
+
+div.ecwid-productBrowser-price-compareTo-title {
+	text-decoration: none;
+	white-space: normal;
+}
+
+div.ecwid-productBrowser-price-save {
+    font: bold 13px helvetica, arial, verdana, sans-serif;
+    color: #757575;
+    white-space: nowrap;
+	display:inline-block;
+	padding-top: 2px;
+	*zoom: 1;
+	*display: inline;
+}
+
+div.ecwid-productBrowser-price-save-title {
+	max-width: 100%;
+	padding: 0 5px 0 0;
+	text-decoration: none;
+	white-space: normal;
+}
+
+div.ecwid-productBrowser-details div.ecwid-productBrowser-price-save {
+	padding: 2px 0 0 0;
+}
+
+div.ecwid-productBrowser-details div.ecwid-productBrowser-price-save-title {
+    padding: 0 5px 0 0;
+}
+
+/* The top panel, containing the result items count and the sort by dropdown */
+div.ecwid-results-topPanel  {
+	clear: both;
+}
+div.ecwid-results-topPanel div {
+	color: #ccc;
+	font-family: tahoma, geneva, verdana, sans-serif;
+	font-size: 11px;
+
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+div.ecwid-results-topPanel div.ecwid-results-topPanel-itemsCountLabel-cell {
+	padding-right: 20px;
+}
+div.ecwid-results-topPanel div.ecwid-results-topPanel-itemsCountLabel {
+	color: #ccc;
+	line-height: 29px;
+}
+div.ecwid-results-topPanel-controlsPanel {
+	white-space: normal !important;
+	float: right;
+}
+div.ecwid-results-topPanel div.ecwid-results-topPanel-viewAsPanel {
+	padding-right: 20px;
+	line-height: 29px;
+}
+div.ecwid-results-topPanel div.gwt-Label {
+	padding-right: 3px;
+}
+div.ecwid-results-topPanel div.ecwid-results-topPanel-viewAsPanel-link {
+	color: #ccc;
+	cursor: pointer;
+	text-decoration: underline;
+	margin: 0 4px;
+}
+div.ecwid-results-topPanel div.ecwid-results-topPanel-viewAsPanel-current {
+	font-weight: bold;
+	margin: 0 4px;
+}
+div.ecwid-results-topPanel-sortByPanel {
+	line-height: 29px;
+}
+div.ecwid-results-topPanel-sortByPanel select.gwt-ListBox {
+	font: 12px tahoma, geneva, verdana, sans-serif;
+	color:  #000000;
+	margin-left: 5px;
+}
+
+/* The pager in ProductBrowser */
+div.ecwid-pager {
+    font: 12px helvetica, arial, verdana, sans-serif;
+    color: #fff;
+    margin: 0 5px;
+}
+div.ecwid-pager span.ecwid-pager-link {
+    padding: 0 3px;
+}
+div.ecwid-pager span.ecwid-pager-link-enabled {
+    cursor: pointer;
+    color: #ccc;
+}
+div.ecwid-pager span.ecwid-pager-link-enabled span {
+    text-decoration: underline;
+}
+div.ecwid-pager span.ecwid-pager-link-disabled {
+    cursor: default;
+    color: #fff;
+}
+div.ecwid-pager-hasTopSeparator {
+    border-top: solid 1px #b8bdc1;
+    padding-top: 10px;
+}
+
+.ecwid div.ecwid-pager a.ecwid-poweredBy {
+	margin-top: -10px;
+}
+
+.ecwid a.ecwid-poweredBy {
+	float: right;
+	text-align: right;
+	margin-right: 7px;
+	font: 10px Tahoma, geneva, verdana, sans-serif;
+	color: #ccc;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/* The empty shopping bag and order failed components */
+div.ecwid-productBrowser-cart-emptyCartPanel,
+div.ecwid-Checkout-orderFailed {
+    padding: 25px 5px 0 5px;
+}
+div.ecwid-productBrowser-cart-emptyCartPanel div.ecwid-form,
+div.ecwid-Checkout-orderFailed div.ecwid-form {
+    padding: 45px;
+    text-align: center;
+}
+div.ecwid-productBrowser-cart-emptyCartPanel button.gwt-Button,
+#wrapper div.ecwid-productBrowser-cart-emptyCartPanel button.gwt-Button,
+div.ecwid-Checkout-orderFailed button.gwt-Button,
+#wrapper div.ecwid-Checkout-orderFailed button.gwt-Button {
+	margin: 30px 10px 0 10px;
+}
+
+/* The form for entering shipping or billing addresses */
+.ecwid-Checkout-BillingAddress-container-no-address .ecwid-Checkout-continue-button{
+	margin: 0 auto;
+}
+
+.ecwid-Checkout-BillingAddress-container-no-address .ecwid-ButtonEnvelope {
+	margin-top: 10px;
+}
+
+.ecwid-Checkout-BillingAddress-container-no-address .ecwid-ButtonEnvelope table{
+	width: 100%;
+}
+
+div.ecwid-AddressForm div.ecwid-form {
+    width: 485px;
+    padding: 15px 18px 20px;
+}
+div.ecwid-AddressForm table.ecwid-PseudoButton {
+    margin: 0 auto;
+}
+input.ecwid-AddressForm-name, input.ecwid-AddressForm-address1, input.ecwid-AddressForm-address2,
+input.ecwid-AddressForm-company-name {
+	width: 285px;
+}
+input.ecwid-AddressForm-city {
+	width: 175px;
+}
+table.ecwid-AddressForm-state input {
+	width: 175px;
+}
+table.ecwid-AddressForm-state select {
+	width: 285px;
+}
+input.ecwid-AddressForm-zip {
+	width: 145px;
+}
+div.ecwid-fieldWrapper table.ecwid-fieldEnvelope.ecwid-AddressForm-country {
+	float: none;
+	margin-left: 0;
+	margin-right: 0;
+}
+table.ecwid-AddressForm-country select {
+	width: 285px;
+}
+input.ecwid-AddressForm-phone {
+	width: 145px;
+}
+div.ecwid-AddressForm div.ecwid-fieldWrapper label.ecwid-fieldLabel {
+	width: 160px;
+}
+div.ecwid-AddressForm div.ecwid-AddressForm-fields-topPanel {
+	margin-bottom: 20px;
+}
+div.ecwid-AddressForm-buttonsPanel {
+	padding: 10px 0 5px 162px;
+	position: relative;
+	z-index: 1;
+}
+div.ecwid-AddressForm-secureLockIcon {
+    background: transparent url(icons/lock.gif) no-repeat;
+    width: 42px;
+    height: 42px;
+}
+.ecwid-supports-touch div.ecwid-AddressForm-secureLockIcon {
+	display: none;
+}
+div.ecwid-AddressForm-SSLencryptedPopup {
+    background: transparent url(icons/SSLencrypted.png) no-repeat;
+    width: 196px;
+    height: 116px;
+    z-index: 1001;
+}
+
+div.ecwid-AddressForm div.ecwid-fieldWrapper {
+	clear: both; /* Custom design compatibility fix */
+}
+
+/* The address book */
+div.ecwid-AddressBook-blockContainer {
+	display: -moz-inline-box;
+	display: inline-block;
+	*zoom: 1;
+	*display: inline;
+    padding: 0 50px 30px 0;
+	vertical-align: top;
+}
+div.ecwid-AddressBook-block {
+    border: solid 1px #b3b7ba;
+    padding: 5px;
+}
+div.ecwid-AddressBook-addButton {
+    background: transparent url(icons/addNewAddress.gif) no-repeat;
+    width: 238px;
+    height: 260px;
+    cursor: pointer;
+    text-align: center;
+    font: normal 30px "trebuchet MS", helvetica, verdana, sans-serif;
+    color: #629cc8;
+}
+div.ecwid-AddressBook-addButton div {
+    position: relative;
+    top: 60px;
+}
+div.ecwid-AddressBook-item {
+    background: #000;
+    width: 238px;
+    min-height: 260px;
+    position: relative;
+}
+div.ecwid-AddressBook-shipToButton {
+    padding: 15px 20px 0 20px;
+}
+div.ecwid-AddressBook-shipToButton table.ecwid-PseudoButton {
+	width: 100%;
+}
+div.ecwid-AddressBook-shipToButton div.ecwid-PseudoButton {
+	display: block;
+	text-align: center;
+}
+div.ecwid-AddressBook-itemDescription {
+    font: 14px tahoma, geneva, verdana, sans-serif;
+    color: #ccc;
+    padding: 15px 20px 65px 20px;
+}
+div.ecwid-AddressBook-buttonsPanel {
+    position: absolute;
+    bottom: 0;
+    padding: 0 19px;
+    width: 200px;
+    height: 50px;
+}
+div.ecwid-AddressBook-item div.ecwid-Person-name {
+    padding-bottom: 15px;
+    font-weight: bold;
+}
+div.ecwid-AddressBook-item div.ecwid-Person-phone {
+    padding-top: 15px;
+}
+
+/* The box asking visitor to sign in */
+table.ecwid-LoginBox {
+    border: solid 10px #efefef;
+    margin-top: 30px;
+}
+td.ecwid-LoginBox-content {
+    padding: 40px;
+}
+div.ecwid-LoginForm div.ecwid-form {
+    width: 310px;
+    padding: 35px 25px 25px 25px;
+    text-align: center;
+}
+div.ecwid-LoginForm div.ecwid-fieldWrapper {
+    text-align: center;
+}
+div.ecwid-LoginForm div.ecwid-fieldWrapper label.ecwid-fieldLabel {
+    float: none;
+    margin-bottom: 3px;
+    font-size: 16px;
+    color: #ccc;
+}
+div.ecwid-LoginForm div.ecwid-fieldWrapper input {
+    width: 220px;
+    margin-bottom: 18px;
+    float: none;
+}
+div.ecwid-LoginForm button, #wrapper div.ecwid-LoginForm button {
+    display: inline;
+    margin: 0 auto 30px auto;
+}
+div.ecwid-LoginForm-links {
+    text-align: right;
+}
+div.ecwid-LoginForm-links table {
+    margin-left: auto;
+}
+
+/* Shipping option */
+.ecwid-shippingOptions-List {
+	table-layout: fixed;
+	width: 100% !important;
+}
+
+/*Choose delivery method in the Shipping details*/
+.ecwid-shippingOptions-List span.ecwid-shippingOption label {
+	font-size: 14px;
+	display: block;
+	margin-left: 20px;
+	float: none;
+	max-width: 280px;
+}
+
+.ecwid-shippingOptions-List span.ecwid-shippingOption label[for] {
+	max-width: 100%;
+}
+
+span.ecwid-shippingOption {
+	display: block;
+}
+.ecwid-shippingOptions-List span.ecwid-shippingOption {
+	margin: 5px 0;
+}
+
+span.ecwid-shippingOption input {
+	float: left;
+	width: 15px;
+	margin: 3px 7px 0 0;
+}
+.ecwid-android-stock span.ecwid-shippingOption input {
+	margin-top: -2px;
+}
+span.ecwid-shippingOption label {
+	font-size: 14px;
+	display: block;
+	margin-left: 20px;
+}
+
+span.ecwid-shippingOption label.ecwid-shippingOption-label-ie7 {
+    font-size: 14px;
+    float: none;
+	margin-top: 3px;
+}
+span.ecwid-shippingOption-days {
+	white-space: nowrap;
+}
+span.ecwid-shippingOption-rate {
+    margin-left: 15px;
+	font-weight: bold;
+	visibility: hidden;
+    white-space: nowrap;
+}
+span.ecwid-shippingOption-checked span.ecwid-shippingOption-rate {
+    visibility: visible;
+}
+
+/* Button-like component (used mostly on checkout) */
+td.ecwid-PseudoButton-left {
+    background: transparent url(icons/pseudo_button_left.gif) no-repeat 1px 0;
+    width: 11px;
+    height: 26px;
+}
+td.ecwid-PseudoButton-center {
+    background: transparent url(icons/pseudo_button_center.gif) repeat-x;
+    height: 26px;
+}
+td.ecwid-PseudoButton-center,
+td.ecwid-PseudoButton-center div,
+div.ecwid-PseudoButton {
+    font-size: 12px;
+    color: #ffffff;
+}
+td.ecwid-PseudoButton-right {
+    background: transparent url(icons/pseudo_button_right.gif) no-repeat -1px 0;
+    width: 11px;
+    height: 26px;
+}
+
+/* Field envelope to display error messages */
+table.ecwid-fieldEnvelope {
+	margin-left: -2px; /* compensate the extra padding keep fields aligned */
+	margin-right: -2px;
+	width: 1px; /* prevent the envelope from being wider than the wrapped component */
+}
+div.ecwid-fieldEnvelope-label {
+	font: normal 11px/13px "trebuchet MS", helvetica, verdana, sans-serif;
+	color: #b80000;
+    text-align: right;
+    min-height: 13px;
+	margin: 2px 2px 3px 0;
+}
+table.ecwid-fieldEnvelope-hidden div.ecwid-fieldEnvelope-around {
+	padding: 2px;
+}
+table.ecwid-fieldEnvelope-hidden.ecwid-AddressForm-country div.ecwid-fieldEnvelope-around {
+	padding: 0;
+}
+table.ecwid-fieldEnvelope-error div.ecwid-fieldEnvelope-around {
+    border: solid 2px #b80000;
+}
+table.ecwid-fieldEnvelope-error div.ecwid-fieldEnvelope-around div.ecwid-fieldEnvelope-around {
+	border: 0 none;
+}
+table.ecwid-fieldEnvelope-error input:focus {
+	box-shadow: none;
+}
+
+/* Placeholders for missing product or category images */
+div.ecwid-noimage {
+	background: transparent url(icons/noimage.gif) no-repeat scroll 0 0;
+	height: 100px;
+	width: 100px;
+	margin: 0 auto;
+}
+div.ecwid-noimage-small {
+	background: transparent url(icons/noimage-small.gif) no-repeat;
+	height: 80px;
+	width: 80px;
+	margin: 0 auto;
+}
+
+/* A component that floats to left */
+div.ecwid-Checkout div.ecwid-floatLeftPanel {
+    float: left;
+	max-width: 100%;
+}
+
+/* The egoods component */
+div.ecwid-EgoodsComponent {
+    padding: 10px;
+}
+div.ecwid-EgoodsComponent-downloadLabel {
+    font: 17px "trebuchet MS", helvetica, verdana, sans-serif;
+    color: #ccc;
+	padding-bottom: 5px;
+}
+div.ecwid-EgoodsComponent-separator {
+    height: 15px;
+}
+table.ecwid-EgoodsComponent-egoodRow {
+	vertical-align:bottom;
+}
+tr.ecwid-EgoodsComponent-egoodRow .ecwid-EgoodsComponent-descrCell {
+	display: block;
+	padding-bottom: 3px;
+}
+div.ecwid-EgoodsComponent-description {
+    font: 14px tahoma, geneva, verdana, sans-serif;
+    color: #ccc;
+    padding: 0 2px;
+}
+div.ecwid-EgoodsComponent-cell {
+	float: left;
+	font: 14px tahoma, geneva, verdana, sans-serif;
+}
+div.ecwid-EgoodsComponent-iconCell {
+	position: absolute;
+}
+div.ecwid-EgoodsComponent-iconCell-expired {
+	opacity: 0.7;
+}
+div.ecwid-EgoodsComponent-linkCell {
+	position: relative;
+	left: 0;
+}
+div.ecwid-EgoodsComponent a, div.ecwid-EgoodsComponent a:active, div.ecwid-EgoodsComponent a:visited {
+    font: 14px tahoma, geneva, verdana, sans-serif;
+    color: #2d87cc;
+    text-decoration: underline;
+}
+tr.ecwid-EgoodsComponent-egoodRow-expired div.ecwid-EgoodsComponent-description,
+tr.ecwid-EgoodsComponent-egoodRow-expired a, tr.ecwid-EgoodsComponent-egoodRow-expired a:active, tr.ecwid-EgoodsComponent-egoodRow-expired a:visited {
+    color: #7b7b7b;
+    cursor: auto;
+    text-decoration: none;
+}
+span.ecwid-EgoodsComponent-filesize {
+    font: 14px tahoma, geneva, verdana, sans-serif;
+    color: #7b7b7b;
+	white-space:nowrap;
+}
+span.ecwid-EgoodsComponent-expires {
+    font: normal 12px tahoma, geneva, verdana, sans-serif;
+    color: #ccc;
+}
+span.ecwid-EgoodsComponent-expires span {
+    font-weight: bold;
+    color: #56b03d;
+    white-space: nowrap;
+}
+span.ecwid-EgoodsComponent-expired {
+    font: bold 12px tahoma, geneva, verdana, sans-serif;
+    color: #aa1f1f;
+}
+
+/* Styles for formatting person name, address and phone */
+div.ecwid-Person {
+    font: normal 14px tahoma,geneva,verdana,sans-serif;
+}
+div.ecwid-Person-name {
+    padding-bottom: 10px;
+}
+div.ecwid-Person-phone {
+    padding-top: 5px;
+}
+
+div.ecwid-DownloadError {
+    padding: 65px;
+    text-align: center;
+}
+div.ecwid-DownloadError-head {
+    font: normal 35px georgia, "times new roman", times, serif;
+    color: #416785;
+}
+div.ecwid-DownloadError-content {
+    font: normal 16px "trebuchet MS", helvetica, verdana, sans-serif;
+    padding-top: 55px;
+    color: #ccc;
+}
+div.ecwid-DownloadError-content a, div.ecwid-DownloadError-content a:active, div.ecwid-DownloadError-content a:visited {
+    font: normal 16px "trebuchet MS", helvetica, verdana, sans-serif;
+}
+
+td.ecwid-productBrowser-warning-icon {
+    background: transparent url(icons/iconWarning.gif) no-repeat top right;
+    width: 19px;
+    min-height: 16px;
+}
+td.ecwid-productBrowser-warning-text {
+    font: normal 13px/14px tahoma,geneva,verdana,sans-serif;
+    padding-left: 8px;
+}
+
+/*--------------------------*/
+/*---- Popup components ----*/
+/*--------------------------*/
+
+/* Main Ecwid popups */
+div.ecwid-popup {
+	border: solid 18px #d2d2d2;
+	background-color: #ffffff;
+	padding: 5px;
+}
+
+div.ecwid-responsive-popup {
+	max-height: 100%;
+	max-width: 100%;
+	overflow-y: auto !important;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+div.ecwid-responsive-popup,
+div.ecwid-responsive-popup div.popupContent,
+div.ecwid-responsive-popup div.ecwid-popup-touchLimiter {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-box-align: stretch;
+	-webkit-box-flex: 1;
+}
+div.ecwid-responsive-popup,
+div.ecwid-responsive-popup div.popupContent {
+	-webkit-overflow-scrolling: touch;
+	overflow: auto;
+}
+
+div.ecwid-popup div.Caption {
+    padding-bottom: 5px;
+    cursor: move;
+}
+
+div.ecwid-popup table.ecwid-popup-buttonsPanel {
+	margin: 0 auto;
+}
+
+div.ecwid-popup table.ecwid-popup-linkBlock {
+	margin: 0 0 0 auto;
+}
+
+hr.ecwid-popup-hr {
+	border: none;
+    width: 100%;
+    height: 1px;
+    color: #dadada;
+    background-color: #dadada;
+    margin: 0 0 12px 0;
+}
+div.ecwid-overlay {
+    background-color:#000;
+    opacity:0.6;
+    filter:alpha(opacity=60);
+}
+div.ecwid-overlay-compact {
+	background-color: #ffffff;
+	opacity: 1.0;
+	filter: alpha(opacity=100);
+}
+div.ecwid-overlay-png {
+    background: transparent url(icons/transparent_black.png) repeat scroll 0 0;
+    filter: expression(fixPNG_crop(this));
+}
+div.ecwid-loadingIndicator-overlay {
+    background: transparent url(icons/transparent_white.png) repeat scroll 0 0;
+    filter: expression(fixPNG_crop(this));
+}
+div.ecwid-loadingIndicator-cursor {
+    background: transparent url(icons/spacer.gif) repeat scroll 0 0;
+	cursor: wait;
+}
+
+/* The close button in the right upper corner of Ecwid popup */
+button.ecwid-popup-closeButton {
+    cursor: pointer;
+    background: transparent url(icons/popup_close.png) no-repeat center center;
+    filter: expression(fixPNG_crop(this));
+    border: none;
+    width: 15px;
+    height: 15px;
+    margin: 5px;
+}
+
+.ecwid-supports-touch button.ecwid-popup-closeButton.ecwid-gallery-imagePanel {
+	padding: 12px;
+}
+
+/* The head label of Ecwid popup */
+div.ecwid-popup-headLabel {
+    font: 30px georgia, "times new roman", times, serif;
+    color: #666;
+    margin: 0 0 12px 0;
+	min-width: 240px;
+}
+
+/* The message box popup */
+div.ecwid-MessageBox {
+    border: solid 10px #d2d2d2;
+    background-color: #ffffff;
+    z-index: 1001;
+}
+div.ecwid-MessageBox-msg {
+    font: 15px tahoma, geneva, verdana, sans-serif;
+    color: #303030;
+    width: 360px;
+    padding: 0 50px 0 30px;
+    overflow: hidden;
+    text-align: left;
+}
+div.ecwid-MessageBox-msg-info {
+    background: transparent url(icons/msg_info.gif) no-repeat;
+    margin-left: 30px;
+    width: 33px;
+    height: 33px;
+}
+div.ecwid-MessageBox-msg-question {
+    background: transparent url(icons/msg_quest.gif) no-repeat;
+    margin-left: 30px;
+    width: 33px;
+    height: 33px;
+}
+div.ecwid-MessageBox-msg-warning {
+    background: transparent url(icons/msg_warning.gif) no-repeat;
+    margin-left: 30px;
+    width: 33px;
+    height: 33px;
+}
+div.ecwid-MessageBox-msg-error {
+    background: transparent url(icons/msg_error.gif) no-repeat;
+    margin-left: 30px;
+    width: 33px;
+    height: 33px;
+}
+
+div.ecwid-ShadowedPopupPanel-content {
+    background-color: #ffffff;
+    position: relative;
+	border-radius: 10px;
+}
+div.ecwid-ShadowedPopupPanel-shadow {
+    background-color: #ccc;
+    opacity: 0.10;
+    filter: alpha(opacity=10);
+	border-radius: 10px;
+}
+
+/* Service message */
+div.ecwid-ServiceMessage-container div.ecwid-ShadowedPopupPanel-content {
+    padding: 17px 45px;
+    position: relative;
+	max-width: 700px;
+}
+div.ecwid-ServiceMessage-responsive div.ecwid-ServiceMessage-container div.ecwid-ShadowedPopupPanel-content {
+    padding: 17px 6%;
+}
+div.ecwid-ServiceMessage-container div.ecwid-ShadowedPopupPanel-content,
+div.ecwid-ShadowedPopupPanel-content {
+    background-color: #def6ff;
+}
+div.ecwid-ServiceMessage-container div.ecwid-ShadowedPopupPanel-content,
+div.ecwid-ServiceMessage div.ecwid-ShadowedPopupPanel-shadow {
+	border-radius: 10px;
+}
+.ecwid-ServiceMessage-message {
+    font: normal 14px tahoma, geneva, verdana, sans-serif;
+    color: #ccc;
+    padding-right: 10px;
+}
+a.ecwid-ServiceMessage-message-openCart,
+a.ecwid-ServiceMessage-message-openCart:visited,
+a.ecwid-ServiceMessage-message-openCart:active {
+	font-size: 14px;
+}
+button.ecwid-ServiceMessage-closeButton {
+    background: transparent url(icons/connection-error-close.gif) no-repeat center center;
+    border: none;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+}
+div.ecwid-ConnectionProblemMessagePopup div.ecwid-ServiceMessage-container div.ecwid-ShadowedPopupPanel-content {
+	max-width: 1000px;
+}
+
+/* Informational message popups, disappearing after few seconds */
+div.ecwid-DisappearingMessage {
+    border: solid #d2d2d2 10px;
+    background-color: #ffffff;
+    padding: 20px 40px;
+    z-index: 20002;
+}
+div.ecwid-DisappearingMessage-content {
+    text-align: center;
+    font-size: 17px;
+    color: #212121;
+}
+div.ecwid-DisappearingMessage-content span {
+    font-size: 19px;
+    color: #1a5d30;
+}
+
+/* Form popups */
+div.ecwid-FormPopup {
+}
+div.ecwid-popup-content {
+    padding: 5px 30px 30px 30px;
+}
+div.ecwid-FormPopup-fieldWrapper {
+    text-align: center;
+}
+div.ecwid-FormPopup-fieldWrapper table.ecwid-fieldEnvelope {
+	margin: 0 auto;
+}
+div.ecwid-FormPopup-fieldWrapper label.ecwid-fieldLabel {
+	margin: 0 0 3px 0;
+    font-size: 16px;
+    color: #ccc;
+}
+
+div.ecwid-popup div.ecwid-FormPopup-fieldWrapper-space {
+	margin-top: 20px;
+}
+
+/* Responsive popups */
+div.ecwid-login-popup.ecwid-responsive-popup div.ecwid-form,
+div.ecwid-register-popup.ecwid-responsive-popup div.ecwid-form,
+div.ecwid-recover-password-popup.ecwid-responsive-popup div.ecwid-form {
+	text-align: center;
+	padding: 7% 14%;
+	max-width: 240px;
+}
+div.ecwid-login-popup.ecwid-responsive-popup table.ecwid-fieldEnvelope,
+div.ecwid-register-popup.ecwid-responsive-popup table.ecwid-fieldEnvelope,
+div.ecwid-recover-password-popup.ecwid-responsive-popup table.ecwid-fieldEnvelope {
+	table-layout: fixed;
+	width: 100%;
+	margin-left: 0;
+	margin-right: 0;
+}
+div.ecwid-login-popup.ecwid-responsive-popup table.ecwid-fieldEnvelope div.ecwid-fieldEnvelope-around,
+div.ecwid-register-popup.ecwid-responsive-popup table.ecwid-fieldEnvelope div.ecwid-fieldEnvelope-around,
+div.ecwid-recover-password-popup.ecwid-responsive-popup table.ecwid-fieldEnvelope div.ecwid-fieldEnvelope-around {
+	margin-left: -2px;
+	margin-right: -2px;
+}
+div.ecwid-login-popup table.ecwid-fieldEnvelope-around,
+div.ecwid-register-popup table.ecwid-fieldEnvelope-around,
+div.ecwid-recover-password-popup table.ecwid-fieldEnvelope-around,
+div.ecwid-productBrowser-cart-chooseLocationPopup table.ecwid-fieldEnvelope-around {
+	overflow: hidden;
+}
+div.ecwid-login-popup input.gwt-TextBox,
+div.ecwid-login-popup input.gwt-PasswordTextBox,
+div.ecwid-register-popup input.gwt-TextBox,
+div.ecwid-register-popup input.gwt-PasswordTextBox,
+div.ecwid-recover-password-popup input.gwt-TextBox,
+div.ecwid-recover-password-popup input.gwt-PasswordTextBox {
+	padding: 3px 5px;
+	width: 225px;
+}
+
+div.ecwid-login-popup.ecwid-responsive-popup input.gwt-TextBox,
+div.ecwid-login-popup.ecwid-responsive-popup input.gwt-PasswordTextBox,
+div.ecwid-register-popup.ecwid-responsive-popup input.gwt-TextBox,
+div.ecwid-register-popup.ecwid-responsive-popup input.gwt-PasswordTextBox,
+div.ecwid-recover-password-popup.ecwid-responsive-popup input.gwt-TextBox,
+div.ecwid-recover-password-popup.ecwid-responsive-popup input.gwt-PasswordTextBox {
+	padding: 2% 4%;
+	width: 91%;
+}
+
+div.ecwid-recover-password-popup div.ecwid-popup-headLabel {
+    max-width: 325px;
+}
+
+div.ecwid-register-popup div.ecwid-popup-headLabel,
+div.ecwid-login-popup div.ecwid-popup-headLabel {
+    max-width: 332px;
+}
+
+
+
+/* Compact mobile layout for popups */
+
+div.ecwid-overlay.ecwid-compact-popup,
+div.ecwid-overlay-png.ecwid-compact-popup {
+	background: #fff;
+	opacity: 1;
+}
+
+div.ecwid-popup.ecwid-compact-popup {
+	border: 0 none;
+	width: 100%;
+	height: 100%;
+}
+
+div.ecwid-login-popup.ecwid-compact-popup div.ecwid-form,
+div.ecwid-register-popup.ecwid-compact-popup div.ecwid-form,
+div.ecwid-recover-password-popup.ecwid-compact-popup div.ecwid-form {
+	padding: 4% 6%;
+}
+
+div.ecwid-TermsPopup.ecwid-compact-popup div.ecwid-popup-content {
+	padding: 0 15px 15px;
+}
+
+div.ecwid-TermsPopup.ecwid-compact-popup div.ecwid-TermsPopup-terms {
+	height: auto;
+}
+
+div.ecwid-TermsPopup.ecwid-compact-popup div.ecwid-TermsPopup-terms p {
+	word-break: break-all;
+}
+
+div.ecwid-popup.ecwid-compact-popup div.ecwid-popup-touchLimiter > table {
+	margin: 0 auto;
+	table-layout: fixed;
+}
+
+.ecwid-compact-popup div.ecwid-popup-content {
+	padding: 0 0 15px 0;
+}
+
+.ecwid-compact-popup div.ecwid-popup-headLabel {
+	font-size: 20px;
+}
+
+.ecwid-compact-popup div.ecwid-FormPopup-fieldWrapper-space {
+	margin-top: 10px;
+}
+
+div.ecwid-compact-popup.ecwid-supports-touch div.ecwid-popup-touchLimiter {
+	margin-bottom: -1px;
+}
+
+div.ecwid-iframe.ecwid-compact-popup.ecwid-supports-touch div.ecwid-popup-touchLimiter {
+    margin-bottom: 0;
+}
+
+
+/* Edit person popup */
+div.ecwid-EditPersonPopup {
+	width: 611px;
+}
+div.ecwid-EditPersonPopup div.ecwid-popup-content {
+    padding: 5px 50px 20px 40px;
+}
+
+div.ecwid-SelectOptionsPopup div.ecwid-productBrowser-details-rightPanel {
+	padding-top: 0;
+}
+
+div.ecwid-SelectOptionsPopup div.ecwid-productBrowser-details-thumbnail {
+	padding: 23px 0 35px 15px;
+}
+
+/* Bubble popup message */
+div.ecwid-BubblePopupMessage-message {
+    border-radius: 10px;
+    padding: 12px;
+    background: #FBFDFE;
+    border: solid 1px #B3B4B4;
+}
+div.ecwid-BubblePopupMessage-message-left {
+    margin-left: 10px;
+}
+div.ecwid-BubblePopupMessage-panel {
+    position: absolute;
+    z-index: 10000001;
+    margin-top: -10px;
+}
+div.ecwid-BubblePopupMessage-arrow-right {
+    margin-right: -1px;
+    margin-top: 14px;
+}
+div.ecwid-BubblePopupMessage-arrow-left {
+    margin-left: -1px;
+    margin-top: 10px;
+}
+div.ecwid-BubblePopupMessage-arrow-top {
+	margin-left: 14px;
+	margin-top: -1px;
+}
+div.ecwid-BubblePopupMessage-arrow-top img {
+	display: block;
+}
+
+
+/*---------------------------*/
+/*---- Date range picker ----*/
+/*---------------------------*/
+
+/* The box to choose a range of dates */
+table.ecwid-DateRangeBox {
+    border: solid 1px #eeeeee;
+    border-collapse: collapse
+}
+td.ecwid-DateRangeBox-range {
+    font: normal 18px helvetica, arial, verdana, sans-serif;
+    color: #ccc;
+    padding: 5px 10px;
+}
+td.ecwid-DateRangeBox-icon {
+    border-left: solid 1px #eeeeee;
+    background: #f7f7f7 url(icons/arrow-south.gif) no-repeat center center;
+    width: 20px;
+}
+
+/* The popup window to choose a range of dates in a date range box */
+div.ecwid-DateRangePopup {
+    background-color: #000;
+    border: solid 1px #aaaaaa;
+    padding: 15px 20px;
+    z-index: 1001;
+}
+div.ecwid-DateRangePopup input.gwt-DateBox {
+    font: normal 10px helvetica, arial, verdana, sans-serif;
+    width: 100px;
+}
+div.ecwid-DateRangePopup button.gwt-Button {
+    margin: 0 10px;
+}
+button.ecwid-DateRangePopup-calendarIcon {
+    background: url(icons/calendar.png) no-repeat center center;
+    width: 16px;
+    height: 15px;
+    margin-left: 3px;
+    vertical-align: middle;
+}
+div.ecwid-DateRangePopup-DateRangeLabel {
+    font: normal 13px "trebuchet MS", helvetica, verdana, sans-serif;
+    white-space: nowrap;
+    padding-right: 15px;
+}
+div.ecwid-DateRangePopup-dash {
+    font: normal 13px "trebuchet MS", helvetica, verdana, sans-serif;
+    padding: 0 10px;
+}
+table.ecwid-DateRangePopup-PresetsPanel {
+    margin: 15px 0;
+}
+table.ecwid-DateRangePopup-PresetsPanel a,
+table.ecwid-DateRangePopup-PresetsPanel a:visited,
+table.ecwid-DateRangePopup-PresetsPanel a:active {
+    display: block;
+    color: #ccc;
+    margin: 0 15px 5px;
+}
+
+/* Popup windows with calendar */
+div.dateBoxPopup {
+    background-color: #f7f7f7;
+    border: solid 1px #aaaaaa;
+    padding: 10px 10px 0 10px;
+    z-index: 10000001;
+}
+div.dateBoxPopup table.gwt-DatePicker {
+    cursor: default;
+}
+div.dateBoxPopup div.ecwid-MonthSelector {
+    background-color: #dddddd;
+    padding: 2px;
+    font: normal 12px helvetica, arial, verdana, sans-serif;
+    color: #333333;
+}
+div.dateBoxPopup div.ecwid-MonthSelector-monthPrev,
+div.dateBoxPopup div.ecwid-MonthSelector-monthNext {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+div.dateBoxPopup div.ecwid-MonthSelector-monthPrev {
+    background: url(icons/month_prev.gif) no-repeat center center;
+}
+div.dateBoxPopup div.ecwid-MonthSelector-monthNext {
+    background: url(icons/month_next.gif) no-repeat center center;
+}
+div.dateBoxPopup div.ecwid-MonthSelector-yearPrev,
+div.dateBoxPopup div.ecwid-MonthSelector-yearNext {
+    width: 5px;
+    height: 3px;
+    padding: 2px;
+    cursor: pointer;
+}
+div.dateBoxPopup div.ecwid-MonthSelector-mouseover div.ecwid-MonthSelector-yearPrev {
+    background: url(icons/year_prev.gif) no-repeat center center;
+}
+div.dateBoxPopup div.ecwid-MonthSelector-mouseover div.ecwid-MonthSelector-yearNext {
+    background: url(icons/year_next.gif) no-repeat center center;
+}
+div.dateBoxPopup div.ecwid-MonthSelector-mouseover td.ecwid-MonthSelector-inversable {
+    background-color: #1c2273;
+    color: #ffffff;
+}
+div.dateBoxPopup table.datePickerDays {
+    border-collapse: collapse;
+    font: normal 10px helvetica, arial, verdana, sans-serif;
+    color: #333333;
+}
+div.dateBoxPopup td.datePickerWeekdayLabel, div.dateBoxPopup td.datePickerWeekendLabel {
+    border: solid 1px #cccccc;
+    font-weight: bold;
+    padding: 1px 2px;
+    text-align: center;
+}
+div.dateBoxPopup div.datePickerDay {
+    border: solid 1px #eeeeee;
+    padding: 1px 2px;
+    margin: -1px 0 0 -1px;
+    text-align: center;
+    cursor: pointer;
+}
+div.dateBoxPopup div.datePickerDayIsToday {
+    background-color: #c8f4f1;
+}
+div.dateBoxPopup div.datePickerDayIsValue {
+    background-color: #4fabef;
+    color: #ffffff;
+}
+div.dateBoxPopup div.datePickerDayIsHighlighted {
+    background-color: #0077cc;
+    color: #ffffff;
+}
+div.dateBoxPopup div.datePickerDayIsFiller {
+    border: solid 1px transparent;
+    color: #999999;
+}
+div.dateBoxPopup div.ecwid-TodayLabel {
+	font: normal 10px helvetica, arial, verdana, sans-serif;
+    color: #ccc;
+    text-align: center;
+    cursor: pointer;
+    padding: 2px 0;
+}
+
+
+/*--------------------------------*/
+/*---- Product images gallery ----*/
+/*--------------------------------*/
+
+/* The thumbnails panel */
+div.ecwid-gallery-thumbnailsPanel {
+    padding: 10px;
+    margin: 15px;
+	text-align: center;
+    background-color: #ececec;
+}
+
+div.ecwid-gallery-imageDescription {
+    text-align: center;    
+	font: normal 14px helvetica, arial, verdana, sans-serif;
+    color: #333333;
+}
+
+div.ecwid-gallery-imageDescription-top {
+	padding: 0;
+	display:none;
+}
+
+div.ecwid-gallery-imageDescription-bottom {
+	padding: 10px 0 10px 0;
+	display: block;
+}
+
+/* The thumbnail images */
+table.ecwid-gallery-thumbnail {
+    cursor: pointer;
+    border: 3px solid #e9edef;
+}
+table.ecwid-gallery-thumbnail-selected {
+    cursor: default;
+    border: 3px solid #777777;
+}
+img.ecwid-gallery-image {
+    cursor: pointer;
+	border: 0;
+}
+
+/* The navigation buttons panel */
+table.ecwid-gallery-buttonsPanel {
+    width: 50%;
+}
+
+/* The previous image button */
+button.ecwid-gallery-prevButton {
+    cursor: pointer;
+    background: url(icons/gallery_prev.gif) no-repeat center center;
+    border: none;
+    width: 32px;
+    height: 32px;
+}
+button.ecwid-gallery-prevButton-disabled {
+    background: url(icons/gallery_prev_off.gif) no-repeat center center;
+}
+
+/* The next image button */
+button.ecwid-gallery-nextButton {
+    cursor: pointer;
+    background: url(icons/gallery_next.gif) no-repeat center center;
+    border: none;
+    width: 32px;
+    height: 32px;
+}
+button.ecwid-gallery-nextButton-disabled {
+    background: url(icons/gallery_next_off.gif) no-repeat center center;
+}
+
+div.ecwid-gallery-arrow {
+	background-color: #ffffff;
+	width: 46px;
+	height: 42px;
+}
+/* The previous image arrow */
+button.ecwid-gallery-prevArrow {
+    cursor: pointer;
+    background: url(icons/gallery_prev_arrow.gif) no-repeat center center;
+    border: none;
+    width: 32px;
+    height: 32px;
+    margin-top: 5px;
+}
+/* The next image arrow */
+button.ecwid-gallery-nextArrow {
+    cursor: pointer;
+    background: url(icons/gallery_next_arrow.gif) no-repeat center center;
+    border: none;
+    width: 32px;
+    height: 32px;
+    margin-top: 5px;
+}
+
+/* Detailed image panel */
+div.ecwid-gallery-imagePanel {
+    margin: 10px 0;
+    cursor: default;
+}
+div.ecwid-gallery-imagePanel-navleft {
+    /* IE does not work properly with relative path to custom cursor */ 
+    cursor: url(icons/gallery_prev.cur), url(https://app.ecwid.com/icons/gallery_prev.cur), pointer;
+}
+div.ecwid-gallery-imagePanel-navright {
+    /* IE does not work properly with relative path to custom cursor */ 
+    cursor: url(icons/gallery_next.cur), url(https://app.ecwid.com/icons/gallery_next.cur), pointer;
+}
+
+img.ecwid-gallery-imagePanel-zoomButton-image {
+    cursor: pointer;
+    background: url(icons/gallery_zoom_button.png) no-repeat center center;
+}
+div.ecwid-gallery-imagePanel-zoomButton,
+img.ecwid-gallery-imagePanel-zoomButton-image {
+    width: 32px;
+    height: 32px;
+}
+
+/*----------------------------------*/
+/*---- Order invoice components ----*/
+/*----------------------------------*/
+
+/* Order invoice */
+div.ecwid-Invoice {
+    border: solid 1px #b3b7ba;
+}
+div.ecwid-Invoice-block {
+    font: 14px tahoma, geneva, verdana, sans-serif;
+    color: #ccc;
+}
+div.ecwid-Invoice-blockTitle {
+    font: bold 14px tahoma, geneva, verdana, sans-serif;
+    color: #ccc;
+    padding-bottom: 10px;
+}
+td.ecwid-Invoice-cell {
+    background-color: #000;
+}
+div.ecwid-Invoice-cell-title {
+    background-color: #1865a0;
+    font-size: 18px;
+    color: #ffffff;
+    padding: 10px 20px;
+    white-space: nowrap;
+    text-align: center;
+}
+td.ecwid-Invoice-edgeCell {
+    background-color: #d8e6f1;
+}
+div.ecwid-Invoice-Header {
+    padding: 15px 20px;
+}
+td.ecwid-Invoice-Header-OrderId {
+    font: 18px tahoma, geneva, verdana, sans-serif;
+	text-align: left;
+}
+td.ecwid-Invoice-Header-OrderId, td.ecwid-Invoice-Header-OrderId-long, td.ecwid-Invoice-Header-OrderId-very-long {
+	color: #fff;
+}
+td.ecwid-Invoice-Header-OrderId-long {
+	font-size: 16px;
+}
+td.ecwid-Invoice-Header-OrderId-very-long {
+	font-size: 11px;
+}
+td.ecwid-Invoice-Header-OrderId span,
+td.ecwid-Invoice-Header-OrderId-long span,
+td.ecwid-Invoice-Header-OrderId-very-long span {
+    color: #ccc;
+}
+div.ecwid-Invoice-Header-OrderNumber {
+	float: left;
+	padding-right: 20px;
+}
+div.ecwid-Invoice-Header-OrderStatus {
+	float: left;
+	padding-right: 20px;
+}
+td.ecwid-Invoice-Header-timestamp {
+    font: 18px tahoma, geneva, verdana, sans-serif;
+    color: #fff;
+    white-space: nowrap;
+	text-align: left;
+}
+div.ecwid-Invoice-ShippingDetails {
+    padding: 20px;
+}
+div.ecwid-Invoice-PaymentDetails {
+    padding: 20px;
+    width: 190px;
+	text-align: left;
+}
+div.ecwid-Invoice-SummaryContainer {
+	padding: 10px 0;
+}
+div.ecwid-Invoice-Summary-label,
+div.ecwid-Invoice-Summary-value {
+    font: 14px tahoma, geneva, verdana, sans-serif;
+    color: #ccc;
+    white-space: nowrap;
+    padding: 5px 10px;
+}
+div.ecwid-Invoice-Summary-label {
+    padding-left: 20px;
+}
+div.ecwid-Invoice-Summary-value {
+    padding-right: 20px;
+}
+div.ecwid-Invoice-Summary-label-price,
+div.ecwid-Invoice-Summary-value-price {
+    font-size: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+div.ecwid-Invoice-Summary-value-price {
+    color: #66B22D;
+}
+div.ecwid-Invoice-productName,
+div.ecwid-Invoice-productName a,
+div.ecwid-Invoice-productName a:active,
+div.ecwid-Invoice-productName a:visited {
+    font: 18px tahoma, geneva, verdana, sans-serif;
+    color: #ccc;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+div.ecwid-Invoice-productDescr {
+    font: 13px tahoma, geneva, verdana, sans-serif;
+    padding-bottom: 5px;
+    color: #ccc;
+}
+span.ecwid-Invoice-productDescr-separator {
+    padding: 0 8px;
+}
+div.ecwid-Invoice-productPrice {
+    font: bold 14px tahoma, geneva, verdana, sans-serif;
+    color: #fff;
+    padding-bottom: 12px;
+}
+div.ecwid-Invoice div.ecwid-EgoodsComponent {
+    background-color: #ffffff;
+    margin-bottom: 20px;
+}
+div.ecwid-Invoice-header-placeOrder,
+div.ecwid-Invoice-footer-placeOrder {
+    padding: 15px 20px;
+}
+div.ecwid-Invoice-header-placeOrder div.gwt-Label,
+div.ecwid-Invoice-footer-placeOrder div.gwt-Label,
+td.ecwid-Invoice-header-orderConfirmation-text,
+td.ecwid-Invoice-footer-orderConfirmation-text {
+    font: normal 15px helvetica, arial, verdana, sans-serif;
+    color: #fff;
+	text-align: left;
+}
+td.ecwid-Invoice-header-placeOrder-text,
+td.ecwid-Invoice-footer-placeOrder-text {
+	text-align: center;
+	vertical-align: middle;
+}
+td.ecwid-Invoice-header-orderConfirmation-text,
+td.ecwid-Invoice-footer-orderConfirmation-text {
+    vertical-align: bottom;
+}
+div.ecwid-Invoice-header-orderConfirmation,
+div.ecwid-Invoice-footer-orderConfirmation {
+    padding: 15px 20px;
+}
+td.ecwid-Invoice-header-orderConfirmation-text a,
+td.ecwid-Invoice-header-orderConfirmation-text a:active,
+td.ecwid-Invoice-header-orderConfirmation-text a:visited,
+td.ecwid-Invoice-footer-orderConfirmation-text a,
+td.ecwid-Invoice-footer-orderConfirmation-text a:active,
+td.ecwid-Invoice-footer-orderConfirmation-text a:visited {
+    font: normal 15px helvetica, arial, verdana, sans-serif;
+    color: #ccc;
+    text-decoration: underline;
+}
+td.ecwid-Invoice-header-orderConfirmation-space,
+td.ecwid-Invoice-footer-orderConfirmation-space {
+    width: 20px;
+}
+div.ecwid-Invoice-buttons-panel {
+	padding-top: 10px;
+	text-align: center;
+}
+
+/* Order share panel */
+div.ecwid-Invoice-share-panel {
+	margin: 10px 30px 0;
+}
+
+div.ecwid-Invoice-share-textPanel{
+	height: 33px;
+}
+
+div.ecwid-Invoice-share-textPanel-label,
+div.ecwid-Invoice-share-panel-right-column, div.ecwid-Invoice-share-panel-thumbnail,
+div.ecwid-Invoice-share-textPanel-product-panel, select.ecwid-bottomDotted-list,
+div.ecwid-Invoice-share-textPanel-product-label, div.ecwid-Invoice-share-textPanel-list-item-label {
+	font: 18px tahoma, geneva, verdana, sans-serif;
+	float: left;
+}
+
+.ecwid-Invoice-share-panel-narrow div.ecwid-Invoice-share-panel-thumbnail {
+	display: none;
+}
+
+div.ecwid-Invoice-share-textPanel-label{
+	margin-right: 10px;
+}
+
+div.ecwid-Invoice-share-buttonPanel-button {
+	font: 18px tahoma, geneva, verdana, sans-serif;
+	color: #ffffff;
+	margin: 3px 16px 3px 0;
+	float: none;
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+}
+
+div.ecwid-Invoice-share-buttonPanel-button div{
+	float:left;
+}
+
+div.ecwid-Invoice-share-buttonPanel{
+	vertical-align: bottom;
+	white-space: nowrap;
+	clear: left;
+}
+
+div.ecwid-Invoice-share-buttonPanel-secondButton {
+	margin-right: 0;
+}
+
+div.ecwid-Invoice-share-panel-thumbnail{
+	margin-right: 20px;
+}
+
+div.ecwid-bottomDotted-list{
+	padding: 0;
+	margin: 0;
+}
+
+div.ecwid-Invoice-share-textPanel-product-label{
+	margin-bottom: 10px;
+}
+
+span.ecwid-Invoice-share-textPanel-product-label{
+	text-decoration: none;
+}
+
+span.ecwid-Invoice-share-textPanel-product-label-bottomDotted{
+	border-bottom: 2px dotted #ccc;	
+}
+
+div.ecwid-Invoice-share-textPanel-list-item-label{
+	white-space: nowrap;
+}
+
+td:hover div.ecwid-Invoice-share-textPanel-list-item-label{
+	color:#ffffff;
+}
+
+div.ecwid-bottomDotted-list td{
+	cursor: default;
+	padding: 0 25px 0 5px;
+}
+
+div.ecwid-bottomDotted-list td:hover{
+	background-color:#3f464a;
+}
+
+/* share purchase social buttons */
+
+div.fb-share-button, div.tw-share-button {
+	border: 0 none;
+	cursor: pointer;
+	float: left;
+	margin: 0;
+	padding: 0 7px 0 0;
+	white-space: nowrap;
+	height: 32px;
+	cursor: pointer;
+}  
+
+div.fb-share-button div, div.tw-share-button div {
+        color: #ffffff;
+        display: block;
+        font: 16px tahoma, geneva, verdana, sans-serif;
+        line-height: 31px;
+        outline-style: none;
+        padding: 0 8px 0 35px;
+        text-decoration: none;
+        white-space: nowrap;
+        height: 32px;
+}
+
+div.fb-share-button div {
+	background: url(icons/social-buttons.png) no-repeat scroll left top transparent;
+}
+
+div.fb-share-button {
+	background: url(icons/fb-share-right.png) no-repeat scroll 100% 0% transparent;
+	text-shadow: #09183c 1px 1px 2px;
+}
+
+div.tw-share-button {
+        background: url(icons/tw-share-right.png) no-repeat scroll right top transparent;
+		text-shadow: #03394e 1px 1px 2px;        
+}
+
+div.tw-share-button div {
+        background: url(icons/tw-share.png) no-repeat scroll left top transparent;
+}
+
+table.ecwid-DropdownBox {
+    border: 1px solid #d4d0c8;
+    cursor: default;
+    table-layout: fixed;
+    height: 24px;
+}
+
+div.ecwid-Invoice-share-textPanel-product-panel table.ecwid-DropdownBox {
+    margin: -3px 0 0 -6px
+}
+
+div.ecwid-Invoice-share-textPanel-product-panel td.ecwid-DropdownBox-content {
+    font: 18px tahoma, geneva, verdana, sans-serif;
+	color: #333333;
+    background-color: #ffffff;
+    padding: 2px 5px !important;
+    border: 0 !important;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+div.ecwid-Invoice-share-textPanel-product-panel td.ecwid-DropdownBox-icon{
+	border: 0 !important;
+    border-left: solid 1px #eeeeee;
+    background: #e2e2e2 url(icons/arrow-south.gif) no-repeat center center;
+    width: 20px;
+    padding: 0 !important;
+}
+
+.ecwid-DropdownBoxPopup {
+    background-color: #ffffff;
+    border: solid 1px #aaaaaa;
+    padding: 0;
+    margin-left:1px;
+    z-index: 10000;
+}
+
+/* Printable order invoice */
+div.ecwid-PrintableInvoice {
+    margin: 0;
+}
+div.ecwid-PrintableInvoice-header {
+    padding-bottom: 10px;
+}
+div.ecwid-PrintableInvoice-header-invoiceLabel {
+    font: normal 24px georgia, "times new roman", times, serif;
+    color: #fff;
+}
+div.ecwid-PrintableInvoice-header div.ecwid-Person {
+    font: normal 12px helvetica, arial, verdana, sans-serif;
+    color: #363f47;
+}
+div.ecwid-PrintableInvoice-header div.ecwid-Person-name {
+    font-size: 18px;
+    font-weight: bold;
+}
+div.ecwid-PrintableInvoice-header div.ecwid-Person-phone {
+    padding-top: 15px;
+}
+div.ecwid-PrintableInvoice-header span.ecwid-Person-phone-number {
+    font-weight: bold;
+}
+div.ecwid-PrintableInvoice-header-email,
+div.ecwid-PrintableInvoice-header-url {
+    font: normal 16px "trebuchet MS", helvetica, verdana, sans-serif;
+    color: #ccc;
+}
+div.ecwid-PrintableInvoice-customer-email {    
+	color: #ccc;
+}
+div.ecwid-PrintableInvoice div.ecwid-Invoice {
+    border: solid 2px #6a9cc2;
+}
+div.ecwid-PrintableInvoice td.ecwid-Invoice-cell {
+    background-color: #ffffff;
+}
+div.ecwid-PrintableInvoice div.ecwid-Invoice-cell-title {
+    background-color: #ffffff;
+    border-top: 2px solid #1865a0;
+    border-bottom: 2px solid #1865a0;
+    color: #1865a0;
+}
+div.ecwid-PrintableInvoice td.ecwid-Invoice-edgeCell {
+    background-color: #ffffff;
+}
+div.ecwid-PrintableInvoice div.ecwid-Invoice-SummaryContainer,
+div.ecwid-PrintableInvoice div.ecwid-Invoice-Summary-label-price, 
+div.ecwid-PrintableInvoice div.ecwid-Invoice-Summary-value-price {
+	padding-bottom: 0;
+}
+div.ecwid-PrintableInvoice-thankYouForOrder {
+    font: bold 18px helvetica, arial, verdana, sans-serif;
+    color: #fff;
+    border-top: 1px solid #6599c0;
+    padding: 20px 25px;
+}
+
+
+/*------------------------------*/
+/*---- Product details page ----*/
+/*------------------------------*/
+
+/* The top panel */
+.ecwid-productBrowser-details-topPanel div.ecwid-productBrowser-details-thumbnail {
+	padding-bottom: 0;
+}
+
+/* The left panel */
+div.ecwid-productBrowser-details-leftPanel {
+    width: auto;
+    padding-top: 20px;
+}
+
+/* The product image */
+div.ecwid-productBrowser-details-thumbnail {
+	text-align: center;
+	padding-bottom: 20px;
+	overflow: hidden;
+}
+.mgwt-Carousel-Holder div.ecwid-productBrowser-details-thumbnail {
+	-webkit-backface-visibility: hidden;
+}
+
+/* Product description */
+div.ecwid-productBrowser-details-descr {
+    padding: 5px;
+    margin-right: 5px;
+    text-align: left;
+}
+div.ecwid-productBrowser-details-descr a, div.ecwid-productBrowser-details-descr a:active, div.ecwid-productBrowser-details-descr a:visited {
+	font-size: 14px;
+}
+
+/* Category description */
+div.ecwid-productBrowser-categoryDescription {
+    text-align: left;
+	margin: 25px 0 25px 0;
+}
+div.ecwid-productBrowser-categoryDescription a, div.ecwid-productBrowser-categoryDescription a:active, div.ecwid-productBrowser-categoryDescription a:visited {
+	font-size: 14px;
+}
+
+/* Egoods component */
+div.ecwid-productBrowser-details div.ecwid-EgoodsComponent {
+    display: inline-block;
+    padding: 15px 40px 20px 15px;
+    border: solid 3px transparent;
+}
+
+/* The top panel */
+div.ecwid-productBrowser-detailsContainer-vertical div.ecwid-productBrowser-details-topPanel {
+	padding-top: 20px;
+}
+
+/* The right panel */
+div.ecwid-productBrowser-details-rightPanel {
+	padding-top: 20px;
+	padding-left: 20px;
+	float: right;
+	margin-bottom: 20px;
+}
+.mgwt-Carousel-Holder div.ecwid-productBrowser-details-rightPanel {
+	margin-right: 6px;
+	-webkit-backface-visibility: hidden;
+}
+div.ecwid-productBrowser-details-rightPanel div.ecwid-productBrowser-backgroundedPanel {
+    min-width: 175px;
+    max-width: 250px;
+    *max-width: 350px; /* hack for IE7: it requires more space for german language */
+    padding: 10px 20px 12px;
+}
+div.ecwid-productBrowser-details-rightPanel div.ecwid-productBrowser-backgroundedPanelInner {
+	position: relative; /* workaround for a bug in IE6 */
+}
+
+/* Product sku */
+div.ecwid-productBrowser-details-rightPanel div.ecwid-productBrowser-sku {
+	padding-bottom: 12px;
+	width: 175px;
+}
+
+/* The "In stock" and "Out of stock" labels */
+div.ecwid-productBrowser-details-inStockLabel,
+div.ecwid-productBrowser-details-outOfStockLabel {
+    font: bold 14px tahoma, geneva, verdana, sans-serif;
+    padding-bottom: 12px;
+}
+div.ecwid-productBrowser-details-inStockLabel {
+    color: #116220;
+}
+div.ecwid-productBrowser-details-outOfStockLabel {
+    color: #66B22D;
+}
+div.ecwid-productBrowser-details-outOfStockLabel-allInBag {
+    color: #fff;
+}
+
+/* Product price */
+div.ecwid-productBrowser-details div.ecwid-productBrowser-price {
+    padding-bottom: 12px;
+}
+
+/* Product taxes */
+div.ecwid-productBrowser-details-taxes {
+	padding-bottom: 15px;
+}
+div.ecwid-productBrowser-details-priceIncludesTaxesLabel {
+    color: #ccc;
+    font: bold 14px tahoma, geneva, verdana, sans-serif;
+}
+div.ecwid-productBrowser-details-priceIncludesTaxesLabel a,
+div.ecwid-productBrowser-details-priceIncludesTaxesLabel a:active,
+div.ecwid-productBrowser-details-priceIncludesTaxesLabel a:visited {
+	font-size: 14px;
+}
+div.ecwid-productBrowser-details-tax {
+    font: 13px helvetica, arial, verdana, sans-serif;
+    padding-top: 5px;
+}
+span.ecwid-productBrowser-details-taxName {
+    color: #ccc;
+    padding-right: 10px;
+}
+span.ecwid-productBrowser-details-taxValue {
+    color: #ccc;
+}
+
+div.ecwid-productBrowser-details-wholesale {
+	background: transparent url(icons/wholesale-background.png) repeat top;
+	margin: 0 -20px 12px -20px;
+	padding: 9px 20px 18px 20px;
+}
+div.ecwid-productBrowser-details-wholesale div.ecwid-productBrowser-price {
+	text-align: right;
+	font-size: 20px;
+	padding: 3px 0;
+}
+div.ecwid-productBrowser-details-wholesale-qty {
+	text-align: left;
+	padding-right: 10px;
+	white-space: nowrap;
+}
+span.ecwid-productBrowser-details-wholesale-break {
+	background: transparent url(icons/wholesale-break.png) repeat-x;
+	height: 8px;
+	display: block;
+	margin: 3px -20px -3px -20px;
+	cursor: pointer;
+}
+div.ecwid-productBrowser-details-wholesale-saving {
+	border-top: solid 1px #979b9f;
+	margin-top: 2px;
+	font-size: 18px;
+	text-align: center;
+}
+div.ecwid-productBrowser-details-wholesale-suggestion {
+	font-size: 18px;
+	margin-top: -5px;
+	margin-bottom: 3px;
+}
+
+/* Product options */
+div.ecwid-productBrowser-details-optionPanel {
+    padding-bottom: 12px;
+}
+div.ecwid-productBrowser-details-optionPanel label.ecwid-fieldLabel {
+    font-weight: bold;
+    color: #ccc;
+}
+div.ecwid-productBrowser-details-optionPanel-noError,
+div.ecwid-productBrowser-details-optionPanel-error {
+	padding: 0 7px;
+}
+div.ecwid-productBrowser-details-optionPanel-errorLabel {
+	text-align: left;
+}
+span.ecwid-productBrowser-details-optionRadioButton,
+span.ecwid-productBrowser-details-optionCheckbox {
+	margin: 5px;
+    display: block;
+    font: 13px helvetica, arial, verdana, sans-serif;
+}
+select.ecwid-productBrowser-details-optionSelectBox,
+input.ecwid-productBrowser-details-optionTextField,
+textarea.ecwid-productBrowser-details-optionTextArea {
+    width: 100%;
+}
+input.ecwid-productBrowser-details-optionTextField,
+textarea.ecwid-productBrowser-details-optionTextArea {
+	*width: 94%; /* hack for IE7 */
+    box-sizing: border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+}
+
+td.ecwid-productBrowser-details-datePicker-box input {
+	padding: 3px 5px;
+    width: 130px;
+}
+td.ecwid-productBrowser-details-datePicker-button button {
+    background: url(icons/calendar.png) no-repeat center center;
+    width: 16px;
+    height: 15px;
+	margin: 0 0 1px 3px;
+	display: block;
+}
+table.ecwid-productBrowser-details-optionError {
+	width: 100%;
+	margin: 0;
+}
+table.ecwid-productBrowser-details-optionError div.ecwid-fieldEnvelope-around {
+	text-align: center;
+	padding: 0;
+}
+.ecwid-productBrowser-details-optionClassFiles-mobileWarning {
+	font-size: 10px;
+}
+.ecwid-productBrowser-details-optionUploadFiles,
+.ecwid-productBrowser-details-optionUploadFiles a,
+.ecwid-productBrowser-details-optionUploadFiles a:active,
+.ecwid-productBrowser-details-optionUploadFiles a:visited,
+.ecwid-productBrowser-details-optionUploadFiles .ecwid-EcwidHintingLink,
+.ecwid-productBrowser-details-optionUploadFiles-filesize{
+	font: 11px helvetica, arial, verdana, sans-serif;
+	white-space: nowrap;
+}
+.ecwid-productBrowser-details-optionUploadFiles-filesize{
+	color: #fff;
+}
+div.ecwid-productBrowser-details-optionUploadFiles-removeButton {
+    background: transparent url(icons/remove_file.gif) no-repeat center center;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+}
+
+div.ecwid-productBrowser-cart-hint {
+    font: normal 11px tahoma, geneva, verdana, sans-serif;
+    color: #c4c4c4;
+    text-align: left;
+}
+
+.ecwid-productBrowser-details-optionUploadFiles-button {
+	white-space: nowrap;
+}
+.ecwid-productBrowser-details-optionUploadFiles-widget .ecwid-fieldEnvelope-label {
+	text-align: left;
+}
+
+.ecwid-productBrowser-details-optionUploadFiles-Popup-ImageContainer {
+	border: 5px solid #d2d2d2;
+	font-size: 0;
+	padding: 0;
+}
+
+/* Upload files popup */
+form.ecwid-uploadPopup-mainPanel {
+	padding: 20px 40px 40px;
+	text-align: left;
+    font-size: 30px;
+    color: #fff;
+}
+table.ecwid-uploadPopup-mainPanel-fileListPanel {
+    color: #224466;
+    background-color: #000;
+    text-align: right;
+    vertical-align: top;
+    font-weight: bolder;
+    font-size: 15px;
+    color: #224466;
+    border-collapse: separate;
+    margin: 0 0 0 4px;
+    padding: 10px 29px 32px 7px;
+}
+table.ecwid-uploadPopup-mainPanel-fileListPanel td {
+	vertical-align: top;
+	text-align: left;
+}
+table.ecwid-uploadPopup-mainPanel-fileListPanel span {
+    font: normal 12px helvetica, arial, verdana, sans-serif;
+    color: #7a7e80;
+}
+table.ecwid-uploadPopup-mainPanel-fileListPanel input.gwt-FileUpload {
+	font-size: 11px;
+	border: none;
+}
+button.ecwid-uploadPopup-addButton {
+	cursor: pointer;
+	background: url("icons/boxAdd.gif") no-repeat scroll center center transparent;
+	border: medium none;
+	width: 25px;
+	height: 24px;
+	vertical-align: top;
+}
+button.ecwid-uploadPopup-addButton-disabled {
+	background: url("icons/boxAddDisabled.gif") no-repeat scroll center center transparent;
+	cursor: auto;
+}
+button.ecwid-uploadPopup-deleteButton {
+	background: url("icons/boxDelete.gif") no-repeat scroll center center transparent;
+	border: medium none;
+	width: 25px;
+	height: 24px;
+	vertical-align: top;
+	margin-left: 4px;
+}
+button.ecwid-uploadPopup-deleteButton-disabled {
+	background: url("icons/boxDeleteDisabled.gif") no-repeat scroll center center transparent;
+}
+
+/* Inside Product HTML Code */ 
+.ecwid-Product select.ecwid-productBrowser-details-optionSelectBox,
+.ecwid-Product input.ecwid-productBrowser-details-optionTextField,
+.ecwid-Product textarea.ecwid-productBrowser-details-optionTextArea {
+	width: 250px;
+}
+
+/* The panel, containing the "Qty" label and the quantity box */
+div.ecwid-productBrowser-details-qtyPanel {
+    padding-bottom: 12px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+div.ecwid-productBrowser-details-qtyPanel table.ecwid-fieldEnvelope {
+	margin: 0;
+	font: inherit;
+	color: inherit;
+}
+div.ecwid-productBrowser-details-qtyPanel div.ecwid-fieldEnvelope-around {
+	padding: 0;
+    white-space: nowrap;
+}
+div.ecwid-productBrowser-details-qtyPanel table.ecwid-fieldEnvelope-error div.ecwid-fieldEnvelope-around {
+	padding: 2px;
+}
+div.ecwid-productBrowser-details-qtyPanel div.ecwid-fieldEnvelope-label {
+	white-space: normal;
+}
+
+/* The "Qty" label */
+div.ecwid-productBrowser-details-qtyLabel {
+    display: inline;
+    font: bold 14px tahoma, geneva, verdana, sans-serif;
+    color: #ccc;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
+/* The "(N available)" label (near the "Qty" one) */
+div.ecwid-productBrowser-details-qtyAvailInfo {
+    display: inline;
+    font: 13px helvetica, arial, verdana, sans-serif;
+    vertical-align: middle;
+}
+
+/* The quantity textbox */
+input.ecwid-productBrowser-details-qtyTextField {
+    box-sizing: content-box;
+	width: 40px;
+    margin-left: 8px;
+    vertical-align: middle;
+    border: solid 1px #898989;
+}
+
+/* The "In the bag" icon and text */
+div.ecwid-productBrowser-details-inTheBag {
+	position: relative; /* workaround for a bug in IE6 */
+    background: transparent url(icons/bag.png) no-repeat left center;
+    filter: expression(fixPNG_crop(this));
+    height: 56px;
+}
+div.ecwid-productBrowser-details-inTheBag div {
+    position: relative;
+    top: 15px;
+    left: 37px;
+	width: 140px;
+    font: normal 18px tahoma, geneva, verdana, sans-serif;
+    color: #2e87cb;
+    white-space: nowrap;
+}
+div.ecwid-productBrowser-details-inTheBag-largeNum div {
+    top: 4px;
+    font: normal 18px/1 tahoma, geneva, verdana, sans-serif;
+}
+
+/* Main style for the "Add to bag" button */
+div.ecwid-AddToBagButton,
+div.ecwid-AddToBagButton-ie6 {
+    width: 168px;
+    height: 39px;
+    cursor: pointer;
+    outline: none;
+	margin: 0 auto;
+}
+
+/* The "Add to bag" button in up state */
+div.ecwid-AddToBagButton-up, div.ecwid-AddToBagButton-up-hovering,
+div.ecwid-AddToBagButton-ie6-up, div.ecwid-AddToBagButton-ie6-up-hovering {
+    background: transparent url(icons/add_to_bag.png) no-repeat top center;
+}
+
+/* The "Add to bag" button in down state */
+div.ecwid-AddToBagButton-down, div.ecwid-AddToBagButton-down-hovering,
+div.ecwid-AddToBagButton-ie6-down, div.ecwid-AddToBagButton-ie6-down-hovering {
+    background: transparent url(icons/add_to_bag.png) no-repeat bottom center;
+}
+
+/* The "Add to bag" button in IE6 (hack) */
+div.ecwid-AddToBagButton-ie6-up, div.ecwid-AddToBagButton-ie6-up-hovering,
+div.ecwid-AddToBagButton-ie6-down, div.ecwid-AddToBagButton-ie6-down-hovering {
+    background-image: url(icons/add_to_bag.gif);
+}
+
+div.ecwid-AddToBagButton-up-disabled, div.ecwid-AddToBagButton-down-disabled,
+div.ecwid-AddToBagButton-ie6-up-disabled, div.ecwid-AddToBagButton-ie6-down-disabled {
+    background-image: none;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    cursor: default;
+    font: bold 15px tahoma, geneva, verdana, sans-serif;
+    color: #7d7d7d;
+}
+
+/* Main style for the "Continue Shopping" button on product details page */
+div.ecwid-ContinueShoppingButton,
+div.ecwid-ContinueShoppingButton-ie6 {
+    width: 168px;
+    height: 39px;
+    cursor: pointer;
+    outline: none;
+}
+
+/* The "Continue Shopping" button in up state */
+div.ecwid-ContinueShoppingButton-up, div.ecwid-ContinueShoppingButton-up-hovering,
+div.ecwid-ContinueShoppingButton-ie6-up, div.ecwid-ContinueShoppingButton-ie6-up-hovering {
+    background: transparent url(icons/continue_shopping.png) no-repeat top center;
+}
+
+/* The "Continue Shopping" button in down state */
+div.ecwid-ContinueShoppingButton-down, div.ecwid-ContinueShoppingButton-down-hovering,
+div.ecwid-ContinueShoppingButton-ie6-down, div.ecwid-ContinueShoppingButton-ie6-down-hovering {
+    background: transparent url(icons/continue_shopping.png) no-repeat bottom center;
+}
+
+/* The "Continue Shopping" button in IE6 (hack) */
+div.ecwid-ContinueShoppingButton-ie6-up, div.ecwid-ContinueShoppingButton-ie6-up-hovering,
+div.ecwid-ContinueShoppingButton-ie6-down, div.ecwid-ContinueShoppingButton-ie6-down-hovering {
+    background-image: url(icons/continue_shopping.gif);
+}
+
+div.ecwid-productBrowser-details div.ecwid-ContinueShoppingButton,
+div.ecwid-productBrowser-details div.ecwid-ContinueShoppingButton-ie6 {
+    margin-top: 15px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* The thumbnail images panel, below the backgrounded panel */
+div.ecwid-productBrowser-details-GalleryPanel {
+    width: 218px;
+    margin: 8px 3px 8px 4px;
+}
+div.ecwid-productBrowser-details-GalleryPanel-imageContainer {
+    border: solid 2px #e9edef;
+    margin: 2px;
+    cursor: pointer;
+    float: left;
+}
+div.ecwid-productBrowser-details-GalleryPanel-linkContainer {
+    padding: 5px;
+    clear: left;
+}
+div.ecwid-productBrowser-details-GalleryPanel-linkContainer div {
+    font: normal 13px tahoma, geneva, verdana, sans-serif;
+    color: #ccc;
+}
+.ecwid-productBrowser-details .ecwid-productBrowser-relatedProducts {
+	padding: 25px 4px 4px;
+}
+
+div.ecwid-productBrowser-relatedProducts-compact-nonSeparate {
+    margin-right: 15px;
+    margin-top: 15px;
+}
+.ecwid-productBrowser-relatedProducts .ecwid-productBrowser-relatedProducts-title {
+	padding-bottom: 5px;
+	font: 18px helvetica, arial, verdana, sans-serif;
+}
+.ecwid-productBrowser-relatedProducts .ecwid-noimage {
+	display: inline-block;
+	*zoom: 1;
+	*display: inline;
+}
+.ecwid-productBrowser-relatedProducts .ecwid-productBrowser-productNameLink {
+	font: 12px helvetica, arial, verdana, sans-serif;
+	text-decoration: underline;
+	padding: 5px 0 4px 0;
+	text-align: left;
+	overflow: hidden;
+}
+.ecwid-productBrowser-relatedProducts .ecwid-productBrowser-sku {
+	font: 10px helvetica, arial, verdana, sans-serif;
+	padding-bottom: 4px;
+	text-align: left;
+	overflow: hidden;
+}
+.ecwid-productBrowser-details .ecwid-productBrowser-relatedProducts .ecwid-productBrowser-price {
+	text-align: center;
+	font-size: 18px;
+	padding: 0;
+}
+.ecwid-productBrowser-relatedProducts .ecwid-productBrowser-relatedProducts-item {
+	cursor: pointer;
+	vertical-align: top;
+	position: absolute;
+}
+.ecwid-productBrowser-relatedProducts .ecwid-productBrowser-relatedProducts-item-top {
+	margin: 1px 1px 0 1px;
+}
+.ecwid-productBrowser-relatedProducts .ecwid-productBrowser-relatedProducts-item-top-hover {
+    border: solid 1px #b4b8bc;
+    border-bottom: none;
+	margin: 0;
+}
+.ecwid-productBrowser-relatedProducts .ecwid-productBrowser-relatedProducts-item-bottom {
+	margin: 0 1px 1px 1px;
+}
+.ecwid-productBrowser-relatedProducts .ecwid-productBrowser-relatedProducts-item-bottom-hover {
+    border: solid 1px #b4b8bc;
+    border-top: none;
+	margin: 0;
+}
+.ecwid-productBrowser-relatedProducts .ecwid-productBrowser-relatedProducts-button {
+	-webkit-user-select: none;
+	vertical-align: middle;
+	width: 1px;
+}
+.ecwid-productBrowser-relatedProducts .ecwid-productBrowser-relatedProducts-button-enabled {
+	cursor: pointer;
+}
+.ecwid-productBrowser-relatedProducts .ecwid-productBrowser-relatedProducts-prev {
+	background: url(icons/relatedprevnext.png) -2px center no-repeat;
+	width: 32px;
+	height: 32px;
+	margin-left: -8px;
+}
+.ecwid-productBrowser-relatedProducts .ecwid-productBrowser-relatedProducts-next {
+	background: url(icons/relatedprevnext.png) -96px center no-repeat;
+	width: 32px;
+	height: 32px;
+	margin-right: -8px;
+}
+.ecwid-productBrowser-relatedProducts .ecwid-productBrowser-relatedProducts-prev-hover {
+	background: url(icons/relatedprevnext.png) -64px center no-repeat;
+}
+.ecwid-productBrowser-relatedProducts .ecwid-productBrowser-relatedProducts-next-hover {
+	background: url(icons/relatedprevnext.png) -160px center no-repeat;
+}
+.ecwid-productBrowser-relatedProducts .ecwid-productBrowser-relatedProducts-prev-disabled {
+	background: url(icons/relatedprevnext.png) -32px center no-repeat;
+}
+.ecwid-productBrowser-relatedProducts .ecwid-productBrowser-relatedProducts-next-disabled {
+	background: url(icons/relatedprevnext.png) -128px center no-repeat;
+}
+
+
+.ecwid-productBrowser-details-leftPanel .ecwid-productBrowser-extraField-name-center,  
+.ecwid-productBrowser-details-rightPanel .ecwid-productBrowser-extraField-name-side{
+	font-weight: bold;
+}
+
+.ecwid-productBrowser-details-leftPanel .ecwid-productBrowser-extraField-value-center, 
+.ecwid-productBrowser-details-rightPanel .ecwid-productBrowser-extraField-value-side {
+	padding-left: 10px;
+}
+
+div.ecwid-productBrowser-extraField-name-center, div.ecwid-productBrowser-extraField-name-side,
+div.ecwid-productBrowser-extraField-value-center, div.ecwid-productBrowser-extraField-value-side {
+	color: #fff;
+}
+
+div.ecwid-productBrowser-details-rightPanel .ecwid-BillMeLater {
+	display: table;
+	margin: 12px auto 4px;
+}
+
+/*-----------------------------------*/
+/*---- Category and search pages ----*/
+/*-----------------------------------*/
+
+/* The topmost container of the category page */
+div.ecwid-productBrowser-category {
+	padding-top: 20px;
+}
+
+/* The table of subcategories on category page */
+table.ecwid-productBrowser-subcategories-mainTable {
+    margin: 20px auto 0 auto;
+    width: 100%;
+}
+
+table.ecwid-productBrowser-subcategories-mainTable img { 
+    box-shadow: none; /* workaround for a shadow in blogger.com */
+}
+
+/* Category names in subcategories list */
+div.ecwid-productBrowser-subcategories-categoryName {
+    font: normal 19px "trebuchet MS", helvetica, verdana, sans-serif;
+    color: #ccc;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Space cell below a category */
+td.ecwid-productBrowser-subcategories-cellSpace {
+    width: 1px;
+    height: 50px;
+}
+
+/* The search panel on search results page */
+div.ecwid-productBrowser-search-SearchPanel {
+    padding: 20px 0;
+	white-space: nowrap;
+}
+div.ecwid-productBrowser-search-SearchPanel input.gwt-TextBox {
+    margin: 0 7px 0 5px;
+    width: 345px;
+}
+div.ecwid-productBrowser-search-SearchPanel button.gwt-Button,
+div.ecwid-productBrowser-search-SearchPanel input.gwt-TextBox {
+	vertical-align: middle;
+}
+
+
+/* The "No matching results" label on search results page */
+div.ecwid-productBrowser-search-noResultsLabel {
+    margin: 0 5px 0 5px;
+    padding: 45px 0 0 0;
+    text-align: center;
+}
+/* The "Continue shopping" button under "no results" label on search results page */
+.ecwid-productBrowser-innerTable div.ecwid-productBrowser-search-noResultsLabelContinueButton {
+	margin: 0 5px 0 5px;
+	padding-bottom: 45px;
+	padding-top: 30px;
+	text-align: center;
+}
+
+/* Container of the "Continue shopping" button on search results page */
+div.ecwid-productBrowser-search-ContinueShoppingButtonContainer {
+    text-align: right;
+    padding-top: 20px;
+}
+
+
+/*-------------------------------*/
+/*---- Grid view of products ----*/
+/*-------------------------------*/
+
+/* The table of products */
+table.ecwid-productBrowser-productsGrid-mainTable {
+	margin: 10px auto;
+	width: 100%;
+}
+
+/* Product dragdrop handle */
+table.ecwid-productBrowser-productsGrid-mainTable .dragdrop-handle {
+    cursor: default;
+}
+
+/* Product cell */
+td.ecwid-productBrowser-productsGrid-cell {
+	padding: 0 20px;
+}
+
+td.ecwid-productBrowser-productsGrid-cell table img {
+	width: auto;
+}
+
+/* Space cell below a product */
+td.ecwid-productBrowser-productsGrid-cellSpace {
+    width: 1px;
+    height: 50px;
+}
+
+/* The panel containing the top fragment of a product */
+div.ecwid-productBrowser-productsGrid-productTopFragment {
+    text-align: center;
+	margin: 1px 1px 0;
+	border: none;
+    padding-top: 10px;
+}
+div.ecwid-productBrowser-productsGrid-productTopFragment-mouseover {
+    border: solid 1px #b4b8bc;
+    border-bottom: none;
+    margin: 0;
+}
+.ecwid table.ecwid-productBrowser-productsGrid-productTopFragment-inner {
+	margin: 0 auto;
+}
+
+/* The "Drag & Drop Me to the Bag" label above a product */
+div.ecwid-productBrowser-productDragLabel {
+    font: normal 10px helvetica, arial, verdana, sans-serif;
+    color: #cecece;
+    text-align: right;
+}
+div.ecwid-productBrowser-productDragLabel-invisible {
+    visibility: hidden;
+}
+
+span.ecwid-BuyNow-outOfStockLabel {
+	color: #7d7d7d;
+	font: bold 15px tahoma,geneva,verdana,sans-serif;	
+}
+
+/* The panel containing the bottom fragment of a product */
+div.ecwid-productBrowser-productsGrid-productBottomFragment {
+    padding: 15px 5px 10px 5px;
+    font: 13px tahoma, geneva, verdana, sans-serif;
+    margin: 0 1px 1px 1px;
+    border: none;
+}
+div.ecwid-productBrowser-productsGrid-productBottomFragment-mouseover {
+    border: solid 1px #b4b8bc;
+    border-top: none;
+    margin: 0;
+}
+
+/* The ticks showing that a product is in the bag */
+div.ecwid-productBrowser-productsGrid-inTheBagTick {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    width: 21px;
+    height: 21px;
+}
+div.ecwid-productBrowser-productsGrid-productTopFragment-inTheBag div.ecwid-productBrowser-productsGrid-inTheBagTick {
+    background: url(icons/tick.png) no-repeat center center;
+    filter: expression(fixPNG(this));
+}
+
+/* Product name links */
+div.ecwid-productBrowser-productsGrid-productBottomFragment div.ecwid-productBrowser-productNameLink {
+	text-align: left;
+	word-wrap: break-word;
+}
+div.ecwid-productBrowser-productsGrid-productBottomFragment div.ecwid-productBrowser-productNameLink a,
+div.ecwid-productBrowser-productsGrid-productBottomFragment div.ecwid-productBrowser-productNameLink a:active,
+div.ecwid-productBrowser-productsGrid-productBottomFragment div.ecwid-productBrowser-productNameLink a:visited {
+    font: normal 17px tahoma, geneva, verdana, sans-serif;
+}
+
+/* Product sku */
+div.ecwid-productBrowser-productsGrid-productBottomFragment div.ecwid-productBrowser-sku {
+    text-align: left;
+}
+
+/* Product price */
+div.ecwid-productBrowser-productsGrid-productBottomFragment div.ecwid-productBrowser-price {
+    text-align: center;
+    margin: 5px 0 0 0;
+}
+
+div.ecwid-productBrowser-productsGrid-productBottomFragment div.ecwid-BuyNow {
+    text-align: center;
+	padding-top: 10px;
+}
+
+/*-------------------------------*/
+/*---- List view of products ----*/
+/*-------------------------------*/
+
+div.ecwid-productBrowser-productsList {
+    padding: 10px 10px 25px 10px;
+}
+.ecwid-productBrowser-productsList-separatorRow td {
+	vertical-align: bottom;
+}
+.ecwid-productBrowser-productsList-productRow {
+	cursor: pointer;
+}
+.ecwid-productBrowser-productsList-productRow td {
+	vertical-align: top;
+}
+div.ecwid-productBrowser-productsList .dragdrop-handle {
+	cursor: default;
+}
+div.ecwid-productBrowser-productsList-thumbnail {
+    padding: 5px 2px 6px 10px;
+}
+td.ecwid-productBrowser-productsList-thumbnailCell {
+	text-align: center;
+}
+.ecwid-productBrowser-productsList-detailsCell {
+	text-align: left;
+	word-wrap: break-word;
+}
+div.ecwid-productBrowser-productsList-inTheBagTick {
+    background: url(icons/tick.png) no-repeat center center;
+    filter: expression(fixPNG_crop(this));
+    width: 21px;
+    height: 21px;
+    margin-top: 5px;
+}
+div.ecwid-productBrowser-productsList-details {
+    padding: 5px 10px 6px 14px;
+}
+div.ecwid-productBrowser-productsList-details div.ecwid-productBrowser-productNameLink a,
+div.ecwid-productBrowser-productsList-details div.ecwid-productBrowser-productNameLink a:active,
+div.ecwid-productBrowser-productsList-details div.ecwid-productBrowser-productNameLink a:visited {
+	font-size: 22px;
+	display: block;
+	word-wrap: break-word;
+}
+div.ecwid-productBrowser-productsList-details div.ecwid-productBrowser-sku {
+    color: #ccc;
+    padding: 2px 0 10px 2px;
+}
+div.ecwid-productBrowser-productsList-descr {
+    font: normal 14px helvetica, arial, verdana, sans-serif;
+    color: #ccc;
+}
+div.ecwid-productBrowser-productsList-details div.ecwid-productBrowser-price-list {
+	white-space: normal;
+}
+div.ecwid-productBrowser-productsList-details div.ecwid-productBrowser-price {
+    font-size: 22px;
+    padding: 8px 0 0 2px;
+}
+div.ecwid-productBrowser-productsList-details div.ecwid-BuyNow {
+	padding-top: 12px;
+}
+td.ecwid-productBrowser-productsList-mouseover {
+    border-color: #b4b8bc;
+}
+.ecwid-supports-touch td.ecwid-productBrowser-productsList-mouseover {
+	border-color: transparent;
+}
+
+
+/*--------------------------------*/
+/*---- Table view of products ----*/
+/*--------------------------------*/
+
+div.ecwid-productBrowser-productsTable {
+    padding: 20px 0 10px 0;
+}
+table.ecwid-productBrowser-productsTable-table {
+    border-collapse: collapse;
+    width: auto;
+}
+td.ecwid-productBrowser-productsTable-cell {
+    border: solid 1px #cbd3d4;
+    padding: 15px;
+}
+td.ecwid-productBrowser-productsTable-cellOdd {
+    background-color: #222;
+}
+td.ecwid-productBrowser-productsTable-cellEven {
+    background-color: #ffffff;
+}
+div.ecwid-productBrowser-productsTable div.ecwid-productBrowser-sku {
+    font: normal 18px helvetica, arial, verdana, sans-serif;
+    color: #727273;
+}
+div.ecwid-productBrowser-productsTable div.ecwid-productBrowser-productNameLink {
+    padding-right: 30px;
+}
+div.ecwid-productBrowser-productsTable div.ecwid-productBrowser-price {
+    font-size: 20px;
+    text-align: right;
+}
+div.ecwid-productBrowser-productsTable span.ecwid-productBrowser-price-value-small {
+	font-size: 0.8em;
+}
+div.ecwid-productBrowser-productsTable td.ecwid-productBrowser-productsTable-price-compare {
+}
+div.ecwid-productBrowser-productsTable-addToBagPanel table {
+    margin: 0 auto;
+}
+div.ecwid-productBrowser-productsTable-inTheBagTick {
+    background: transparent url(icons/tick.png) no-repeat center center;
+    filter:expression(fixPNG_crop(this));
+    width: 21px;
+    height: 21px;
+    margin-right: 5px;    
+}
+div.ecwid-productBrowser-productsTable-addToBagLink {
+    font: normal 16px tahoma, geneva, verdana, sans-serif;
+    color: #ccc;
+    cursor: pointer;
+    text-decoration: underline;
+    white-space: nowrap;
+}
+div.ecwid-productBrowser-productsTable-emptyStock {
+    font: normal 16px tahoma, geneva, verdana, sans-serif;
+    white-space: nowrap;
+}
+
+
+/*---------------------------*/
+/*---- Shopping Bag page ----*/
+/*---------------------------*/
+
+div.ecwid-productBrowser-cart {
+	margin-bottom: 10px;
+}
+
+table.ecwid-productBrowser-cart-rightPanel {
+	margin-left: 15px;
+}
+
+div.ecwid-productBrowser-cart-compact-bottom table.ecwid-productBrowser-cart-rightPanel {
+	margin-right: 0;
+	margin-top: 20px;
+}
+
+div.ecwid-productBrowser-cart-compact-bottom td {
+	vertical-align: top;
+}
+
+div.ecwid-productBrowser-cart-compact-bottom td.ecwid-productBrowser-cart-itemsTable-cell-price,
+div.ecwid-productBrowser-cart-compact-bottom td.ecwid-productBrowser-cart-itemsTable-cell-qty,
+div.ecwid-productBrowser-cart-compact-bottom td.ecwid-productBrowser-cart-itemsTable-cell-subtotal {
+	vertical-align: middle;
+}
+
+div.ecwid-productBrowser-cart-compact-top table.ecwid-productBrowser-cart-rightPanel {
+	margin-right: auto;
+	margin-bottom: 20px;
+}
+
+/* The backgrounded panel on the right */
+div.ecwid-productBrowser-cart div.ecwid-productBrowser-backgroundedPanel {
+    min-width: 185px;
+    max-width: 250px; /* for large prices */
+    padding: 25px 23px;
+    margin-bottom: 5px;
+}
+
+/* The table, containing the bag items */
+table.ecwid-productBrowser-cart-itemsTable {
+    border-collapse: collapse;
+    width: 100%;
+}
+td.ecwid-productBrowser-cart-itemsTable-cell {
+    padding: 10px 9px;
+    border-bottom: solid 1px #c4c4c4;
+}
+td.ecwid-productBrowser-cart-itemsTable-cell-last {
+    border-bottom-color: transparent;
+}
+td.ecwid-productBrowser-cart-itemsTable-headerCell-descr {
+    width: 100%;
+}
+td.ecwid-productBrowser-cart-itemsTable-cell-thumbnail,
+td.ecwid-productBrowser-cart-itemsTable-cell-descr,
+td.ecwid-productBrowser-cart-itemsTable-headerCell-descr {
+    vertical-align: top;
+    text-align: left;
+}
+
+td.ecwid-productBrowser-cart-itemsTable-cell-qty {
+	vertical-align: middle;
+}
+
+td.ecwid-productBrowser-cart-itemsTable-headerCell-qty,
+td.ecwid-productBrowser-cart-itemsTable-headerCell-price,
+td.ecwid-productBrowser-cart-itemsTable-headerCell-subtotal {
+    vertical-align: middle;
+    text-align: center;
+}
+td.ecwid-productBrowser-cart-itemsTable-cell-price,
+td.ecwid-productBrowser-cart-itemsTable-cell-subtotal {
+	vertical-align: middle;
+	text-align: right;
+}
+
+div.ecwid-productBrowser-cart td.ecwid-productBrowser-cart-itemsTable-cell-price .ecwid-productBrowser-price,
+div.ecwid-productBrowser-cart td.ecwid-productBrowser-cart-itemsTable-cell-subtotal .ecwid-productBrowser-price {
+        line-height: 25px;
+}
+div.ecwid-productBrowser-cart td.ecwid-productBrowser-cart-itemsTable-cell-qty {
+        padding-top: 7px;
+}
+
+td.ecwid-productBrowser-cart-itemsTable-cell-subtotal {
+    padding-right: 15px;
+}
+td.ecwid-productBrowser-cart-itemsTable-headerCell {
+	font: normal 14px tahoma, geneva, verdana, sans-serif;
+	padding: 0 20px;
+	color: #999;
+	border-bottom: solid 1px #c4c4c4;
+}
+td.ecwid-productBrowser-cart-itemsTable-headerCell-descr span {
+	visibility: hidden;
+}
+table.ecwid-productBrowser-cart-itemsTable td.ecwid-productBrowser-cart-itemsTable-headerCell-removeItem,
+table.ecwid-productBrowser-cart-itemsTable td.ecwid-productBrowser-cart-itemsTable-cell-removeItem {
+	padding: 0;
+}
+tr.ecwid-productBrowser-cart-itemsTable-row-selected,
+/* workaround for IE7: the background-color does not work properly for TR */
+td.ecwid-productBrowser-cart-itemsTable-cell-selected {
+    background-color: #000;
+    border-bottom: solid 1px #c4c4c4;
+}
+tr.ecwid-productBrowser-cart-itemsTable-row-selected-last,
+td.ecwid-productBrowser-cart-itemsTable-cell-selected-last {
+    border-bottom-color: transparent;
+}
+
+/* Item price */
+div.ecwid-productBrowser-cart div.ecwid-productBrowser-price {
+    font: normal 16px tahoma, geneva, verdana, sans-serif;
+    color: #fff;
+}
+
+/* Envelope around item quantity textbox */
+table.ecwid-productBrowser-cart-qtyEnvelope {
+	margin-left: auto;
+	margin-right: auto;
+}
+table.ecwid-productBrowser-cart-itemsTable-compact table.ecwid-productBrowser-cart-qtyEnvelope {
+	margin-right: 0;
+}
+table.ecwid-productBrowser-cart-qtyEnvelope div.ecwid-fieldEnvelope-around {
+	padding: 0;
+}
+table.ecwid-productBrowser-cart-qtyEnvelope div.ecwid-fieldEnvelope-label {
+	position: relative;
+	min-height: 0;
+	line-height: 10px;
+}
+table.ecwid-productBrowser-cart-qtyEnvelope div.ecwid-fieldEnvelope-label div {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+/* The item quantity textbox */
+div.ecwid-productBrowser-cart input.ecwid-productBrowser-cart-qtyTextField {
+    box-sizing: content-box;
+    font: 16px tahoma,geneva,verdana,sans-serif;
+	width: 40px;
+	padding: 4px 3px 3px;
+}
+
+/* The multiplication sign before quantity textbox */
+div.ecwid-productBrowser-cart div.ecwid-productBrowser-cart-qtyTextField-multiplication {
+	font: 14px tahoma,geneva,verdana,sans-serif;
+	color: #8b8b8b;
+	padding: 6px 5px 0 0;
+}
+div.ecwid-productBrowser-cart div.ecwid-productBrowser-productNameLink {
+        line-height: 25px;
+}
+
+/* Product name link */
+div.ecwid-productBrowser-cart div.ecwid-productBrowser-productNameLink a,
+div.ecwid-productBrowser-cart div.ecwid-productBrowser-productNameLink a:active,
+div.ecwid-productBrowser-cart div.ecwid-productBrowser-productNameLink a:visited {
+    color: #666666;
+}
+
+/* Item sku */
+div.ecwid-productBrowser-cart div.ecwid-productBrowser-sku {
+	font-size: 14px;
+	color: #ccc;
+	display: inline;
+}
+
+/* Item weight */
+span.ecwid-productBrowser-cart-weight {
+	font: 14px tahoma, geneva, verdana, sans-serif;
+	color: #ccc;
+	white-space: nowrap;
+	padding-left: 15px;
+}
+
+table.ecwid-productBrowser-cart-itemsTable-price-compact {
+        margin-right: 0;
+        margin-left: auto;
+        border-collapse: separate;
+}
+
+div.ecwid-productBrowser-cart-itemsTable-price-compact-times-container {
+        height: 6px;
+        position: relative;
+        width: 14px;
+}
+
+div.ecwid-productBrowser-cart-itemsTable-price-compact-times {
+        font-size: 14px;
+        left: -15px;
+        position: absolute;
+        top: -6px;
+}
+
+td.ecwid-productBrowser-cart-itemsTable-cell-price-compact-times {
+        font-size: 0;
+}
+
+.ecwid-productBrowser-cart-itemsTable-cell-price-compact-subtotal .ecwid-productBrowser-price {
+        padding-left: 15px;
+        border-top: solid 1px #c4c4c4;
+        display: inline;
+}
+
+td.ecwid-productBrowser-cart-itemsTable-cell-price-compact-qty .ecwid-productBrowser-cart-qtyTextField {
+        margin-bottom: 2px;
+}
+
+/* Discount Coupon box */
+div.ecwid-productBrowser-cart-EnterCouponBox {
+	background-color: #f5f5f5;
+	border: 1px solid #c7c7c7;
+	padding: 12px 18px;
+}
+div.ecwid-productBrowser-cart-EnterCouponBox div {
+	display: inline-block;
+	*zoom: 1;
+	*display: inline;
+	vertical-align: top;
+}
+div.ecwid-productBrowser-cart-EnterCouponBox-couponCodeLabel {
+	line-height: 33px;
+}
+div.ecwid-productBrowser-cart-EnterCouponBox .gwt-Button {
+	margin: 4px 0 !important;
+}
+div.ecwid-productBrowser-cart-EnterCouponBox div.ecwid-productBrowser-cart-EnterCouponBox-couponCodeLabel,
+div.ecwid-productBrowser-cart-EnterCouponBox div.ecwid-productBrowser-cart-EnterCouponBox-couponCodeContainer {
+	margin-right: 10px;
+}
+div.ecwid-productBrowser-cart-EnterCouponBox .gwt-Label {
+	font: 16px "trebuchet MS", helvetica, verdana, sans-serif;
+}
+div.ecwid-productBrowser-cart-EnterCouponBox .gwt-TextBox {
+	width: 165px;
+}
+div.ecwid-productBrowser-cart-EnterCouponBox div.ecwid-productBrowser-cart-EnterCouponBox-couponCodeLabel {
+	display: inline;
+}
+div.ecwid-productBrowser-cart-EnterCouponBox div.ecwid-productBrowser-cart-EnterCouponBox-couponCodeContainer {
+	width: 175px;
+}
+
+/* The product options panel */
+div.ecwid-productBrowser-cart-optionsList {
+	font: 14px tahoma, geneva, verdana, sans-serif;
+	color: #ccc;
+	padding-top: 15px;
+	vertical-align: middle;
+}
+.ecwid-productBrowser-cart-optionsList span.gwt-InlineHTML {
+	margin-right: 15px;
+}
+div.ecwid-productBrowser-cart-optionsList button.gwt-Button,
+#wrapper div.ecwid-productBrowser-cart-optionsList button.gwt-Button {
+    vertical-align: middle;
+}
+
+/* The "remove item" buttons */
+div.ecwid-productBrowser-cart-removeItemButton {
+	display: none;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	background: transparent url(icons/remove_item.gif) no-repeat center center;
+	width: 15px;
+	height: 15px;
+	cursor: pointer;
+}
+.ecwid-supports-touch div.ecwid-productBrowser-cart-removeItemButton,
+tr.ecwid-productBrowser-cart-itemsTable-row-selected div.ecwid-productBrowser-cart-removeItemButton {
+    display: block;
+}
+.ecwid-supports-touch div.ecwid-productBrowser-cart-removeItemButton,
+tr.ecwid-productBrowser-cart-itemsTable-lastrow-selected div.ecwid-productBrowser-cart-removeItemButton {
+	display: block;
+}
+/* The amount labels and values in the backgrounded panel */
+table.ecwid-productBrowser-cart-subtotalAmountPanel td,
+table.ecwid-productBrowser-cart-shippingAmountPanel td,
+table.ecwid-productBrowser-cart-taxAmountPanel td {
+    padding-bottom: 10px;
+}
+table.ecwid-productBrowser-cart-totalAmountPanel td {
+    padding: 15px 0 25px 0;
+}
+div.ecwid-productBrowser-cart-subtotalLabel,
+div.ecwid-productBrowser-cart-shippingLabel,
+div.ecwid-productBrowser-cart-taxLabel {
+    font: 14px tahoma, geneva, verdana, sans-serif;
+    color: #ccc;
+}
+div.ecwid-productBrowser-cart-totalLabel {
+    font: 20px tahoma, geneva, verdana, sans-serif;
+    color: #ccc;
+}
+div.ecwid-productBrowser-cart-subtotalAmount,
+div.ecwid-productBrowser-cart-subtotalAmountMinus,
+div.ecwid-productBrowser-cart-shippingAmount,
+div.ecwid-productBrowser-cart-taxAmount {
+    font: 15px tahoma, geneva, verdana, sans-serif;
+    color: #fff;
+    white-space: nowrap;
+	height: 20px;
+}
+div.ecwid-productBrowser-cart-totalAmount {
+    font: 20px tahoma, geneva, verdana, sans-serif;
+    color: #66B22D;
+    white-space: nowrap;
+}
+div.ecwid-productBrowser-cart-shippingAmount-waiting {
+	background: url(icons/ajax-loader.gif) no-repeat 0 2px;
+	height: 20px;
+}
+
+div.ecwid-productBrowser-cart-asterisk {
+    color: #009dde;
+    font: bold 15px tahoma, geneva, verdana, sans-serif;
+}
+table.ecwid-productBrowser-cart-shippingAmountPanel span.ecwid-EcwidHintingLink {
+	font-size: 14px;
+}
+
+/* The shipping and tax note below the backgrounded panel */
+table.ecwid-productBrowser-cart-estimation {
+    width: 230px;
+}
+div.ecwid-productBrowser-cart-estimationNote {
+    font: 14px tahoma, geneva, verdana, sans-serif;
+    color: #ccc;
+    padding-bottom: 4px;
+}
+div.ecwid-productBrowser-cart-estimationNote span {
+    color: #ccc;
+}
+
+table.ecwid-productBrowser-cart-checkoutOptionsPanel {
+	width: 100%;
+}
+
+/* The "Checkout" button on the shopping bag view */
+div.ecwid-productBrowser-cart-checkoutButton,
+div.ecwid-productBrowser-cart-checkoutButton-ie6 {
+    text-align: center;
+    width: 168px;
+    height: 39px;
+    cursor: pointer;
+    outline: none;
+}
+
+/* The "Checkout" button in up state */
+div.ecwid-productBrowser-cart-checkoutButton-up, div.ecwid-productBrowser-cart-checkoutButton-up-hovering,
+div.ecwid-productBrowser-cart-checkoutButton-ie6-up, div.ecwid-productBrowser-cart-checkoutButton-ie6-up-hovering {
+    background: transparent url(icons/checkout.png) no-repeat top center;
+}
+
+/* The "Checkout" button in down state */
+div.ecwid-productBrowser-cart-checkoutButton-down, div.ecwid-productBrowser-cart-checkoutButton-down-hovering,
+div.ecwid-productBrowser-cart-checkoutButton-ie6-down, div.ecwid-productBrowser-cart-checkoutButton-ie6-down-hovering {
+    background: transparent url(icons/checkout.png) no-repeat bottom center;
+}
+
+/* The "Checkout" button in IE6 (hack) */
+div.ecwid-productBrowser-cart-checkoutButton-ie6-up, div.ecwid-productBrowser-cart-checkoutButton-ie6-up-hovering,
+div.ecwid-productBrowser-cart-checkoutButton-ie6-down, div.ecwid-productBrowser-cart-checkoutButton-ie6-down-hovering {
+    background-image: url(icons/checkout.gif);
+}
+
+/* The "Checkout" button on the shopping bag view */
+div.ecwid-productBrowser-cart-naverCheckoutButton,
+div.ecwid-productBrowser-cart-naverCheckoutButton-ie6 {
+    text-align: center;
+    width: 168px;
+    height: 39px;
+    cursor: pointer;
+    outline: none;
+}
+
+/* The "Checkout" button in up state */
+div.ecwid-productBrowser-cart-naverCheckoutButton-up, div.ecwid-productBrowser-cart-naverCheckoutButton-up-hovering,
+div.ecwid-productBrowser-cart-naverCheckoutButton-ie6-up, div.ecwid-productBrowser-cart-naverCheckoutButton-ie6-up-hovering {
+    background: transparent url(icons/naver_checkout_button.png) no-repeat top center;
+}
+
+/* The "Checkout" button in down state */
+div.ecwid-productBrowser-cart-naverCheckoutButton-down, div.ecwid-productBrowser-cart-naverCheckoutButton-down-hovering,
+div.ecwid-productBrowser-cart-naverCheckoutButton-ie6-down, div.ecwid-productBrowser-cart-naverCheckoutButton-ie6-down-hovering {
+    background: transparent url(icons/naver_checkout_button.png) no-repeat bottom center;
+}
+
+/* The "Checkout" button in IE6 (hack) */
+div.ecwid-productBrowser-cart-naverCheckoutButton-ie6-up, div.ecwid-productBrowser-cart-naverCheckoutButton-ie6-up-hovering,
+div.ecwid-productBrowser-cart-naverCheckoutButton-ie6-down, div.ecwid-productBrowser-cart-naverCheckoutButton-ie6-down-hovering {
+    background-image: url(icons/naver_checkout_button.png);
+}
+
+/* The "or use" separator between the checkout options */
+div.ecwid-productBrowser-cart-checkoutOptionsSeparator {
+    font: 12px tahoma, geneva, verdana, sans-serif;
+    padding: 10px;
+}
+
+/* The "Terms and condition" box after the checkout options */
+div.ecwid-productBrowser-cart-termsAndConditions {
+	padding-top: 15px;
+	text-align: center;
+	font: 13px tahoma,geneva,verdana,sans-serif;
+}
+
+/* The "Paypal Express Checkout" button */
+div.ecwid-productBrowser-cart-paypalExpressCheckoutButton {
+    width: 145px;
+    height: 37px;
+    position: relative;
+}
+
+div.ecwid-productBrowser-cart-paypalExpressCheckoutButton img{
+    position: absolute;
+    left: -1px;
+}
+
+/* The "VK Merchant API" button */
+div.ecwid-productBrowser-cart-vkPaymentCheckoutButton {
+    width: 145px;
+    height: 22px;
+}
+
+/* Change product options popup */
+
+.ecwid-productBrowser-cart-changeOptionsPopup div.ecwid-form {
+	max-width: 260px;
+	padding: 20px;
+}
+
+.ecwid-productBrowser-cart-changeOptionsPopup table.ecwid-fieldEnvelope {
+	width: 100%;
+}
+
+.ecwid-productBrowser-cart-changeOptionsPopup label.ecwid-fieldLabel {
+	margin-bottom: 5px;
+}
+
+.ecwid-productBrowser-cart-changeOptionsPopup table.ecwid-productBrowser-details-datePicker {
+	width: auto;
+}
+
+.ecwid-productBrowser-cart-changeOptionsPopup input.gwt-TextBox,
+.ecwid-productBrowser-cart-changeOptionsPopup textarea.gwt-TextArea {
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+.ecwid-productBrowser-cart-changeOptionsPopup input.ecwid-productBrowser-details-optionDateField {
+	max-width: none;
+}
+
+/* The "Choose location & shipping" popup */
+div.ecwid-productBrowser-cart-chooseLocationPopup {
+	width: 666px;
+}
+div.ecwid-productBrowser-cart-chooseLocationPopup div.ecwid-popup-content {
+    padding: 5px 50px 20px 40px;
+}
+div.ecwid-productBrowser-cart-chooseLocationPopup div.ecwid-form {
+	padding: 20px 40px 30px 40px;
+    margin: 6px 5px 10px 5px;
+}
+div.ecwid-productBrowser-cart-chooseLocationPopup select.gwt-ListBox,
+div.ecwid-productBrowser-cart-chooseLocationPopup input.gwt-TextBox {
+    width: 300px;
+}
+div.ecwid-productBrowser-cart-chooseLocationPopup label.ecwid-fieldLabel {
+    font-size: 16px;
+    color: #ccc;
+}
+div.ecwid-productBrowser-cart-chooseLocationPopup-deliveryMethodLabel {
+    font-size: 19px;
+    color: #ccc;
+}
+button.ecwid-productBrowser-cart-chooseLocationPopup-cancelButton {
+    margin-left: 15px;
+}
+button.ecwid-productBrowser-cart-chooseLocationPopup-getQuoteButton {
+    margin: 2px 0 25px 0;
+}
+div.ecwid-productBrowser-cart-chooseLocationPopup span.ecwid-shippingOption {
+	margin: 10px 0;
+    font: normal 16px tahoma, geneva, verdana, sans-serif;
+    color: #fff;
+}
+div.ecwid-productBrowser-cart-chooseLocationPopup div.ecwid-productBrowser-cart-chooseLocationPopup-deliveryMethods-List span.ecwid-shippingOption {
+    margin-left: 0;
+}
+
+div.ecwid-productBrowser-cart-chooseLocationPopup span.ecwid-shippingOption label,
+div.ecwid-productBrowser-cart-chooseLocationPopup span.ecwid-shippingOption label.ecwid-shippingOption-label-ie7 {
+	max-width: 410px;
+	float: none; /* Custom design compatibility fix */
+}
+div.ecwid-productBrowser-cart-chooseLocationPopup div.ecwid-productBrowser-cart-chooseLocationPopup-deliveryMethods-List span.ecwid-shippingOption label {
+	width: auto; /* Custom design compatibility fix */
+}
+div.ecwid-productBrowser-cart-chooseLocationPopup span.ecwid-shippingOption-rate {
+    color: #720909;
+}
+div.ecwid-productBrowser-cart-chooseLocationPopup span.ecwid-shippingOption-none {
+	margin-left: 0;
+}
+div.ecwid-productBrowser-cart-chooseLocationPopup span.ecwid-shippingOption-none label {
+	margin-left: 0;
+}
+
+/*------------------------*/
+/*---- Checkout pages ----*/
+/*------------------------*/
+
+div.ecwid-Checkout-PaymentRightPanel {
+	max-width: 528px;
+}
+
+div.ecwid-Checkout-QIWI-payment-logo {
+	background: url(icons/QIWIlogo_small.png) no-repeat transparent;
+	width: 86px;
+	height: 41px;
+}
+
+div.ecwid-Checkout-QIWI-phone-icon {
+	background: url(icons/phone.png) no-repeat transparent;
+	width: 23px;
+	height: 34px;
+}
+
+div.ecwid-Checkout-QIWI-plus-seven {
+	color: #ccc;
+	font: 18px bold helvetica, arial, verdana, sans-serif;
+}
+
+/* Order invoice on checkout pages */
+div.ecwid-Checkout div.ecwid-Invoice {
+	margin: 30px 30px 20px 30px;
+}
+
+/* The delivery method block */
+div.ecwid-Checkout-DeliveryMethod div.ecwid-form {
+	padding: 10px 30px 20px;
+	width: 303px;
+}
+div.ecwid-Checkout-DeliveryMethod div.ecwid-form > table {
+	width: 100%;
+}
+div.ecwid-Checkout-DeliveryMethod table.ecwid-ButtonEnvelope,
+#wrapper div.ecwid-Checkout-DeliveryMethod table.ecwid-ButtonEnvelope {
+	margin: 20px 20px 15px;
+}
+
+/* Titles of the blocks on checkout */
+div.ecwid-Checkout-blockTitle, table.ecwid-Checkout-blockTitle {
+	margin: 30px 5px 15px 5px;
+}
+div.ecwid-Checkout-blockTitle,
+table.ecwid-Checkout-blockTitle div.gwt-Label,
+table.ecwid-Checkout-blockTitle div.gwt-HTML {
+    font: normal 20px helvetica, arial, verdana, sans-serif;
+    color: #ccc;
+}
+div.ecwid-Checkout-blockTitle .gwt-HTML, table.ecwid-Checkout-blockTitle .gwt-HTML {
+	vertical-align: middle;
+
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+
+	margin-right: 10px;
+}
+div.ecwid-Checkout-blockTitle button.gwt-Button, table.ecwid-Checkout-blockTitle button.gwt-Button {
+	vertical-align: middle;
+}
+
+div.ecwid-CheckoutCollapsableWidget-expandable div.ecwid-Checkout-blockTitle span.ecwid-Checkout-blockTitle-text {
+	border-bottom: 1px dashed #ccc;
+	cursor: pointer;
+}
+
+div.ecwid-CheckoutCollapsableWidget-expandable div.ecwid-Checkout-blockTitle div.ecwid-Checkout-blockTip {
+	margin-top: 3px;
+}
+
+div.ecwid-CheckoutCollapsableWidget div.ecwid-Checkout-blockTitle span.ecwid-collapseToggleButton {
+	width: 11px;
+	height: 11px;
+	cursor: pointer;
+	vertical-align: middle;
+	display: inline-block;
+	*zoom: 1;
+	*display: inline;
+}
+
+div.ecwid-CheckoutCollapsableWidget div.ecwid-Checkout-blockTitle span.ecwid-collapseToggleButton-expanded {
+	background: url(icons/checkout_arrow_close.png) no-repeat;
+	margin-left: 6px;
+	margin-top: 1px;
+}
+
+div.ecwid-CheckoutCollapsableWidget div.ecwid-Checkout-blockTitle span.ecwid-collapseToggleButton-collapsed {
+	background: url(icons/checkout_arrow_open.png) no-repeat;
+	margin-left: 5px;
+}
+
+/* The form for entering e-mail on checkout */
+div.ecwid-Checkout-EmailBlock div.ecwid-form {
+	width: 475px;
+}
+
+div.ecwid-Checkout-EmailBlock div.ecwid-fieldWrapper label.ecwid-fieldLabel {
+	white-space: normal;
+	width: 92px;
+}
+div.ecwid-Checkout-EmailBlock div.ecwid-fieldWrapper input.gwt-TextBox {
+    width: 310px;
+}
+
+/*The panel for "change email" reference*/
+.ecwid-fieldWrapper.ecwid-Checkout-EmailChangeBlock table {
+	width: 325px;
+}
+.ecwid-fieldWrapper.ecwid-Checkout-EmailChangeBlock table div {
+	text-align: right;
+}
+
+/* The form for entering password on checkout */
+div.ecwid-Checkout-PasswordBlock-tip {
+    font: 15px helvetica, arial, verdana, sans-serif;
+    color: #83898f;
+    max-width: 505px;
+}
+
+div.ecwid-Checkout-PasswordBlock div.ecwid-form {
+	width: 475px;
+}
+
+div.ecwid-Checkout-PasswordBlock div.ecwid-fieldWrapper label.ecwid-fieldLabel {
+    width: 122px;
+    padding-right: 10px;
+    white-space: normal;
+}
+div.ecwid-Checkout-PasswordBlock div.ecwid-fieldWrapper input.gwt-PasswordTextBox {
+    width: 310px;
+}
+
+/* The top of the "Enter shipping address" form */
+div.ecwid-Checkout-ShippingAddress-top {
+	background-color: #ccc;
+	text-align: right;
+	padding: 10px 20px;
+}
+
+/* The block for choosing a payment method and enterring data associated with it */
+div.ecwid-PaymentMethodSelector {
+	width: 380px;
+	margin-right: 20px;
+	max-width: 100%;
+}
+
+div.ecwid-PaymentMethodsBlock div.ecwid-form
+div.ecwid-PaymentCommentsBlock div.ecwid-form,
+div.ecwid-PaymentMethodDetailsBlock div.ecwid-form {
+	padding: 3% 5%;
+}
+
+div.ecwid-PaymentMethodsBlock table.ecwid-fieldEnvelope {
+	table-layout: fixed;
+	width: 100%;
+}
+div.ecwid-PaymentMethodsBlock-PaymentOption {
+    padding: 3px 0;
+}
+div.ecwid-PaymentMethodsBlock-PaymentOption span.gwt-RadioButton {
+    font-weight: bold;
+}
+div.ecwid-PaymentMethodsBlock-PaymentOption span.ecwid-PaymentMethodsBlock-PaymentOption-help {
+	padding-left: 8px;
+	font-size: 12px;
+}
+div.ecwid-PaymentMethodsBlock-PaymentOption span.gwt-RadioButton input,
+div.ecwid-PaymentMethodsBlock-PaymentOption span.gwt-RadioButton label {
+	vertical-align: middle;
+}
+div.ecwid-PaymentMethodsBlock-PaymentOption-instructions {
+    padding: 3px 0 2px 20px;
+}
+div.ecwid-PaymentMethodsBlock-PaymentOption-htmlBlock {
+    padding: 3px 0 2px 20px;
+}
+div.ecwid-PaymentMethodsBlock-PaymentOption-htmlBlock img {
+	max-width: 100%;
+}
+div.ecwid-PaymentMethodDetailsBlock-fields {
+    padding: 5px 0;
+}
+div.ecwid-PaymentMethodDetailsBlock-fields div.gwt-Label {
+    font-size: 14px;
+    color: #fff;
+    padding-left: 5px;
+}
+div.ecwid-PaymentMethodDetailsBlock-fields input.gwt-TextBox {
+    width: 310px;
+}
+div.ecwid-PaymentMethodDetailsBlock-fields div.ecwid-fieldWrapper table.ecwid-fieldEnvelope {
+	float: none;
+}
+div.ecwid-PaymentInstructions div.ecwid-form {
+    padding: 20px 15px;
+}
+/* iDEAL Mollie Banks */
+div.ecwid-PaymentMethodExtraDetailsBlockIDEALBanks div.ecwid-form {
+    padding: 15px;
+}
+div.ecwid-PaymentMethodExtraDetailsBlockIDEALBanks-panel {
+	padding: 12px 12px 10px 20px;
+	background-color: #ccc;
+}
+span.ecwid-PaymentMethodExtraDetailsBlockIDEALBanks-RadioButton input {
+    margin-right: 0;
+    margin-top: 4px;
+}
+table.ecwid-PaymentMethodExtraDetailsBlockIDEALBanksBank {
+    cursor: pointer;
+}
+div.ecwid-PaymentMethodExtraDetailsBlockIDEALBanksLbl {
+    font: 11px Tahoma;
+    color: #4e4e4e;
+}
+div.ecwid-PaymentMethodExtraDetailsBlockIDEALBanksLbl-over {
+    font: 11px Tahoma;
+    color: #ccc;
+}
+img.ecwid-PaymentMethodExtraDetailsBlockIDEALBanksImg {
+    border: 1px solid #a2a2a2;
+}
+img.ecwid-PaymentMethodExtraDetailsBlockIDEALBanksImg-over {
+    border: 1px solid #ccc;
+}
+img.ecwid-PaymentMethodExtraDetailsBlockIDEALBanksImg-selected {
+    border: 4px solid #ccc;
+}
+div.ecwid-PaymentMethodExtraDetailsBlockIDEALBanks-fieldEnvelope-label {
+    margin-bottom: -15px;
+}
+table.ecwid-PaymentMethodExtraDetailsBlockIDEALBanks-fieldEnvelope {
+    margin-left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.ecwid-PaymentCommentsBlock .ecwid-PaymentCommentsBlock-textarea {
+	width: 95%;
+	padding: 3px 7px;
+	resize: none;
+}
+
+.ecwid table.ecwid-AccentedContinueButton {
+	margin: 30px auto 10px;
+	max-width: 303px;
+	width: 100%;
+}
+.ecwid div.ecwid-AccentedContinueButton-label {
+	font: normal 11px/13px "trebuchet MS", helvetica, verdana, sans-serif;
+	color: #b80000;
+	margin-top: 8px;
+}
+
+
+/* --- iDEAL Mollie Banks --- */
+
+/* The "Place Order" button */
+div.ecwid-Checkout-placeOrderButton,
+div.ecwid-Checkout-placeOrderButton-ie6 {
+	width: 168px;
+	height: 39px;
+	cursor: pointer;
+	outline: none;
+
+	display: inline-block;
+	*zoom: 1;
+	*display: inline;
+}
+
+/* The "Place Order" button in up state */
+div.ecwid-Checkout-placeOrderButton-up, div.ecwid-Checkout-placeOrderButton-up-hovering,
+div.ecwid-Checkout-placeOrderButton-ie6-up, div.ecwid-Checkout-placeOrderButton-ie6-up-hovering {
+    background: transparent url(icons/place_order.png) no-repeat top center;
+}
+
+/* The "Place Order" button in down state */
+div.ecwid-Checkout-placeOrderButton-down, div.ecwid-Checkout-placeOrderButton-down-hovering,
+div.ecwid-Checkout-placeOrderButton-ie6-down, div.ecwid-Checkout-placeOrderButton-ie6-down-hovering {
+    background: transparent url(icons/place_order.png) no-repeat bottom center;
+}
+
+/* The "Place Order" button in IE6 (hack) */
+div.ecwid-Checkout-placeOrderButton-ie6-up, div.ecwid-Checkout-placeOrderButton-ie6-up-hovering,
+div.ecwid-Checkout-placeOrderButton-ie6-down, div.ecwid-Checkout-placeOrderButton-ie6-down-hovering {
+    background-image: url(icons/place_order.gif);
+}
+
+/* The breadcrumbs on checkout */
+.ecwid-Checkout table.ecwid-Checkout-BreadCrumbs {
+	margin-top: 25px;
+	margin-left: auto;
+	margin-right: auto;
+}
+table.ecwid-Checkout-BreadCrumbs-Horizontal {
+}
+.ecwid-Checkout table.ecwid-Checkout-BreadCrumbs-Vertical {
+	margin-left: 3%;
+	width: 97%;
+}
+div.ecwid-Checkout-BreadCrumbs-link {
+	font: 13px "trebuchet MS", helvetica, verdana, sans-serif;
+	color: #64707a;
+	cursor: default;
+	text-decoration: none;
+	white-space: nowrap;
+	padding: 0;
+	margin-left: 10px;	
+	margin-right: 10px;
+
+	vertical-align: top;
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+.ecwid-Checkout-BreadCrumbs-Vertical div.ecwid-Checkout-BreadCrumbs-link {
+	vertical-align: middle;
+}
+div.ecwid-Checkout-BreadCrumbs-link-current {
+    color: #ccc;
+    border-bottom: 3px solid #1ec8aa;
+}
+div.ecwid-Checkout-BreadCrumbs-link-visited {
+    color: #ccc;
+    cursor: pointer;
+}
+div.ecwid-Checkout-BreadCrumbs-point {
+    background: transparent url(icons/checkout_point_not_visited.png) no-repeat;
+    filter:expression(fixPNG_crop(this));
+    width: 13px;
+    height: 13px;
+    cursor: default;
+}
+div.ecwid-Checkout-BreadCrumbs-point-visited {
+    background: transparent url(icons/checkout_point_visited.png) no-repeat;
+    filter:expression(fixPNG_crop(this));
+    width: 13px;
+    height: 13px;
+    cursor: pointer;
+}
+div.ecwid-Checkout-BreadCrumbs-point-current {
+    background: transparent url(icons/checkout_point_current.png) no-repeat;
+    filter:expression(fixPNG_crop(this));
+    width: 13px;
+    height: 13px;
+}
+div.ecwid-Checkout-BreadCrumbs-section {
+	background: transparent url(icons/checkout_section_not_visited.gif) repeat-x;
+	height: 13px;
+}
+div.ecwid-Checkout-BreadCrumbs-section-visited {
+	background: transparent url(icons/checkout_section_visited.gif) repeat-x;
+	height: 13px;
+}
+.ecwid-Checkout-BreadCrumbs-Vertical div.ecwid-Checkout-BreadCrumbs-section {
+	background: #abb2b7;
+	width: 1px;
+	height: 13px;
+	margin: 0 auto;
+}
+.ecwid-Checkout-BreadCrumbs-Vertical div.ecwid-Checkout-BreadCrumbs-section-visited {
+	background: #1e7ccd;
+}
+
+
+/*--------------------------------*/
+/*---- "Your Account" section ----*/
+/*--------------------------------*/
+
+/* The common parts of the "Your Account" section */
+div.ecwid-Account div.ecwid-productBrowser-head {
+    padding-bottom: 20px;
+}
+div.ecwid-Account table.ecwid-categoriesTabBar table.gwt-TabBarItem a span {
+    font-size: 21px;
+}
+div.ecwid-Account table.ecwid-categoriesTabBar div.tabMiddleCenterInner {
+    padding-bottom: 3px;
+    position: relative;
+    top: -2px;
+}
+div.ecwid-Account-content {
+    padding: 20px;
+}
+div.ecwid-Account-ContinueShoppingButtonContainer {
+    text-align: right;
+}
+
+div.ecwid-Account .ecwid-AccountSettings .ecwid-fieldWrapper-membership {
+	margin-top: 8px;
+}
+
+div.ecwid-Account .ecwid-AccountSettings .ecwid-membership {
+	margin-left: 2px;
+    width: 297px;
+    min-height: 23px;
+    padding: 7px 5px 10px;
+    color: #fff;
+}
+
+/* Address book in the "Your account" section */
+div.ecwid-Account-AddressBook div.ecwid-Account-ContinueShoppingButtonContainer {
+    padding-top: 15px;
+    margin-right: 50px;
+    margin-top: 5px;
+    border-top: solid 1px #c4c4c4;
+}
+
+/* "Account settings" subsection */
+button.ecwid-AccountSettings-SaveButton,
+#wrapper button.ecwid-AccountSettings-SaveButton {
+    margin: 15px 0 30px 0;
+}
+div.ecwid-AccountSettings div.ecwid-Account-ContinueShoppingButtonContainer {
+    padding-top: 15px;
+    margin-top: 5px;
+    border-top: solid 1px #c4c4c4;
+}
+div.ecwid-AccountSettings div.ecwid-form {
+    width: 455px;
+}
+div.ecwid-AccountSettings-NameAndEmail div.ecwid-fieldWrapper label.ecwid-fieldLabel {
+    width: 130px;
+    white-space: normal;
+}
+div.ecwid-AccountSettings-NameAndEmail input.gwt-TextBox {
+    width: 305px;
+}
+div.ecwid-AccountSettings-Password div.ecwid-fieldWrapper label.ecwid-fieldLabel {
+    width: 160px;
+    padding-right: 10px;
+    white-space: normal;
+}
+div.ecwid-AccountSettings-Password input.gwt-PasswordTextBox {
+    width: 220px;
+}
+
+/* The "Orders" subsection */
+div.ecwid-Orders {
+    max-width: 1000px;
+	width: 100%;
+}
+div.ecwid-Orders div.ecwid-Account-ContinueShoppingButtonContainer {
+    padding-top: 20px;
+}
+div.ecwid-Orders-SearchPanel {
+    margin-bottom: 15px;
+}
+div.ecwid-Orders-SearchPanel input.gwt-TextBox,
+div.ecwid-Orders-SearchPanel button.gwt-Button,
+#wrapper div.ecwid-Orders-SearchPanel button.gwt-Button {
+    margin: 0 4px;
+}
+div.ecwid-Orders-SearchPanel .ecwid-DateRangeBox {
+	margin-left: auto;
+}
+div.ecwid-Orders div.ecwid-results-topPanel-itemsCountLabel {
+    position: relative;
+    left: 5px;
+    top: -5px;
+}
+div.ecwid-Orders-EmptyList {
+    background-color: #444;
+    text-align: center;
+    padding: 45px;
+}
+table.ecwid-OrdersList-OrderBox {
+    border-collapse: collapse;
+    border: solid 1px #cbd3d4;
+    margin-bottom: 30px;
+    text-align: center;
+	width: 100%;
+}
+td.ecwid-OrdersList-OrderBox-header {
+    background-color: #000;
+    color: #2f2f2f;
+    font-size: 17px;
+    padding: 10px 15px;
+}
+td.ecwid-OrdersList-OrderBox-header-orderdescr {
+    color: #fff;
+    text-align: left;
+}
+td.ecwid-OrdersList-OrderBox-header-orderdescr div {
+    white-space: nowrap;
+    padding-right: 20px;
+    display: inline-block;
+}
+td.ecwid-OrdersList-OrderBox-header-orderdescr span {
+    color: #ccc;
+}
+td.ecwid-OrdersList-OrderBox-footer {
+    background-color: #222;
+    padding: 10px 15px;
+}
+td.ecwid-OrdersList-OrderBox-cell {
+    border: solid 1px #cbd3d4;
+    padding: 10px 15px;
+}
+td.ecwid-OrdersList-OrderBox-cellEven {
+    background-color: #222;
+}
+td.ecwid-OrdersList-OrderBox-cellOdd {
+    background-color: #ffffff;
+}
+td.ecwid-OrdersList-OrderBox-thumbnail {
+    padding: 10px;
+    vertical-align: top;
+}
+td.ecwid-OrdersList-OrderBox-thumbnail img {
+    cursor: pointer;
+}
+td.ecwid-OrdersList-OrderBox-itemdescr {
+    text-align: left;
+    vertical-align: top;
+}
+td.ecwid-OrdersList-OrderBox-itemdescr div.ecwid-EgoodsComponent {
+    margin: 7px 0;
+    background-color: #ffffff;
+}
+td.ecwid-OrdersList-OrderBox-qty {
+    font-size: 16px;
+    padding: 10px 15px;
+	text-align:center;
+}
+td.ecwid-OrdersList-OrderBox-price {
+    font-size: 16px;
+    text-align: right;
+    color: #ccc;
+    padding: 10px;
+    white-space: nowrap;
+}
+div.ecwid-OrdersList-OrderBox-sku {
+    font-size: 12px;
+}
+div.ecwid-OrdersList-OrderBox-product {
+    padding-top: 5px;
+	color: #fff;
+	font: normal 17px tahoma, geneva, verdana, sans-serif;
+}
+
+div.ecwid-OrdersList-OrderBox-product a,
+div.ecwid-OrdersList-OrderBox-product a:active,
+div.ecwid-OrdersList-OrderBox-product a:visited {
+    font: normal 17px tahoma, geneva, verdana, sans-serif;
+    color: #fff;
+    text-decoration: underline;
+}
+
+div.ecwid-OrdersList-OrderBox-options {
+    padding: 5px 1px;
+    font: normal 13px tahoma, geneva, verdana, sans-serif;
+    color: #ccc;
+}
+div.ecwid-OrdersList-OrderBox-status,
+table.ecwid-OrdersList-OrderBox-totals {
+    font: normal 17px tahoma, geneva, verdana, sans-serif;
+    color: #2f2f2f;
+}
+.ecwid table.ecwid-OrdersList-OrderBox-totals {
+    white-space: nowrap;
+	margin-left: auto;
+}
+div.ecwid-OrdersList-OrderBox-status span {
+    color: #0e766d;
+}
+td.ecwid-OrdersList-OrderBox-totals-price {
+    font-size: 16px;
+    color: #ccc;
+    text-align: right;
+    padding-left: 20px;
+}
+td.ecwid-OrdersList-OrderBox-totals-title {
+	text-align: left;
+}
+tr.ecwid-OrdersList-OrderBox-totals-total td {
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+div.ecwid-MaskableWidget {
+	position: relative;
+}
+div.ecwid-MaskableWidget .ecwid-mask {
+    z-index: 20000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.60;
+    filter: alpha(opacity=60);
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    zoom: 1;
+}
+div.ecwid-MaskableWidget .ecwid-animask {
+    position: absolute;
+	z-index: 20001;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: url(icons/loadingAnimation.gif) center no-repeat;
+    zoom: 1;
+}
+
+/* The message box displayed when the storefront is closed */
+div.ecwid-maintenance-popup {
+	border: 8px solid #ececec;
+    font: normal 17px tahoma, geneva, verdana, sans-serif;
+	background-color: #ffffff;
+    color: #ccc;
+	padding: 35px 45px;
+    margin: 60px;
+	text-align: center;
+}
+div.ecwid-maintenance-staff-text {
+	margin: 5px 0 0 0;
+}
+div.ecwid-maintenance-staff-message {
+	color: #224466;
+}
+
+/******************************************************************************/
+/************************ Compact Gadget Widget classes ***********************/
+/******************************************************************************/
+
+table.ecwid-CompactGadget {
+    border: solid 1px #d4d0c8;
+    background-color: #ffffff;
+}
+td.ecwid-CompactGadget-left {
+    width: 16px;
+    cursor: pointer;
+}
+td.ecwid-CompactGadget-left-mouseover {
+    background: url(icons/gadget_over_left.gif) repeat-y left center;
+}
+td.ecwid-CompactGadget-left-disabled {
+    background: none;
+    cursor: default;
+}
+div.ecwid-CompactGadget-left-arrow {
+    position: relative;
+    left: -1px;
+    height: 19px;
+    background: url(icons/gadget_left_arrow.gif) no-repeat left center;
+}
+td.ecwid-CompactGadget-left-disabled div.ecwid-CompactGadget-left-arrow {
+    background: none;
+}
+td.ecwid-CompactGadget-right {
+    width: 16px;
+    cursor: pointer;
+}
+td.ecwid-CompactGadget-right-mouseover {
+    background: url(icons/gadget_over_right.gif) repeat-y right center;
+}
+td.ecwid-CompactGadget-right-disabled {
+    background: none;
+    cursor: default;
+}
+div.ecwid-CompactGadget-right-arrow {
+    position: relative;
+    right: -1px;
+    height: 19px;
+    background: url(icons/gadget_right_arrow.gif) no-repeat right center;
+}
+td.ecwid-CompactGadget-right-disabled div.ecwid-CompactGadget-right-arrow {
+    background: none;
+}
+div.ecwid-CompactGadget-header {
+    text-align: center;
+    padding-top: 8px;
+    font: bold 14px tahoma, geneva, verdana, sans-serif;
+    color: #fff;
+}
+div.ecwid-CompactGadget-openStoreButton {
+    padding-bottom: 12px;
+}
+td.ecwid-CompactGadget-openStoreButton-left {
+    background: url(icons/gadget_button_left.gif);
+    width: 16px;
+    height: 23px;
+}
+td.ecwid-CompactGadget-openStoreButton-center {
+    background: url(icons/gadget_button_center.gif) repeat-x;
+    height: 23px;
+    font: bold 14px tahoma, geneva, verdana, sans-serif;
+    color: #1e8fbf;
+}
+td.ecwid-CompactGadget-openStoreButton-right {
+    background: url(icons/gadget_button_right.gif);
+    width: 16px;
+    height: 23px;
+}
+div.ecwid-CompactGadget-price {
+    font-family: tahoma, geneva, verdana, sans-serif;
+    font-weight: bold;
+    color: #66B22D;
+}
+
+table.ecwid-CompactGadget-grid div.ecwid-CompactGadget-price {
+    font-size: 14px;
+    padding: 10px;
+}
+
+table.ecwid-CompactGadget-table {
+    border-collapse: collapse;
+}
+td.ecwid-CompactGadget-table-header {
+    font: bold 12px tahoma, geneva, verdana, sans-serif;
+    background-color: #5f5f5f;
+    color: #ffffff;
+    padding: 2px;
+}
+td.ecwid-CompactGadget-table-cell {
+    border: solid 1px #cbd3d4;
+    padding: 6px 8px;
+}
+tr.ecwid-CompactGadget-table-oddRow {
+    background-color: #ffffff;
+}
+tr.ecwid-CompactGadget-table-evenRow {
+    background-color: #222;
+}
+div.ecwid-CompactGadget-table-productNameLink {
+    display: inline;
+    font: normal 13px tahoma, geneva, verdana, sans-serif;
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+table.ecwid-CompactGadget-table div.ecwid-CompactGadget-price {
+    font-size: 13px;
+    padding-right: 5px;
+}
+div.ecwid-CompactGadget-table-bagIcon {
+    background: url(icons/gadget_bag.gif) no-repeat center center;
+    width: 19px;
+    height: 17px;
+    cursor: pointer;
+}
+
+div.ecwid-productBrowser-cart-termsCheckbox-rollover {
+    background-color: #ffd03f;
+}
+
+div.ecwid-productBrowser-cart-termsCheckbox {
+    padding: 7px 3px;
+    font: 12px helvetica, arial, verdana, sans-serif;
+    text-align: center;
+    margin: 0 -15px 9px -15px;
+}
+div.ecwid-productBrowser-cart-termsCheckbox span.gwt-CheckBox input {
+    margin-right: 5px;
+}
+
+div.ecwid-productBrowser-cart-termsCheckbox span.gwt-CheckBox label {
+    vertical-align: baseline;
+}
+
+.ecwid div.ecwid-productBrowser-cart-termsCheckbox a, 
+.ecwid div.ecwid-productBrowser-cart-termsCheckbox a:active,
+.ecwid div.ecwid-productBrowser-cart-termsCheckbox a:visited {
+    font: 12px helvetica, arial, verdana, sans-serif;
+}
+
+/* Facebook Social Plugins styles */
+div.ecwid-productBrowser-productsGrid-like {
+	padding-top: 13px;
+}
+div.ecwid-productBrowser-productsGrid-like div.ecwid-productBrowser-likeButton {
+	text-align: center;
+	padding-left: 10px;
+}
+div.ecwid-productBrowser-productsList-like {
+	padding-bottom: 10px;
+}
+div.ecwid-productBrowser-productsList-like div.ecwid-productBrowser-likeButton {
+	padding-left: 5px;
+}
+div.ecwid-productBrowser-details-like {
+	padding-bottom: 10px;
+}
+
+/* Adjustments to facebook popup elements */
+div.ecwid-productBrowser-likeButton span.fb_edge_comment_widget {
+    position: absolute;
+}
+div.ecwid-productBrowser-sharePanel-buttonsContainer-item span.fb_edge_comment_widget {
+    left: -192px !important;
+}
+
+div.ecwid-productBrowser-commentsWidget {
+	padding-top: 20px;
+}
+
+div.ecwid-productBrowser-nav {
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+	position: relative;
+}
+
+div.ecwid-productBrowser-details-rightPanel div.ecwid-productBrowser-nav div.ecwid-productBrowser-backgroundedPanel {
+	margin: 0;
+    position: relative;
+    padding-top: 0;
+    *padding: 0;
+    height: 22px;
+}
+
+div.ecwid-productBrowser-details-rightPanel .ecwid-productBrowser-likeButton iframe,
+div.ecwid-productBrowser-details-rightPanel .ecwid-productBrowser-likeButton div {
+	width: 0;
+}
+
+a.ecwid-productBrowser-nav-left {
+    position: absolute;
+    left: 0;
+    right: 50%;
+}
+a.ecwid-productBrowser-nav-right {
+    position: absolute;
+    left: 50%;
+    right: 0;
+}
+div.ecwid-productBrowser-nav-hidden {
+	cursor: default;
+	display: none;
+}
+
+a.ecwid-productBrowser-nav-left, a.ecwid-productBrowser-nav-right {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	width: 50%;
+	vertical-align: middle;
+	height: 22px;
+}
+
+a.ecwid-productBrowser-nav-left {
+	background: url(icons/prevnext.png) center -22px no-repeat;
+}
+
+a.ecwid-productBrowser-nav-right {
+	background: url(icons/prevnext.png) center -66px no-repeat;	
+}
+
+a.ecwid-productBrowser-nav-left:hover,
+a.ecwid-productBrowser-nav-left:active {
+	background: url(icons/prevnext.png) center 0 no-repeat;
+}
+
+a.ecwid-productBrowser-nav-right:hover,
+a.ecwid-productBrowser-nav-right:active {
+	background: url(icons/prevnext.png) center -44px no-repeat;
+}
+
+.ecwid-productBrowser-details-rightPanel div.ecwid-productBrowser-sharePanel-header {
+	background: #e5e5e5;
+	height: 20px;
+	padding: 0 0 0 16px;
+}
+
+.ecwid-productBrowser-details-rightPanel .ecwid-productBrowser-sharePanel-icon {
+	background: url(icons/share_ico.png) no-repeat left center;
+	font: 13px tahoma, geneva, verdana, sans-serif;
+	vertical-align: baseline;
+	width: 15px;
+	display: inline-block;
+	*zoom: 1;
+	*display: inline;
+	margin-left: 1px;
+}
+
+a.ecwid-productBrowser-sharePanel-headerLabel,
+a.ecwid-productBrowser-sharePanel-headerLabel:visited,
+a.ecwid-productBrowser-sharePanel-headerLabel:active {
+	text-decoration: none;
+	vertical-align: baseline;
+	margin-left: 5px;
+	display: inline-block;
+	*zoom: 1;
+	*display: inline;
+}
+
+.ecwid-productBrowser-details-rightPanel .ecwid-productBrowser-sharePanel-buttonsContainer {
+	background-color:#fff;
+	border: #cccccc 1px solid;
+	padding: 10px 0 0 10px;
+}
+
+.ecwid-productBrowser-details-rightPanel .ecwid-productBrowser-sharePanel-buttonWrapper {
+	display: inline;
+	*zoom: 1;
+	*display: inline;
+}
+
+.ecwid-productBrowser-details-rightPanel .ecwid-productBrowser-sharePanel-buttonsContainer-item {
+	padding: 0 10px 10px 0;
+	height: 20px;
+	vertical-align: top;
+	display: inline-block;
+	*zoom: 1;
+	*display: inline;
+}
+
+.ecwid-productBrowser-details-rightPanel div.ecwid-productBrowser-sharePanel-waiting {
+	width: 24px;
+	height: 24px;
+	background: #ccc;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	opacity: 0.6;
+	filter: alpha(opacity=80);
+	margin: auto;
+}
+
+.ecwid-productBrowser-details-rightPanel div.ecwid-productBrowser-sharePanel-waiting-icon {
+	width: 20px;
+	height: 20px;
+	background: url(icons/ajax-loader-white.gif) no-repeat 2px 4px;
+	margin: auto;
+}
+
+.ecwid div.ecwid-vklikepanel {
+	padding: 0;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+.ecwid div.ecwid-vklikepanel-container {
+	display: inline;
+    font-family: tahoma,verdana,arial,sans-serif,Lucida Sans;
+    font-size: 11px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    text-align: left;
+}
+
+.ecwid div.ecwid-vklikepanel-wrap {
+	border: 1px solid #3b6798;
+	border-radius: 2px;
+	float: left;
+}
+
+.ecwid div.ecwid-vklikepanel-likewrap {
+	background-color: #6d8fb3;
+	border-color: #7e9cbc #5c82ab #5c82ab;
+	border-radius: 1px;
+	border-right: 1px solid #5c82ab;
+	border-style: solid;
+	border-width: 1px;
+	color: #ffffff;
+	float: left;
+	padding: 1px;
+	text-shadow: 0 1px 0 #45688e;
+}
+
+.ecwid div.ecwid-vklikepanel-like {
+	text-align: left;
+    height: 15px;
+    overflow: hidden;
+    padding: 0 3px 0 6px;
+}
+
+.ecwid div.ecwid-vklikepanel-like-hover {
+	background-color: #7997b7;
+}
+
+.ecwid div.ecwid-vklikepanel-like-pressed {
+	background-color: #6688ad;
+	border-color: #51769e #51779f #7495b8;
+}
+
+.ecwid div.ecwid-vklikepanel-icon {
+    background: url(icons/vk.png) no-repeat scroll 0 0 transparent;
+    border-radius: 2px;
+    display: inline-block;
+    height: 21px;
+    margin: 0 -2px;
+    width: 22px;
+}
+
+span.ecwid-DiscountInfoLabel-discountInfo {
+	background: url(icons/question_icon.png) no-repeat scroll 0 0 transparent;
+	width: 9px;
+	height: 10px;
+	position: absolute;
+	cursor: pointer;
+	padding: 5px 0;
+	margin: 0 1px;
+}
+
+.ecwid-DiscountInfoLabel-discountInfoPopup {
+	margin-right: 4px;
+}
+
+.ecwid-DiscountInfoLabel-discountInfoPopup div.ecwid-ShadowedPopupPanel-content,
+.ecwid-DiscountInfoLabel-discountInfoPopup div.ecwid-EcwidHintingLink-Popup,
+.ecwid-DiscountInfoLabel-discountInfoPopup div.ecwid-ShadowedPopupPanel-shadow {
+	border-radius: 10px;
+}
+
+.ecwid-DiscountInfoLabel-discountHint ul {
+	margin-bottom: 0;
+	margin-top: 0;
+	padding-left: 15px;
+}
+
+div.ecwid-ppReview-block {
+	padding: 12px 0 20px;
+	line-height: 20px;
+	background-color: #000;
+	margin: 3px;
+	vertical-align: top;
+}
+
+div.ecwid-ppReview-sidebar-hor div.ecwid-ppReview-block {
+	margin: 2px;
+	width: 181px;
+}
+
+div.ecwid-ppReview-totals-block {
+	border-top: 4px solid #d8e6f1;
+}
+
+div.ecwid-ppReview-sidebar-hor div.ecwid-Invoice-Summary-label {
+	padding-left: 12px;
+}
+
+div.ecwid-ppReview-sidebar-hor div.ecwid-Invoice-Summary-value {
+	padding-right: 12px;
+}
+
+div.ecwid-ppReview-sidebar-ver div.ecwid-Invoice-Summary-label {
+	padding-left: 18px;
+}
+
+div.ecwid-ppReview-sidebar-ver div.ecwid-Invoice-Summary-value {
+	padding-right: 18px;
+}
+
+div.ecwid-compact div.ecwid-ppReview-sidebar-hor div.ecwid-Invoice-Summary-label {
+	padding-left: 5px;
+	padding-right: 0;
+}
+
+div.ecwid-compact div.ecwid-ppReview-sidebar-hor div.ecwid-Invoice-Summary-value {
+	padding-right: 5px;
+	padding-left: 0;
+}
+
+div.ecwid-compact div.ecwid-ppReview-sidebar-ver div.ecwid-Invoice-Summary-label {
+	padding-left: 5px;
+	padding-right: 0;
+}
+
+div.ecwid-compact div.ecwid-ppReview-sidebar-ver div.ecwid-Invoice-Summary-value {
+	padding-right: 5px;
+	padding-left: 0;
+}
+div.ecwid-compact div.ecwid-Invoice-Summary-label-price,
+div.ecwid-compact div.ecwid-Invoice-Summary-value-price {
+	font-size: 14px;
+}
+
+div.ecwid-ppReview-block div.ecwid-Invoice-block {
+	padding-left: 18px;
+	padding-right: 2px;
+}
+
+div.ecwid-ppReview-sidebar-hor div.ecwid-ppReview-block div.ecwid-Invoice-block {
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+div.ecwid-ppReview-sidebar-hor {
+	white-space: nowrap;
+}
+
+div.ecwid-ppReview-sidebar-hor > div {
+	white-space: normal;
+}
+
+div.ecwid-ppReview-sidebar-hor div.ecwid-ppReview-block {
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	border-top: 4px solid #d8e6f1;
+}
+div.ecwid-ppReview-sidebar-ver {
+	width: 223px;
+	margin-top: 7px;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	vertical-align:top;
+	margin-bottom: 20px;
+}
+
+div.ecwid-amexPaymentForm {
+	background-color: #000;
+	display: inline-block;
+	font: 1em helvetica, arial, verdana, sans-serif;
+	margin-top: 10px;
+	margin-right: 66px;
+	min-width: 450px;
+	position: static;
+}
+
+div.ecwid-amexReview {
+    padding: 32px 25px 0;
+	position: relative;
+}
+
+div.ecwid-amexSecureTitle {
+    background: url("icons/paymentlock.png") no-repeat 0 3px transparent;
+    font-size: 25px;
+	padding-left: 36px;
+	padding-bottom: 6px;
+	vertical-align: middle;
+}
+
+
+div.ecwid-amexCheckedField {
+	background: none;
+	float: left;
+	padding-right: 0;
+}
+
+div.ecwid-amexCheckedField.checked {
+	background: url("icons/amex_tick.png") no-repeat scroll right center transparent;
+	padding-right: 26px;
+}
+
+div.ecwid-amexDateCheck, div.ecwid-amexDateCheck.checked {
+	padding-right: 19px;
+}
+
+div.ecwid-amexDateCheck.checked {
+	background: url("icons/amex_tick.png") no-repeat scroll right center transparent;
+	margin-bottom: 4px;
+}
+
+div.ecwid-amexCardPanel {
+	display: inline-block;
+	float: left;
+	margin: 5px;
+	padding-right: 26px;
+}
+
+div.ecwid-amexCardPanel.checked {
+	padding-right: 0;
+}
+
+div.ecwid-cardIcon {
+	background: url("icons/cc_icons.png");
+	background: none, url("icons/cc_icons@2x.png");
+	background-size: 600% 100%;
+	display: inline-block;
+	float: left;
+	height: 25px;
+	margin: 0 3px 0 4px;
+	width: 35px;
+}
+
+div.ecwid-cardIcon.disabled {
+	opacity: 0.25;
+	filter: Alpha(opacity=25);
+}
+
+div.ecwid-cardIcon.unknown {
+	opacity: 0.85;
+	filter: Alpha(opacity=85);
+}
+
+div.ecwid-cardIcon-masterCard {
+	background-position: 0 0;
+}
+
+div.ecwid-cardIcon-visa {
+	background-position: -35px 0;
+}
+
+div.ecwid-cardIcon-amex {
+	background-position: -70px 0;
+}
+
+div.ecwid-cardIcon-discover {
+	background-position: -105px 0;
+}
+
+div.ecwid-cardIcon-dinersClub {
+	background-position: -140px 0;
+}
+
+div.ecwid-cardIcon-jcb {
+	background-position: -175px 0;
+}
+
+div.ecwid-cardIcon.disabled,
+div.ecwid-cardIcon.unknown,
+div.ecwid-cardIcon-masterCard,
+div.ecwid-cardIcon-visa,
+div.ecwid-cardIcon-amex,
+div.ecwid-cardIcon-discover,
+div.ecwid-cardIcon-dinersClub,
+div.ecwid-cardIcon-jcb {
+	-webkit-transition: opacity 400ms ease;
+	-moz-transition: opacity 400ms ease;
+	-ms-transition: opacity 400ms ease;
+	transition: opacity 400ms ease;
+}
+
+div.ecwid-amexCardTip {
+	background: url("icons/tip_other_card.png") transparent no-repeat;
+	bottom: 100%;
+	display: block;
+	height: 103px;
+	left: -50%;
+	position: absolute;
+	width: 179px;
+}
+
+div.ecwid-amexCardTip.hide {
+	display: none;
+}
+
+div.ecwid-amexCardTip.amex {
+	background: url("icons/tip_amex_card.png") transparent no-repeat;
+}
+
+div.ecwid-amexField-label {
+		clear: left;
+		font-size: 18px;
+		padding-top: 25px;
+}
+
+div.ecwid-amexField-hint {
+		font-size: 14px;
+}
+
+input.ecwid-amexTextField {
+	font-size: 18px;
+	color: #333333;
+	outline: none;
+	padding: 1px 5px;
+	height: 23px;
+}
+
+div.ecwid-amexParagraph {
+	display: inline-block;
+	padding-top: 4px;
+}
+
+.ecwid-amexDatePanel {
+	border-spacing: 0;
+}
+
+.ecwid-amexDatePanel.error {
+	border: 2px solid #b80000;
+}
+
+select.ecwid-amexDateList {
+	color: #333333;
+	font-size: 14px;
+	width: 100%;
+	text-align: center;
+}
+	
+div.ecwid-amexDateHint {
+	font-size: 11px;
+	color: #888888;
+	padding-top: 3px;
+    text-align: center;
+    vertical-align: top;
+    width: 55px;
+}
+
+div.ecwid-amexDateCheck {
+		height: 15px;
+}
+		
+div.ecwid-amexTipPanel {
+	display: inline-block;
+	margin: 0 11px;
+	position: relative;
+	vertical-align: middle;
+	line-height: 31px;
+}		
+	
+div.ecwid-amexTipPanel a, div.ecwid-amexTipPanel a:active,
+div.ecwid-amexTipPanel a:visited {
+	font-size: 11px;
+	border-bottom: 1px dashed #ccc;
+	text-decoration: none;
+	display: inline-block;
+    line-height: 1em;
+}
+
+div.ecwid-amexPayButton {
+	padding: 22px 0 38px 3px;
+}
+
+input.ecwid-amex-cardNumberField {
+	width: 275px;
+}
+
+input.ecwid-amex-cSCField {
+	width: 50px;
+}
+
+div.ecwid-amexReview div.ecwid-AddressForm-secureLockIcon {
+	left: 100%;
+	top: 100%;
+	margin-left: -42px;
+	margin-top: -42px;
+	position: absolute;
+}
+	
+div.ecwid-amexReview button.ecwid-AccentedButton {
+	font-size: 20px;
+	height: 1.7em;
+	padding: 0.2em 2.2em 0.225em;
+}
+
+div.ecwid-ppReview iframe {
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+}
+
+div.ecwid-ppReview {
+	margin-top: 20px;
+}
+
+div.ecwid-extForm-errorContainer {
+	border-radius: 6px;
+	background: #efc2b0;
+	color: #7f0000;
+	font-size: 14px;
+	max-width: 571px;
+	overflow: hidden;
+}
+
+div.ecwid-extForm-errorInner {
+	padding: 14px;
+}
+
+div.ecwid-extForm-errorTitle {
+	font-weight: bold;
+	margin-bottom: 7px;
+}
+
+div.ecwid-extForm-errorMessage {
+}
+
+div.ecwid-animation-errorMessageSlideDownFadeIn-from {
+	opacity: 0;
+	max-height: 0;
+	margin: 0;
+}
+
+div.ecwid-animation-errorMessageSlideDownFadeIn-to {
+	opacity: 1;
+	max-height: 150px;
+	margin: 10px 0 0 0;
+}
+
+div.ecwid-animation-errorMessageSlideDownFadeIn-transition {
+	-webkit-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	transition: all 300ms ease;
+}
+
+.PlainButton {
+    background-color: #2683ae;
+    border-radius: 2px;
+    color: #ccc;
+    cursor: pointer;
+    height: 28px;
+    min-width: 100px;
+}
+.PlainButton:active {
+    opacity: 0.8;
+}
+.PlainButton-disabled, .PlainButton-disabled:active {
+    cursor: default;
+    opacity: 0.4;
+}
+.PlainButton-icon {
+    padding-left: 9px;
+    text-align: left;
+}
+td.PlainButton-noIcon {
+    padding-right: 9px;
+    width: 0;
+}
+.PlainMenuButton-item td {
+    background-color: #f7f7f7;
+    font: normal 12px helvetica, arial, verdana, sans-serif;
+}
+.PlainButton-text .gwt-Label {
+	padding-right: 0;
+}
+.productControl .PlainButton {
+    min-width: 35px;
+}
+.PlainButton-PrintInvoice {
+	/*background-color: #0097d8;*/
+	background: transparent url(icons/back_normal.gif) repeat-x;
+    border: solid 1px #d3d4d6;
+	border-radius: 2px;
+    outline: none;
+    vertical-align: baseline;
+    text-decoration: none;
+    cursor: pointer;
+    height: 24px;
+    font: normal 12px helvetica, arial, verdana, sans-serif;
+    white-space: nowrap;
+    padding: 0 5px;
+}
+table.PlainButton-PrintInvoice div.PlainButton-noIcon {
+	padding-right: 10px;
+}
+table.PlainButton-PrintInvoice + table table div.PlainButton-noIcon{
+	padding-right: 10px;
+}
+.PlainMenuButton .PlainMenuButton-arrow {
+    padding: 1px 7px 6px 5px;
+}
+table.PlainMenuButton-dropdown {
+    border: 1px solid #aaaaaa;
+    position: absolute;
+    z-index: 10;
+}
+.PlainMenuButton-dropdown .PlainMenuButton-item {
+    background-color: #0097d8;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: 1px;
+    width: 100%;
+}
+.PlainMenuButton td.PlainButton-text {
+    padding-right: 5px;
+}
+.PlainMenuButton-item .PlainButton-text {
+    padding-right: 5px;
+    text-align: left;
+}
+
+/*****Ask for Advice*****/
+
+.ecwid .ecwid-ProductDetails-gray-panel-bottom {
+	height: 4px;
+	background: #e5e5e5;
+}
+.ecwid .ecwid-productBrowser-ask-advice-panel {
+	background: #e5e5e5;
+	height: 18px;
+	padding: 0 0 0 16px;
+}
+
+.ecwid .ecwid-productBrowser-ask-advice-panel .ecwid-productBrowser-ask-advice-panel-icon {
+	background: #e5e5e5 url(icons/lamp.png) no-repeat left center;
+	font: 13px tahoma, geneva, verdana, sans-serif;
+	vertical-align: baseline;
+	width: 11px;
+	display: inline-block;
+	*zoom: 1;
+	*display: inline;
+	margin-left: 2px;
+}
+
+.ecwid .ecwid-productBrowser-ask-advice-panel .ecwid-productBrowser-ask-advice-panel-headerLabel {
+	text-decoration: none;
+	vertical-align: baseline;
+	margin-left: 8px;
+	display: inline-block;
+	*zoom: 1;
+	*display: inline;
+}
+
+.ecwid .ecwid-productBrowser-sharePanel-header {
+	height: 18px;
+	padding: 0 0 0 36px;
+}
+
+.ecwid-ShadowedPopupPanel-content .ecwid-EcwidHintingLink-upArrow {
+	position: absolute;
+	width:0;
+	height:0;
+	border-style: solid;
+	border-width: 0 10px 10px 10px;
+	border-color: transparent transparent #b3b4b4 transparent;
+}
+.ecwid-ShadowedPopupPanel-content .ecwid-EcwidHintingLink-upArrow .ecwid-EcwidHintingLink-arrowBody {
+	width:0;
+	height:0;
+	position: relative;
+	border-style: solid;
+	border-width: 0 10px 10px 10px;
+	border-color: transparent transparent #fbfdfe transparent;
+	left: -9px;
+	top: 1px;
+}
+
+.ecwid-ShadowedPopupPanel-content .ecwid-EcwidHintingLink-bottomArrow {
+	position: absolute;
+	width:0;
+	height:0;
+	border-style: solid;
+	border-width: 10px 10px 0 10px;
+	border-color: #b3b4b4 transparent transparent transparent;
+}
+.ecwid-ShadowedPopupPanel-content .ecwid-EcwidHintingLink-bottomArrow .ecwid-EcwidHintingLink-arrowBody {
+	width:0;
+	height:0;
+	position: relative;
+	border-style: solid;
+	border-width: 10px 10px 0 10px;
+	border-color: #fbfdfe transparent transparent transparent;
+	left: -10px;
+	top: -11px;
+}
+
+
+.ecwid div.ecwid-productBrowser-cart-paypalExpressBillMeLaterCheckoutButton {
+    height: 33px;
+    overflow: hidden;
+}
+div.ecwid-facebook-footer-badge-placeholder {
+	margin: 15px 0;
+	height: 13px;
+}
+div.ecwid-facebook-footer-badge {
+	width: 790px;
+	position: absolute;
+	bottom: 15px;
+}
+div.ecwid-facebook-footer-badge a {
+	display: block;
+	width: 740px;
+	height: 13px;
+	background: url(/icons/fb_footer_badge.png);
+	margin: 0 auto;
+}
+
+.ecwid-SearchPanel-facebook {
+	position: relative;
+	height: 30px;
+}
+
+.ecwid-SearchPanel-facebook input {
+    height: 15px;
+    width: 133px;
+	border: 1px solid #CBCED1;
+	border-radius: 3px;
+    margin: 7px 13px 0 0;
+	padding: 3px 15px 5px 8px;
+}
+
+.ecwid_facebook_app_no_categories .ecwid-SearchPanel-facebook input {
+	margin: 0;
+	position: absolute;
+	right: -160px;
+}
+
+.ecwid-SearchPanel-facebook .SvgSearchSubmitButton {
+	bottom: 0;
+	cursor: pointer;
+	height: 13px;
+	position: absolute;
+	top: 11px;
+    right: 19px;
+}
+
+.ecwid_facebook_app_no_categories .ecwid-SearchPanel-facebook .SvgSearchSubmitButton {
+	right: -155px;
+	top: 5px;
+}
+
+.ecwid-SearchPanel-facebook .SvgSearchSubmitButton svg{
+	width: 13px;
+    height: 13px;
+}
+
+.ecwid-no-dragndrop .ecwid-productBrowser-productDragLabel {
+	display: none;
+}
+
+.ecwid-productBrowser-productsGrid-productTopFragment>table {
+	width: 100%;
+}
+
+.ecwid-force-responsive-image-width img {
+	max-width: 999999px !important;
+}
+
+div.ecwid-recover-password-popup.ecwid-responsive-popup .ecwid-form>table {
+	width: 100%;
+}
+
+
+/* iPad styles */
+
+.ecwid-categories-fixIpadIssues .ecwid-categoriesTabBar .gwt-TabBarItem-wrapper {
+	float: left !important;
+}
+
+.ecwid-categories-fixIpadIssues .ecwid-categoriesTabBar .gwt-TabBarRest-wrapper {
+	width: auto !important;
+}
+
+.ecwid-categories-fixIpadIssues .ecwid-categories-horizontal-menuBarContainer td{
+	float: left !important;
+}
+
+/******************************************************************************/
+/************************** Responsive layout styles *************************/
+/******************************************************************************/
+
+/* > 600px */
+
+.ecwid-responsive .ecwid-productBrowser-innerTable,
+.ecwid-responsive table.ecwid-productBrowser-subcategories-mainTable,
+.ecwid-responsive table.ecwid-productBrowser-productsGrid-mainTable,
+.ecwid-responsive.ecwid-lte-400px .ecwid-productBrowser-productsList table {
+	table-layout: fixed;
+}
+
+.ecwid-responsive div.ecwid-productBrowser-details-descr img,
+.ecwid-responsive div.ecwid-productBrowser-categoryDescription img {
+	max-width: 100%;
+	height: auto;
+}
+
+.ecwid-responsive table.ecwid-productBrowser-cart-itemsTable-compact td.ecwid-productBrowser-cart-itemsTable-cell-descr {
+	word-wrap: break-word;
+}
+
+.ecwid-responsive div.ecwid-PseudoButton {
+	border: 1px solid #93989c;
+	border-radius: 3px;
+
+	background: #ccc; /* Old browsers */
+	background: -moz-linear-gradient(top, #ccc 0%, #103e61 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ccc), color-stop(100%,#103e61)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ccc 0%,#103e61 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ccc 0%,#103e61 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ccc 0%,#103e61 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ccc 0%,#103e61 100%); /* W3C */
+
+	display: inline-block;
+	height: auto;
+	padding: 4px 10px;
+}
+
+.ecwid-responsive div.ecwid-productBrowser-cart div.ecwid-productBrowser-sku {
+	padding-right: 15px;
+}
+.ecwid-responsive span.ecwid-productBrowser-cart-weight {
+	padding-left: 0;
+}
+.ecwid-responsive div.ecwid-productBrowser-cart-compact table.ecwid-productBrowser-cart-rightPanel {
+	margin-left: auto;
+}
+
+.ecwid-responsive div.ecwid-Invoice-share-panel-right-column {
+	max-width: 100%;
+}
+.ecwid-responsive div.ecwid-Invoice-share-buttonPanel {
+	white-space: normal;
+}
+.ecwid-responsive div.ecwid-Invoice-share-panel {
+	margin: 25px 30px 35px;
+}
+.ecwid-responsive div.ecwid-Invoice-share-panel div.ecwid-productBrowser-head-share-purchase {
+	float: none;
+	margin-bottom: 10px;
+}
+.ecwid-responsive div.ecwid-Invoice-share-panel-narrow div.ecwid-productBrowser-head-share-purchase {
+	margin-bottom: 0;
+}
+.ecwid-responsive div.ecwid-Invoice-share-panel-thumbnail {
+	border: 1px solid #e9edef;
+}
+.ecwid-responsive div.ecwid-Invoice-share-panel-thumbnail img {
+	display: block;
+	margin: 0 auto;
+}
+.ecwid-responsive div.ecwid-Invoice-share-textPanel-product-label,
+.ecwid-responsive div.ecwid-Invoice-share-textPanel-label {
+	display: inline;
+	float: none;
+}
+.ecwid-responsive div.ecwid-Invoice-share-textPanel {
+	height: auto;
+	margin-bottom: 6px;
+}
+.ecwid-responsive div.ecwid-Invoice-share-textPanel-product-panel {
+	display: inline-block;
+	float: none;
+	padding-top: 5px;
+}
+.ecwid-responsive div.ecwid-Invoice-share-textPanel-label {
+	margin-bottom: 3px;
+}
+.ecwid-responsive div.ecwid-Invoice-share-textPanel-product-panel table.ecwid-DropdownBox {
+	margin-bottom: -7px;
+}
+.ecwid-responsive div.ecwid-Invoice-share-textPanel-product-panel span.ecwid-Invoice-share-textPanel-product-select {
+	display: inline-block;
+}
+
+.ecwid-responsive div.ecwid-productBrowser-search-SearchPanel {
+	white-space: normal;
+}
+.ecwid-responsive div.ecwid-productBrowser-search-SearchPanel input.gwt-TextBox {
+	margin: 0 7px 0 0;
+}
+.ecwid-responsive div.ecwid-productBrowser-search-SearchPanel button.gwt-Button {
+	margin: 5px 0;
+}
+
+/* <= 600px */
+
+.ecwid-lte-600px div.ecwid-productBrowser {
+	padding: 0 2% 10px;
+}
+
+.ecwid-lte-600px .ecwid-productBrowser-productsTable div.ecwid-productBrowser-productNameLink a {
+	font-size: 16px;
+}
+.ecwid-lte-600px td.ecwid-productBrowser-productsTable-cell {
+	padding: 7px;
+}
+.ecwid-lte-600px div.ecwid-productBrowser-productsTable div.ecwid-productBrowser-sku {
+	font-size: 16px;
+}
+.ecwid-lte-600px div.ecwid-productBrowser-productsTable div.ecwid-productBrowser-price {
+	font-size: 18px;
+}
+.ecwid-lte-600px div.ecwid-productBrowser-productsTable div.ecwid-productBrowser-productNameLink {
+	padding-right: 10px;
+}
+.ecwid-lte-600px div.ecwid-productBrowser-productsTable-emptyStock {
+	text-align: left;
+	white-space: normal;
+}
+.ecwid-lte-600px div.ecwid-productBrowser-productsTable-addToBagLink {
+	font-size: 15px;
+	text-align: left;
+	white-space: normal;
+}
+.ecwid-lte-600px div.ecwid-productBrowser-price-details-container {
+	white-space: normal;
+}
+
+.ecwid-lte-600px .ecwid-productBrowser-details .ecwid-productBrowser-relatedProducts {
+	clear: both;
+}
+
+.ecwid-lte-600px div.ecwid-ProductBrowser-auth-anonim,
+.ecwid-lte-600px div.ecwid-ProductBrowser-auth-logged {
+	margin-right: 0;
+}
+
+.ecwid-lte-600px div.ecwid-ProductBrowser-auth-anonim,
+.ecwid-lte-600px div.ecwid-ProductBrowser-auth-logged {
+	margin-right: 0;
+}
+
+.ecwid-lte-600px div.ecwid-PaymentMethodSelector {
+	margin-right: 0;
+}
+
+.ecwid-lte-600px div.ecwid-form {
+	padding: 5%;
+}
+
+.ecwid-lte-600px div.ecwid-AddressForm-buttonsPanel {
+	padding-left: 0;
+}
+.ecwid-lte-600px div.ecwid-AddressForm-buttonsPanel table {
+	margin: 0 auto;
+}
+.ecwid-lte-600px div.ecwid-AddressForm-buttonsPanel div.ecwid-fieldEnvelope-label {
+	max-width: 100px;
+}
+
+.ecwid-lte-600px div.ecwid-AddressForm div.ecwid-form {
+	max-width: 90%;
+	padding: 15px 5%;
+}
+
+.ecwid-lte-600px div.ecwid-fieldWrapper {
+	position: relative;
+	z-index: 1;
+}
+
+.ecwid-lte-600px td.ecwid-productBrowser-cart-itemsTable-headerCell {
+	padding: 0 1%;
+}
+
+.ecwid-lte-600px div.ecwid-Checkout-EmailBlock div.ecwid-fieldWrapper label.ecwid-fieldLabel,
+.ecwid-lte-600px div.ecwid-Checkout-PasswordBlock div.ecwid-fieldWrapper label.ecwid-fieldLabel,
+.ecwid-lte-600px div.ecwid-AddressForm div.ecwid-fieldWrapper label.ecwid-fieldLabel {
+	float: none;
+	margin-bottom: 3px;
+	width: auto;
+}
+
+.ecwid-lte-600px input.gwt-TextBox,
+.ecwid-lte-600px input.gwt-PasswordTextBox,
+.ecwid-lte-600px textarea.gwt-TextArea,
+.ecwid-lte-600px input.gwt-DateBox {
+	padding: 3px 3%;
+	max-width: 93%;
+}
+
+.ecwid-lte-600px div.ecwid-fieldWrapper div.ecwid-fieldEnvelope-around {
+	overflow: hidden;
+}
+
+.ecwid-lte-600px div.ecwid-Checkout div.ecwid-Invoice {
+	margin: 15px 4%;
+}
+
+.ecwid-lte-600px div.ecwid-Invoice-share-panel {
+	margin: 15px 4% 20px;
+}
+
+.ecwid-lte-600px div.ecwid-Invoice-Header-OrderNumber {
+	word-break: break-all;
+}
+
+.ecwid-lte-600px td.ecwid-Invoice-Header-timestamp {
+	white-space: normal;
+}
+
+.ecwid-lte-600px div.ecwid-Invoice-productName {
+	word-break: break-all;
+}
+
+.ecwid-lte-600px div.ecwid-Invoice-PaymentDetails {
+	width: auto;
+}
+
+.ecwid-lte-600px div.ecwid-Checkout-EmailBlock div.ecwid-form {
+	max-width: 90%;
+}
+
+.ecwid-lte-600px div.ecwid-Checkout-PasswordBlock div.ecwid-form {
+	max-width: 90%;
+}
+
+div.ecwid-lte-600px.ecwid-productBrowser-cart-chooseLocationPopup div.ecwid-popup-content {
+	padding: 5px 20px 20px;
+}
+
+div.ecwid-lte-600px.ecwid-productBrowser-cart-chooseLocationPopup table.ecwid-fieldEnvelope,
+div.ecwid-lte-600px.ecwid-productBrowser-cart-chooseLocationPopup div.ecwid-fieldEnvelope-around > table {
+    width: 300px;
+}
+
+.ecwid-lte-600px div.ecwid-productBrowser-search-SearchPanel input.gwt-TextBox {
+	max-width: 98%;
+	padding: 3px 1%;
+}
+
+@media screen and (max-width: 600px) {
+	.ecwid-minicart-floating {
+		display: none !important;
+	}
+	.ecwid-productBrowser-productsList-separatorRow {
+		display: none !important;
+	}
+}
+
+/* <= 480px */
+
+.ecwid-lte-480px td.ecwid-productBrowser-subcategories-cellSpace {
+	height: 25px;
+	font-size: 1px;
+}
+
+.ecwid-lte-480px td.ecwid-productBrowser-productsGrid-cellSpace {
+	height: 25px;
+	font-size: 1px;
+}
+
+.ecwid-lte-480px div.ecwid-productBrowser-productsGrid-productBottomFragment {
+	padding-top: 10px;
+}
+
+.ecwid-lte-480px .ecwid-productBrowser-productsTable-table {
+	table-layout: fixed;
+	width: 100%;
+}
+.ecwid-lte-480px .ecwid-productBrowser-productsTable-product {
+	word-wrap: break-word;
+}
+
+.ecwid-lte-480px .ecwid-productBrowser-productsTable-price {
+	width: 30%;
+}
+
+.ecwid-lte-480px .ecwid-productBrowser-productsTable-buy {
+	width: 25%;
+}
+
+.ecwid-lte-480px .ecwid-productBrowser-productsList-inTheBagTickCell {
+	width: 21px;
+}
+
+.ecwid-lte-480px td.ecwid-productBrowser-cart-itemsTable-headerCell-thumbnail,
+.ecwid-lte-480px td.ecwid-productBrowser-cart-itemsTable-cell-thumbnail {
+	display: none;
+}
+.ecwid-lte-480px td.ecwid-productBrowser-cart-itemsTable-headerCell-descr {
+	width: 65%;
+}
+.ecwid-lte-480px td.ecwid-productBrowser-cart-itemsTable-headerCell-descr span {
+	visibility: visible;
+}
+.ecwid-lte-480px td.ecwid-productBrowser-cart-itemsTable-headerCell-price {
+	width: 35%;
+}
+
+.ecwid-lte-480px div.ecwid-AddressForm-fields-disabled {
+	display: none;
+}
+
+.ecwid-lte-480px div.ecwid-Checkout div.ecwid-Invoice {
+	margin: 15px 2%;
+}
+
+.ecwid-lte-480px div.ecwid-Invoice-share-panel {
+	margin: 15px 2% 20px;
+}
+
+.ecwid-lte-480px div.ecwid-minicart-mini {
+	width: 135px;
+}
+
+.ecwid-lte-480px table.ecwid-productBrowser-auth-mini-vertical .ecwid-minicart-mini {
+	text-align: right;
+	margin: 0 7px 0 auto;
+}
+
+div.ecwid-lte-480px.ecwid-productBrowser-cart-chooseLocationPopup div.ecwid-popup-content {
+	padding: 5px 7px 15px;
+}
+div.ecwid-lte-480px.ecwid-productBrowser-cart-chooseLocationPopup div.ecwid-form {
+	padding: 20px 20px 10px 20px;
+}
+div.ecwid-lte-480px.ecwid-productBrowser-cart-chooseLocationPopup div.ecwid-popup-content > table {
+	table-layout: fixed;
+}
+div.ecwid-lte-480px.ecwid-productBrowser-cart-chooseLocationPopup div.ecwid-form > table {
+	table-layout: fixed;
+}
+
+.ecwid-lte-480px div.ecwid-productBrowser-search-SearchPanel input.gwt-TextBox {
+	max-width: 96%;
+	padding: 3px 2%;
+}
+
+/* <= 400px */
+
+.ecwid-lte-400px div.ecwid-productBrowser-category {
+	padding-top: 10px;
+}
+
+.ecwid-lte-400px table.ecwid-productBrowser-subcategories-mainTable {
+	margin-top: 10px;
+}
+.ecwid-lte-400px td.ecwid-productBrowser-subcategories-cellSpace {
+	height: 10px;
+}
+
+.ecwid-lte-400px td.ecwid-productBrowser-productsGrid-cellSpace {
+	height: 10px;
+}
+.ecwid-lte-400px td.ecwid-productBrowser-productsGrid-cell {
+	padding: 0 10px;
+}
+.ecwid-lte-400px div.ecwid-productBrowser-productsGrid-productBottomFragment {
+	padding-top: 5px;
+}
+
+.ecwid-lte-400px .ecwid-productBrowser-productsTable-price {
+	width: 35%;
+}
+.ecwid-lte-400px div.ecwid-productBrowser-productsTable-addToBagPanel table {
+    margin: 0 0 0 auto;
+}
+.ecwid-lte-400px div.ecwid-productBrowser-detailsContainer-vertical div.ecwid-productBrowser-details-topPanel {
+	padding-top: 10px;
+}
+.ecwid-lte-400px div.ecwid-productBrowser-details-leftPanel {
+	padding-top: 0;
+}
+.ecwid-lte-400px div.ecwid-productBrowser-details-rightPanel {
+	float: none;
+	padding: 10px 0;
+	margin: 0;
+}
+.ecwid-lte-400px div.ecwid-productBrowser-details-rightPanel table {
+	margin: 0 auto;
+}
+
+.ecwid-lte-400px div.ecwid-pager .ecwid-poweredBy {
+	width: 100%;
+	margin-bottom: 5px;
+}
+
+.ecwid-lte-400px td.ecwid-productBrowser-cart-itemsTable-headerCell {
+	padding: 0 3%;
+}
+.ecwid-lte-400px td.ecwid-productBrowser-cart-itemsTable-headerCell-descr {
+	width: 60%;
+}
+.ecwid-lte-400px td.ecwid-productBrowser-cart-itemsTable-headerCell-price {
+	width: 40%;
+}
+.ecwid-lte-400px div.ecwid-productBrowser-cart div.ecwid-productBrowser-sku,
+.ecwid-lte-400px span.ecwid-productBrowser-cart-weight {
+	display: none;
+}
+.ecwid-lte-400px div.ecwid-productBrowser-cart-EnterCouponBox {
+	padding: 8px 12px;
+}
+
+.ecwid-lte-400px table.ecwid-AddressForm-state select,
+.ecwid-lte-400px table.ecwid-AddressForm-country select {
+	max-width: 275px;
+}
+
+.ecwid-lte-400px div.ecwid-Checkout-DeliveryMethod > table {
+	width: 100%;
+	table-layout: fixed;
+}
+
+.ecwid-lte-400px div.ecwid-Checkout-DeliveryMethod div.ecwid-form {
+	width: auto;
+}
+
+.ecwid-lte-400px table.ecwid-fullWidth {
+	display: block;
+	width: 100%;
+}
+
+.ecwid-lte-400px table.ecwid-fullWidth tbody,
+.ecwid-lte-400px table.ecwid-fullWidth tr,
+.ecwid-lte-400px table.ecwid-fullWidth td {
+	display: block;
+}
+
+.ecwid-lte-400px table.ecwid-fullWidth input.gwt-TextBox,
+.ecwid-lte-400px table.ecwid-fullWidth input.gwt-PasswordTextBox,
+.ecwid-lte-400px table.ecwid-fullWidth textarea.gwt-TextArea,
+.ecwid-lte-400px table.ecwid-fullWidth input.gwt-DateBox {
+	width: 100%;
+}
+
+.ecwid-lte-400px div.ecwid-Checkout-blockTitle,
+.ecwid-lte-400px table.ecwid-Checkout-blockTitle {
+	margin: 20px 5px 10px 5px;
+}
+.ecwid-lte-400px div.ecwid-Invoice-footer-placeOrder {
+	padding: 10px;
+}
+.ecwid-lte-400px div.ecwid-Checkout div.ecwid-Invoice {
+	margin: 10px 1%;
+}
+
+.ecwid-lte-400px div.ecwid-Invoice-share-panel {
+	margin: 10px 1% 15px;
+}
+
+div.ecwid-productBrowser-cart-chooseLocationPopup.ecwid-lte-400px select.gwt-ListBox,
+div.ecwid-productBrowser-cart-chooseLocationPopup.ecwid-lte-400px input.gwt-TextBox {
+	width: 100%;
+}
+
+div.ecwid-productBrowser-cart-chooseLocationPopup.ecwid-lte-400px table.ecwid-fieldEnvelope,
+div.ecwid-productBrowser-cart-chooseLocationPopup.ecwid-lte-400px div.ecwid-fieldEnvelope-around > table {
+	table-layout: fixed;
+	width: 100%;
+}
+
+/* <= 320px */
+
+.ecwid-lte-320px div.ecwid-productBrowser-category {
+	padding-top: 5px;
+}
+
+.ecwid-lte-320px table.ecwid-productBrowser-subcategories-mainTable {
+	margin-top: 5px;
+}
+
+.ecwid-lte-320px td.ecwid-productBrowser-productsGrid-cellSpace {
+	height: 0;
+}
+.ecwid-lte-320px .ecwid-productBrowser-productsGrid-cell {
+	padding: 0;
+}
+
+.ecwid-lte-320px .ecwid-productBrowser-productsTable-price {
+	width: 45%;
+}
+
+.ecwid-lte-320px td.ecwid-productBrowser-cart-itemsTable-headerCell-descr {
+	width: 50%;
+}
+.ecwid-lte-320px td.ecwid-productBrowser-cart-itemsTable-headerCell-price {
+	width: 50%;
+}
+
+.ecwid-lte-320px div.ecwid-productBrowser-cart-EnterCouponBox {
+	padding: 4px 6px;
+}
+
+.ecwid-lte-320px table.ecwid-AddressForm-state select,
+.ecwid-lte-320px table.ecwid-AddressForm-country select {
+	max-width: 260px;
+}
+
+.ecwid-lte-320px div.ecwid-productBrowser-search-SearchPanel input.gwt-TextBox {
+	max-width: 94%;
+	padding: 3px 3%;
+}
+
+.ecwid-lte-320px div.ecwid-minicart-mini {
+	width: 100px;
+}
+
+.ecwid-lte-320px div.ecwid-productBrowser-cart-optionsList {
+	max-width: 150px;
+}
+
+.ecwid-lte-320px .ecwid-productBrowser-cart-optionsList span.gwt-InlineHTML {
+	margin-right: 10px;
+}
+
+/* iPad styles */
+
+.ecwid-categories-fixIpadIssues .ecwid-categoriesTabBar .gwt-TabBarItem-wrapper {
+	float: left !important;
+}
+
+.ecwid-categories-fixIpadIssues .ecwid-categoriesTabBar .gwt-TabBarRest-wrapper {
+	width: auto !important;
+}
+
+.ecwid-categories-fixIpadIssues .ecwid-categories-horizontal-menuBarContainer td{
+	float: left !important;
+}
+
+.ecwid-no-dragndrop .ecwid-productBrowser-productDragLabel {
+	display: none;
+}
+
+
+/* Responsive styles */
+
+.ecwid-responsive .ecwid-productBrowser-innerTable,
+.ecwid-responsive table.ecwid-productBrowser-subcategories-mainTable,
+.ecwid-responsive table.ecwid-productBrowser-productsGrid-mainTable,
+.ecwid-responsive.ecwid-lte-400px .ecwid-productBrowser-productsList table {
+	table-layout: fixed;
+}
+
+.ecwid-responsive table.ecwid-productBrowser-cart-itemsTable-compact td.ecwid-productBrowser-cart-itemsTable-cell-descr {
+	word-wrap: break-word;
+}
+
+.ecwid-responsive div.ecwid-PseudoButton {
+	border: 1px solid #93989c;
+	border-radius: 3px;
+
+	background: #ccc; /* Old browsers */
+	background: -moz-linear-gradient(top, #ccc 0%, #103e61 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ccc), color-stop(100%,#103e61)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ccc 0%,#103e61 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ccc 0%,#103e61 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ccc 0%,#103e61 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #ccc 0%,#103e61 100%); /* W3C */
+
+	display: inline-block;
+	height: auto;
+	padding: 4px 10px;
+}
+
+.ecwid-responsive div.ecwid-productBrowser-cart div.ecwid-productBrowser-sku {
+	padding-right: 15px;
+}
+.ecwid-responsive span.ecwid-productBrowser-cart-weight {
+	padding-left: 0;
+}
+.ecwid-responsive div.ecwid-productBrowser-cart-compact table.ecwid-productBrowser-cart-rightPanel {
+	margin-left: auto;
+}
+
+.ecwid-responsive div.ecwid-productBrowser-search-SearchPanel {
+	white-space: normal;
+}
+.ecwid-responsive div.ecwid-productBrowser-search-SearchPanel input.gwt-TextBox {
+	margin: 0 7px 0 0;
+}
+.ecwid-responsive div.ecwid-productBrowser-search-SearchPanel button.gwt-Button {
+	margin: 5px 0;
+}
+
+.ecwid-productBrowser-productsGrid-productTopFragment>table {
+	width: 100%;
+}
+
+.ecwid-force-responsive-image-width img {
+	max-width: 999999px !important;
+}
+
+div.ecwid-recover-password-popup.ecwid-responsive-popup .ecwid-form>table {
+		width: 100%;
+}
+/*
+	Please don't add any styles after that line.
+	For responsive styles find the appropriate section starting with ".ecwid-lte-***px" or ".ecwid-responsive"
+	For normal styles use section before responsive section start
+*/
