@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* CSS Document */
 a{
-    font-size: 12px;
+    font-size: 14px;
     color: #ccc;
     transition: all 0.3s ease-in;
     text-decoration: underline;
@@ -54,7 +54,7 @@ a:focus
     line-height: 0px;
     text-transform: uppercase;
     color: #67B32D;
-    font-size: 12px;
+    font-size: 14px;
     text-align: left;
 }
 
@@ -62,7 +62,7 @@ a:focus
     padding-right: 30px;
     padding-top: 0px;
     padding-left: 30px;
-    font-size: 12px;
+    font-size: 14px;
     text-shadow: 0px 0px;
     text-align: center;
 }
@@ -75,7 +75,7 @@ body,td,th {
     font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
     font-style: normal;
     font-weight: normal;
-    font-size: 12px;
+    font-size: 14px;
     color: #fff;
 }
 body {
@@ -93,4 +93,42 @@ body {
 .product-details__general-info {
     visibility: collapse;
     height: 0;
+}
+
+
+table {
+    padding: 0;
+    word-break: initial;
+}
+
+table tr {
+    margin: 0;
+    padding: 0;
+}
+
+
+table th {
+    font-weight: bold;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table td {
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
 }
