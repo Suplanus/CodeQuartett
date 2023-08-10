@@ -69,7 +69,7 @@ Players are eliminated when they lose their last card, and the winner is the pla
 
 ### 3.0
 
-**2023-09-01**
+**2023-08-10**
 
 - New design
   - Groups removed
