@@ -5,6 +5,10 @@
 
 
 
+<img src="press-kit/rectangle/rectangle-game.jpg" alt="codequartett" style="zoom:50%;" />
+
+
+
 ## Rules
 
 Each card in the pack shows a list of numerical data about the item.
