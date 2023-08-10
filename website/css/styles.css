@@ -1,0 +1,134 @@
+@charset "UTF-8";
+/* CSS Document */
+a{
+    font-size: 14px;
+    color: #ccc;
+    transition: all 0.3s ease-in;
+    text-decoration: underline;
+    border-top-left-radius: 0px;
+}
+a:hover{
+    -webkit-stroke-width: 5.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    color: #E8DC00;
+    text-shadow: 1px 0px 20px #66B32D;
+}
+a:active
+{
+    -webkit-stroke-width: 5.3px;
+    -webkit-stroke-color: #FFFFFF;
+    -webkit-fill-color: #FFFFFF;
+    color: #E8DC00;
+    text-shadow: 1px 0px 20px #66B32D;
+}
+a:focus
+{
+	-webkit-stroke-width: 5.3px;
+	-webkit-stroke-color: #FFFFFF;
+	-webkit-fill-color: #FFFFFF;
+	color: #FF0;
+	text-shadow: 1px 0px 20px #66B32D;
+	font-weight: bold;
+}
+
+.midtext {
+    padding-left: 30px;
+    padding-right: 30px;
+    line-height: 18px;
+    text-align: left;
+}
+
+.h1 {
+    padding-left: 30px;
+    padding-right: 30px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #F4E700;
+    font-size: 18px;
+    text-align: left;
+}
+.h2 {
+    padding-left: 30px;
+    padding-right: 30px;
+    line-height: 0px;
+    text-transform: uppercase;
+    color: #67B32D;
+    font-size: 14px;
+    text-align: left;
+}
+
+.menu {
+    padding-right: 30px;
+    padding-top: 0px;
+    padding-left: 30px;
+    font-size: 14px;
+    text-shadow: 0px 0px;
+    text-align: center;
+}
+
+.midtextCenter {
+    text-align: left;
+}
+
+body,td,th {
+    font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #fff;
+}
+body {
+    background-color: #222;
+    text-align: center;
+}
+
+::selection {
+    background: #66B22D; /* Safari */
+}
+::-moz-selection {
+    background: #66B22D; /* Firefox */
+}
+
+.product-details__general-info {
+    visibility: collapse;
+    height: 0;
+}
+
+
+table {
+    padding: 0;
+    word-break: initial;
+}
+
+table tr {
+    margin: 0;
+    padding: 0;
+}
+
+
+table th {
+    font-weight: bold;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table td {
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
