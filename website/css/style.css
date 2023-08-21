@@ -68,6 +68,10 @@ section {
 	color: #222222;
 }
 
+.nav_menu li a:hover{
+	text-decoration: underline;
+}
+
 .nav_menu li a.active,
 .nav_menu li a.active:hover {
 	background: #67B32E;
@@ -85,6 +89,10 @@ section {
 	overflow: hidden;
 }
 
+.bt_sm_card img:hover {
+	rotate: 360deg;
+	transition: all 0.5s ease-in-out;
+}
 
 .sm-card img:hover {
 	rotate: 360deg;
