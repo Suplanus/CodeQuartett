@@ -1,0 +1,532 @@
+@font-face {
+	font-family: 'icons';
+	src: url('../fonts/icons/icons.eot');
+	src: url('../fonts/icons/icons.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/icons/icons.woff') format('woff'),
+		url('../fonts/icons/icons.ttf') format('truetype'),
+		url('../fonts/icons/icons.svg#icons') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+}
+
+body {
+	background: #222222;
+	color: white;
+	font-family: 'Inconsolata', monospace;
+}
+
+img {
+	max-width: 100%;
+}
+
+.container {
+	max-width: 950px;
+	margin: auto;
+	padding: 0 20px;
+}
+
+section {
+	padding: 2rem 0;
+}
+
+/* Body part css */
+
+.navbar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.nav_menu {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 20px;
+	margin-top: 30px;
+}
+
+.nav_menu li  {
+	margin-top: 20px;
+}
+.nav_menu li a {
+	padding: 10px 15px;
+	background: #F2E600;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 18px;
+	color: #222222;
+}
+
+.nav_menu li a.active,
+.nav_menu li a.active:hover {
+	background: #67B32E;
+}
+
+.sm-card{
+	display: math !important;
+	flex-direction: row;
+	height: 60px;
+	overflow: hidden;
+}
+
+.bt_sm_card{
+	height: 60px;
+	overflow: hidden;
+}
+
+
+.sm-card img:hover {
+	rotate: 360deg;
+	transition: all 0.5s ease-in-out;
+}
+
+.logo {
+	margin-top: 30px;
+}
+
+
+.codeQuartett_part_2{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.codeQuartett_part_2 .text{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-bottom: 50px;
+}
+
+.codeQuartett_part_2 .text p{
+	text-align: justify;
+}
+
+.bottom_text .title{
+margin: 30px 0;
+color: #F2E600;
+font-size: 22px;
+}
+
+.bottom_text .green_title{
+margin: 10px 0;
+color: #67B32E;
+font-size: 18px;
+}
+
+.property-entry{
+	margin-top: 30px;
+}
+
+.property-entry ul{
+	margin-top: 15px;
+}
+
+.property-entry ul li{
+	list-style: disc;
+	margin-left: 18px;
+}
+
+
+.bottom_text a{
+	color: #67B32E;
+}
+
+a{
+	color: #67B32E;
+}
+
+
+/* photostack  */
+
+
+.photostack {
+	background: #262729;
+	position: relative;
+	text-align: center;
+	overflow: hidden;
+}
+
+.js .photostack {
+	height: 80vh;
+}
+
+
+@media screen and (max-width: 768px){
+	.js .photostack{
+		height: 95vh !important;
+	}
+	
+}
+
+.photostack-start {
+	cursor: pointer;
+}
+button{
+	border: none;   
+}
+
+.photostack-nav-button{
+	width: 50px;
+	height: 50px;
+	border-radius: 100px;
+	background: rgba(103, 179, 46, 0.5);
+}
+
+/* Wrapper and figures */
+
+/* The size of this wrapper can be smaller if the items should not be scattered across the whole container */
+.photostack>div {
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+.photostack figure {
+	width: 320px;
+	position: relative;
+	display: inline-block;
+	background: #eeeeee;
+	padding: 20px;
+	text-align: center;
+	margin: 5px;
+	/* -webkit-perspective: 600px;
+	-moz-perspective: 600px; */
+}
+
+.js .photostack figure {
+	position: absolute;
+	display: block;
+	margin: 0;
+}
+
+.photostack figcaption h2 {
+	margin: 20px 0 0 0;
+	color: #a7a0a2;
+	font-size: 16px;
+}
+
+.photostack-img {
+	outline: none;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: #f9f9f9;
+	object-fit: cover
+}
+
+.photostack-back {
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #fff;
+	font-family: "Give You Glory", cursive;
+	color: #a7a0a2;
+	padding: 50px 40px;
+	text-align: left;
+	font-size: 22px;
+	line-height: 1.25;
+	z-index: 1;
+}
+
+.photostack-back p {
+	margin: 0;
+}
+
+.photostack-back p span {
+	text-decoration: line-through;
+}
+
+/* Navigation dots */
+.photostack nav {
+	position: absolute;
+	width: 45px;
+	bottom: 30px;
+	z-index: 90;
+	text-align: center;
+	left: 50%;
+	transform: translate(-50%);
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
+	margin: auto;
+}
+
+.photostack-start nav {
+	opacity: 0;
+}
+
+.photostack nav span {
+	position: relative;
+	display: inline-block;
+	margin: 0 5px;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	background: #aaa;
+	border-radius: 50%;
+	text-align: center;
+	-webkit-transition: -webkit-transform 0.6s ease-in-out, background 0.3s;
+	transition: transform 0.6s ease-in-out, background 0.3s;
+	-webkit-transform: scale(0.48);
+	transform: scale(0.48);
+	display: none;
+}
+
+.photostack nav span:last-child {
+	margin-right: 0;
+}
+
+.photostack nav span::after {
+	content: "\e600";
+	font-family: 'icons';
+	font-size: 80%;
+	/* speak: none; */
+	display: inline-block;
+	vertical-align: top;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 30px;
+	color: #fff;
+	opacity: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.photostack nav span.current {
+	background: #67B32E;
+	-webkit-transform: scale(1.5);
+	transform: scale(1.5);
+	display: block;
+}
+
+.photostack nav span.current.flippable.flip,
+.photostack nav span.current.flip {
+	-webkit-transform: scale(1) rotateY(-180deg) translateZ(-1px);
+	transform: scale(1) rotateY(-180deg) translateZ(-1px);
+	background: #555;
+}
+
+.photostack nav span.flippable::after {
+	opacity: 1;
+	-webkit-transition-delay: 0.4s;
+	transition-delay: 0.4s;
+}
+
+figure.flip_card.photostack-current .photostack-back{
+padding: 16px;
+}
+
+/* .flip_card{
+	border-radius: 16px;
+} */
+
+.flip_card img{
+	border-radius: 16px;
+}
+/* Overlays */
+
+/* Initial overlay on photostack container */
+.js .photostack::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	top: 0;
+	left: 0;
+	z-index: 100;
+	-webkit-transition: opacity 0.3s, visibility 0s 0.3s;
+	transition: opacity 0.3s, visibility 0s 0.3s;
+}
+
+.js .photostack-start::before {
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+}
+
+/* Button on photostack container */
+.js .photostack::after {
+	content: 'View Gallery';
+	font-weight: 400;
+	position: absolute;
+	border: 3px solid #fff;
+	text-align: center;
+	white-space: nowrap;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translateY(-50%) translateX(-50%);
+	transform: translateY(-50%) translateX(-50%);
+	padding: 10px 20px;
+	color: #fff;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	cursor: pointer;
+	z-index: 101;
+}
+
+.js .photostack::before,
+.js .photostack::after {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.js .photostack-start::before,
+.js .photostack-start:hover::after,
+.touch .photostack-start::after {
+	opacity: 1;
+	visibility: visible;
+}
+
+/* Overlay on figure */
+.photostack figure::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	visibility: visible;
+	opacity: 1;
+	background: rgba(0, 0, 0, 0.05);
+	-webkit-transition: opacity 0.6s;
+	transition: opacity 0.6s;
+}
+
+/* Hide figure overlay when it becomes current */
+figure.photostack-current::after {
+	-webkit-transition: opacity 0.6s, visibility 0s 0.6s;
+	transition: opacity 0.6s, visibility 0s 0.6s;
+	opacity: 0;
+	visibility: hidden;
+}
+
+/* Special classes for transitions and perspective */
+.photostack-transition figure {
+	-webkit-transition: -webkit-transform 0.6s ease-in-out;
+	transition: transform 0.6s ease-in-out;
+}
+
+.photostack-perspective {
+	-webkit-perspective: 1800px;
+	perspective: 1800px;
+}
+
+.photostack-perspective>div,
+.photostack-perspective figure {
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.photostack-perspective figure,
+.photostack-perspective figure div {
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.photostack-perspective figure.photostack-flip {
+	-webkit-transform-origin: 0% 50%;
+	transform-origin: 0% 50%;
+}
+
+.csstransformspreserve3d figure.photostack-flip .photostack-back {
+	-webkit-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+	display: block;
+}
+
+.no-csstransformspreserve3d figure.photostack-showback .photostack-back {
+	display: block;
+}
+
+/* The no-JS fallback look does not need to be boring ;) */
+.no-js .photostack figure {
+	box-shadow: -2px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.no-js .photostack figure::after {
+	display: none;
+}
+
+.no-js .photostack figure:nth-child(3n) {
+	-webkit-transform: translateX(-10%) rotate(5deg);
+	transform: translateX(-10%) rotate(5deg);
+}
+
+.no-js .photostack figure:nth-child(3n-2) {
+	-webkit-transform: translateY(10%) rotate(-3deg);
+	transform: translateY(10%) rotate(-3deg);
+}
+
+/* Some custom styles for the demo */
+
+/* Since we don't have back sides for the first photo stack, we don't want the current dot to become too big */
+#photostack-1 nav span.current {
+	background: #888;
+	-webkit-transform: scale(0.61);
+	transform: scale(0.61);
+}
+
+.empty_card_for_btn{
+	background: transparent !important;
+	display: none;
+}
+
+.photostack figure.empty_card_for_btn::after{
+	background: transparent !important;
+	display: none;
+}
+
+figure.flip_card.photostack-current.photostack-flip{
+	z-index: 1000;
+}
+
+
+.photostack nav span.current.flippable.flip, .photostack nav span.current.flip{
+	transform: scale(1.6) rotateY(-180deg) translateZ(-1px);
+    background: #67B32E;
+}
+
+.btn_area{
+	position: relative;
+	top: -36px;
+	height: 30px;
+}
+
+.btn_area .back,
+.btn_area .next{
+	padding: 9px 11px;
+	border-radius: 100px;
+	margin: 0 40px;
+	background: #67B32E;
+}
+
+
+
+#shadow-host-companion{
+	display: none;
+}
