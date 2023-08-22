@@ -210,7 +210,7 @@ button{
 	width: 320px;
 	position: relative;
 	display: inline-block;
-	background: #eeeeee;
+	background: transparent;
 	padding: 20px;
 	text-align: center;
 	margin: 5px;
@@ -227,6 +227,7 @@ button{
 .photostack figcaption h2 {
 	margin: 20px 0 0 0;
 	color: #a7a0a2;
+	display: none;
 	font-size: 16px;
 }
 
@@ -235,7 +236,7 @@ button{
 	display: block;
 	width: 100%;
 	height: 100%;
-	background: #f9f9f9;
+	background: transparent;
 	object-fit: cover
 }
 
@@ -246,7 +247,7 @@ button{
 	height: 100%;
 	top: 0;
 	left: 0;
-	background: #fff;
+	background: transparent;
 	font-family: "Give You Glory", cursive;
 	color: #a7a0a2;
 	padding: 50px 40px;
@@ -354,11 +355,14 @@ padding: 16px;
 }
 
 .flip_card{
-	border-radius: 16px;
+	border-radius: 20px;
 }
 
 .flip_card img{
-	border-radius: 16px;
+	border-radius: 20px;
+	border: solid;	
+	border-color: #252525;
+	border-width: 1px;
 }
 /* Overlays */
 
@@ -386,7 +390,7 @@ padding: 16px;
 	content: 'View Gallery';
 	font-weight: 400;
 	position: absolute;
-	border: 3px solid #fff;
+	border: 3px solid transparent;
 	text-align: center;
 	white-space: nowrap;
 	left: 50%;
@@ -394,7 +398,7 @@ padding: 16px;
 	-webkit-transform: translateY(-50%) translateX(-50%);
 	transform: translateY(-50%) translateX(-50%);
 	padding: 10px 20px;
-	color: #fff;
+	color: transparent;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	cursor: pointer;
@@ -420,6 +424,7 @@ padding: 16px;
 	position: absolute;
 	width: 100%;
 	height: 100%;
+	border-radius: 20px;
 	top: 0;
 	left: 0;
 	visibility: visible;
@@ -477,7 +482,7 @@ figure.photostack-current::after {
 
 /* The no-JS fallback look does not need to be boring ;) */
 .no-js .photostack figure {
-	box-shadow: -2px 2px 0 rgba(0, 0, 0, 0.05);
+	box-shadow: -2px 2px 20px rgba(0, 0, 0, 0.05);
 }
 
 .no-js .photostack figure::after {
