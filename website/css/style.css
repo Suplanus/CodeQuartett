@@ -50,7 +50,7 @@ section {
 
 .nav_menu {
 	display: flex;
-	flex-wrap: wrap;
+	/* flex-wrap: wrap; */
 	align-items: center;
 	gap: 20px;
 	margin-top: 30px;
@@ -58,6 +58,8 @@ section {
 
 .nav_menu li  {
 	margin-top: 20px;
+	width: 100px !important;
+	text-align: center;
 }
 .nav_menu li a {
 	padding: 10px 15px;
@@ -66,6 +68,8 @@ section {
 	cursor: pointer;
 	font-size: 18px;
 	color: #222222;
+	display: block;
+	
 }
 
 .nav_menu li a:hover{
@@ -76,6 +80,7 @@ section {
 .nav_menu li a.active:hover {
 	background: #67B32E;
 }
+
 
 .sm-card{
 	display: math !important;
@@ -89,11 +94,7 @@ section {
 	overflow: hidden;
 }
 
-.bt_sm_card img:hover {
-	rotate: 360deg;
-	transition: all 0.5s ease-in-out;
-}
-
+.bt_sm_card img:hover,
 .sm-card img:hover {
 	rotate: 360deg;
 	transition: all 0.5s ease-in-out;
@@ -165,6 +166,9 @@ a{
 	position: relative;
 	text-align: center;
 	overflow: hidden;
+	border: 10px solid #5c5b5b;
+	border-left: none;
+	border-right: none;
 }
 
 .js .photostack {
@@ -349,9 +353,9 @@ figure.flip_card.photostack-current .photostack-back{
 padding: 16px;
 }
 
-/* .flip_card{
+.flip_card{
 	border-radius: 16px;
-} */
+}
 
 .flip_card img{
 	border-radius: 16px;
