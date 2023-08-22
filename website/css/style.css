@@ -53,17 +53,17 @@ section {
 	/* flex-wrap: wrap; */
 	align-items: center;
 	gap: 20px;
-	margin-top: 30px;
+	margin-top: 0px;
 }
 
 .nav_menu li  {
-	margin-top: 20px;
+	margin-top: 10px;
 	width: 100px !important;
 	text-align: center;
 }
 .nav_menu li a {
 	padding: 10px 15px;
-	background: #F2E600;
+	background: #67B32E;
 	border-radius: 8px;
 	cursor: pointer;
 	font-size: 18px;
@@ -78,7 +78,7 @@ section {
 
 .nav_menu li a.active,
 .nav_menu li a.active:hover {
-	background: #67B32E;
+	background: #F2E600;
 }
 
 
