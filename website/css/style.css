@@ -269,7 +269,7 @@ button{
 .photostack nav {
 	position: absolute;
 	width: 45px;
-	bottom: 30px;
+	bottom: 10px;
 	z-index: 90;
 	text-align: center;
 	left: 50%;
@@ -290,7 +290,7 @@ button{
 .photostack nav span {
 	position: relative;
 	display: inline-block;
-	margin: 0 5px;
+	margin: 0px 5px;
 	width: 30px;
 	height: 30px;
 	cursor: pointer;
@@ -538,7 +538,7 @@ figure.flip_card.photostack-current.photostack-flip{
 .btn_area .next{
 	padding: 9px 11px;
 	border-radius: 100px;
-	margin: 0 40px;
+	margin: 20px 40px;
 	background: #67B32E;
 }
 
