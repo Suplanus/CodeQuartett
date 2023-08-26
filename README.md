@@ -5,7 +5,7 @@
 
 
 
-<img src="press-kit/rectangle/rectangle-game.jpg" alt="codequartett" style="zoom:50%;" />
+<img src="press-kit/rectangle/rectangle-rendered.jpg" alt="codequartett" style="zoom:50%;" />
 
 
 
