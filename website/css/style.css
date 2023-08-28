@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&display=swap');
 @font-face {
 	font-family: 'icons';
 	src: url('../fonts/icons/icons.eot');
@@ -8,8 +9,6 @@
 	font-weight: normal;
 	font-style: normal;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&display=swap');
 
 * {
 	margin: 0;
@@ -117,10 +116,6 @@ section {
 	flex-direction: column;
 	gap: 10px;
 	margin-bottom: 50px;
-}
-
-.codeQuartett_part_2 .text p{
-	text-align: justify;
 }
 
 .bottom_text .title{
