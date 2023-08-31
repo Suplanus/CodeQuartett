@@ -213,7 +213,18 @@
 			} );
 		}
 
-		window.addEventListener( 'resize', function() { self._resizeHandler(); } );
+		let previousWidth = window.innerWidth;
+
+    function detectHorizontalWindowResize() {
+      const currentWidth = window.innerWidth;
+
+      if (currentWidth !== previousWidth) {
+        self._resizeHandler();
+        previousWidth = currentWidth;
+      }		
+    }
+
+    window.addEventListener("resize", detectHorizontalWindowResize);
 	}
 
 	Photostack.prototype._resizeHandler = function() {
