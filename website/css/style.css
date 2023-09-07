@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&display=swap');
 @font-face {
 	font-family: 'icons';
 	src: url('../fonts/icons/icons.eot');
@@ -9,14 +10,20 @@
 	font-style: normal;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500;600;700&display=swap');
-
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	list-style: none;
 	text-decoration: none;
+}
+
+#load{
+    width:100%;
+    height:100%;
+    position:fixed;
+    z-index:9999;
+    background:url("../img/loading.svg") no-repeat center center rgba(0,0,0,0.25)
 }
 
 body {
@@ -117,10 +124,6 @@ section {
 	flex-direction: column;
 	gap: 10px;
 	margin-bottom: 50px;
-}
-
-.codeQuartett_part_2 .text p{
-	text-align: justify;
 }
 
 .bottom_text .title{
