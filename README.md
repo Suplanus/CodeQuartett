@@ -71,6 +71,7 @@ Players are eliminated when they lose their last card, and the winner is the pla
 
 **2023-08-10**
 
+- New [website](https://codequartett.de)
 - New design
   - Groups removed
   - Syntax highlighting ([Hacker Dark PRO Theme](https://github.com/armando10rafael10/theme-hacker-pro))
